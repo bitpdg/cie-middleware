@@ -210,7 +210,7 @@ namespace CIEID
             {
                 tabControlMain.SelectedIndex = 0;
             }
-            else if (Properties.Settings.Default.efSeriale.Equals(""))
+            else if (Properties.Settings.Default.efSeriale.Equals("") == false)
             {
 
                 tabControlMain.SelectedIndex = 1;
@@ -229,7 +229,7 @@ namespace CIEID
                     labelCardHolder.Text = Properties.Settings.Default.cardHolder;
                     Properties.Settings.Default.Save();
                     //labelSerialNumber.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
-                    labelSerialNumber.Text = "Numero carta non disponibile.";
+                    labelSerialNumber.Text = "Numero carta non disponibile.\nEffettuare un nuovo\nabbinamento.";
                     labelCardHolder.Text = Properties.Settings.Default.cardHolder;
 
                     int y = labelSerialNumber.Height + labelSerialNumber.Location.Y + 10;
