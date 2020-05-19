@@ -64,7 +64,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <NMakeBuildCommandLine>"$(ProgramFiles)\NSIS\makensis.exe" /DConfig=$(Configuration) "$(ProjectDir)CIEMiddleware.nsi"</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>"$(ProgramFiles)\NSIS\makensis.exe" /DConfig=$(Configuration) "$(ProjectDir)CIEMiddleware.nsi"
+</NMakeBuildCommandLine>
     <NMakeOutput>$(ProjectDir)CIEMiddleware.exe</NMakeOutput>
     <NMakeCleanCommandLine>del "$(ProjectDir)CIEMiddleware.exe"</NMakeCleanCommandLine>
     <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>

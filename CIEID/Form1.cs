@@ -246,12 +246,13 @@ namespace CIEID
                 labelSerialNumber.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 labelSerialNumber.Size = new Size(108, 20);
                 labelSerialNumber.Location = new System.Drawing.Point(223, 171);
-                Console.WriteLine("CIAO");
                 label7.Location = new Point(224, 200);
                 labelCardHolder.Location = new System.Drawing.Point(223, 214);
 
                 labelSerialNumber.Text = Properties.Settings.Default.efSeriale;
                 labelCardHolder.Text = Properties.Settings.Default.cardHolder;
+                labelCardHolder.MaximumSize = new Size(200, 0);
+                labelCardHolder.AutoSize = true;
                 tabControlMain.SelectedIndex = 1;
             }
 
