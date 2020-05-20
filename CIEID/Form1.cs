@@ -210,26 +210,22 @@ namespace CIEID
             {
                 tabControlMain.SelectedIndex = 0;
             }
-            else if (Properties.Settings.Default.efSeriale.Equals("") == false)
+            else if (Properties.Settings.Default.efSeriale.Equals(""))
             {
 
                 tabControlMain.SelectedIndex = 1;
                 var result = MessageBox.Show("E’ necessario effettuare un nuovo abbinamento. Procedere?", "Abbinare nuovamente la CIE", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if (result == DialogResult.Yes)
                 {
-                    Properties.Settings.Default.serialNumber = "";
-                    Properties.Settings.Default.efSeriale = "";
-                    Properties.Settings.Default.cardHolder = "";
-                    Properties.Settings.Default.Save();
+
                     tabControlMain.SelectedIndex = 0;
                 }
                 else
                 {
-                    Properties.Settings.Default.efSeriale = "Numero carta non disponibile.";
                     labelCardHolder.Text = Properties.Settings.Default.cardHolder;
                     Properties.Settings.Default.Save();
-                    //labelSerialNumber.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
-                    labelSerialNumber.Text = "Numero carta non disponibile.\nEffettuare un nuovo\nabbinamento.";
+
+                    labelSerialNumber.Text = "Per visualizzarlo occorre\nrifare l'abbinamento";
                     labelCardHolder.Text = Properties.Settings.Default.cardHolder;
 
                     int y = labelSerialNumber.Height + labelSerialNumber.Location.Y + 10;
