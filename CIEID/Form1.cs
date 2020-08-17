@@ -605,7 +605,10 @@ namespace CIEID
                         MessageBox.Show("Errore inaspettato durante la comunicazione con la smart card", "Errore inaspettato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         selectHome();
                         break;
-
+                    case CKR_DEVICE_ERROR:
+                        MessageBox.Show("Errore inaspettato durante la comunicazione con la smart card", "Errore inaspettato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        selectHome();
+                        break;
                     case CKR_OK:
                         MessageBox.Show("La CIE è stata sbloccata con successo", "Operazione completata", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         selectHome();
