@@ -2,7 +2,7 @@
 !include "x64.nsh"
 !include "Library.nsh"
 
-!define PRODUCT_VERSION "1.3.0.8"
+!define PRODUCT_VERSION "1.3.1.0"
 
 ;--------------------------------
 ;General
@@ -93,8 +93,9 @@ Section "Install"
 	
 	File "..\x64\${Config}\CIEID.exe"
 	File "..\x64\${Config}\CIEID.exe.config"
+	File "..\x64\${Config}\Newtonsoft.Json.dll"
+	File "..\x64\${Config}\Newtonsoft.Json.xml"
 		
-
   SetOutPath $SYSDIR
 	
 	;createShortCut "$SMPROGRAMS\CIE Middleware\Cambio PIN.lnk" "$INSTDIR\CIEID.exe" 

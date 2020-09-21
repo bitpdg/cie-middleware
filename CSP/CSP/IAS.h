@@ -67,7 +67,7 @@ class IAS
 	bool IsImpersonationRunning();
 public:
 	CToken token;
-
+	
 	IAS(CToken::TokenTransmitCallback transmit,ByteArray ATR);
 	~IAS();
 
