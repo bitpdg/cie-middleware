@@ -94,11 +94,23 @@ namespace CIEID.Controls
         private int activeItemIndex { get; set; }
         private bool dotsCreated = false;
 
+        public void LoadData(CieCollection cieCollection)
+        {
+            var controls = from model in cieCollection.MyDictionary.Values
+                           select new CarouselItemControl(model)
+                           {
+                               Size = new System.Drawing.Size(BaseItemControl.IMAGE_WIDTH, BaseItemControl.IMAGE_HEIGHT),
+                           };
+
+            Items = new CircularViewList(controls);
+        }
+
         public new void PerformLayout()
         {
             this.FlowDirection = FlowDirection.TopDown;
             this.WrapContents = true;
             this.AutoSize = true;
+
 
             SuspendLayout();
 
@@ -106,6 +118,7 @@ namespace CIEID.Controls
             this.cardsContainer.FlowDirection = FlowDirection.LeftToRight;
             this.cardsContainer.WrapContents = false;
             this.cardsContainer.AutoSize = true;
+            this.cardsContainer.MaximumSize = new System.Drawing.Size(this.Width, 210);
             this.cardsContainer.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom);
 
             this.Controls.Add(this.cardsContainer);
@@ -248,7 +261,7 @@ namespace CIEID.Controls
                 foreach (var item in circularList.Take(3))
                 {
                     item.Location = new System.Drawing.Point(itemWidth * index, 0);
-                    item.Size = new System.Drawing.Size(itemWidth, this.Height);
+                    item.MaximumSize = new System.Drawing.Size(itemWidth, this.Height);
 
                     if (1 == index)
                     {

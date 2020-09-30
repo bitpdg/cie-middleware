@@ -45,14 +45,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonRight = new System.Windows.Forms.Button();
             this.buttonRemoveAll = new System.Windows.Forms.Button();
             this.buttonAggiungi = new System.Windows.Forms.Button();
             this.buttonDeleteCIE = new System.Windows.Forms.Button();
-            this.labelCardHolder = new System.Windows.Forms.Label();
-            this.labelSerialNumber = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -115,11 +113,12 @@
             this.buttonTutorial = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
+            this.carouselControl = new CIEID.Controls.CarouselControl();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -362,14 +361,10 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Controls.Add(this.buttonRemoveAll);
             this.tabPage2.Controls.Add(this.buttonAggiungi);
             this.tabPage2.Controls.Add(this.buttonDeleteCIE);
-            this.tabPage2.Controls.Add(this.labelCardHolder);
-            this.tabPage2.Controls.Add(this.labelSerialNumber);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 9);
@@ -379,12 +374,58 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.Controls.Add(this.buttonLeft, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.carouselControl, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonRight, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 84);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(451, 266);
+            this.tableLayoutPanel1.TabIndex = 21;
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLeft.FlatAppearance.BorderSize = 0;
+            this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeft.Image = global::CIEID.Properties.Resources.back_3x;
+            this.buttonLeft.Location = new System.Drawing.Point(5, 105);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(34, 56);
+            this.buttonLeft.TabIndex = 2;
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
+            // buttonRight
+            // 
+            this.buttonRight.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonRight.FlatAppearance.BorderSize = 0;
+            this.buttonRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRight.Image = global::CIEID.Properties.Resources.forward_3x;
+            this.buttonRight.Location = new System.Drawing.Point(412, 105);
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.Size = new System.Drawing.Size(31, 56);
+            this.buttonRight.TabIndex = 3;
+            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            // 
             // buttonRemoveAll
             // 
             this.buttonRemoveAll.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonRemoveAll.FlatAppearance.BorderSize = 0;
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(182, 339);
+            this.buttonRemoveAll.Location = new System.Drawing.Point(182, 352);
             this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(114, 28);
@@ -398,7 +439,7 @@
             this.buttonAggiungi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAggiungi.FlatAppearance.BorderSize = 0;
             this.buttonAggiungi.ForeColor = System.Drawing.Color.White;
-            this.buttonAggiungi.Location = new System.Drawing.Point(319, 339);
+            this.buttonAggiungi.Location = new System.Drawing.Point(319, 352);
             this.buttonAggiungi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAggiungi.Name = "buttonAggiungi";
             this.buttonAggiungi.Size = new System.Drawing.Size(114, 28);
@@ -412,7 +453,7 @@
             this.buttonDeleteCIE.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonDeleteCIE.FlatAppearance.BorderSize = 0;
             this.buttonDeleteCIE.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteCIE.Location = new System.Drawing.Point(41, 339);
+            this.buttonDeleteCIE.Location = new System.Drawing.Point(41, 352);
             this.buttonDeleteCIE.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDeleteCIE.Name = "buttonDeleteCIE";
             this.buttonDeleteCIE.Size = new System.Drawing.Size(114, 28);
@@ -420,59 +461,6 @@
             this.buttonDeleteCIE.Text = "Rimuovi Carta";
             this.buttonDeleteCIE.UseVisualStyleBackColor = false;
             this.buttonDeleteCIE.Click += new System.EventHandler(this.buttonDeleteCIE_Click);
-            // 
-            // labelCardHolder
-            // 
-            this.labelCardHolder.AutoSize = true;
-            this.labelCardHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCardHolder.Location = new System.Drawing.Point(223, 214);
-            this.labelCardHolder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelCardHolder.Name = "labelCardHolder";
-            this.labelCardHolder.Size = new System.Drawing.Size(80, 18);
-            this.labelCardHolder.TabIndex = 16;
-            this.labelCardHolder.Text = "Intestatario";
-            // 
-            // labelSerialNumber
-            // 
-            this.labelSerialNumber.AutoSize = true;
-            this.labelSerialNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSerialNumber.Location = new System.Drawing.Point(223, 171);
-            this.labelSerialNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelSerialNumber.Name = "labelSerialNumber";
-            this.labelSerialNumber.Size = new System.Drawing.Size(108, 20);
-            this.labelSerialNumber.TabIndex = 15;
-            this.labelSerialNumber.Text = "Numero Carta";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(224, 200);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Intestatario";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(224, 157);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Numero Carta";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(45, 123);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(147, 158);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
             // 
             // label2
             // 
@@ -1240,6 +1228,19 @@
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
+            // carouselControl
+            // 
+            this.carouselControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.carouselControl.AutoSize = true;
+            this.carouselControl.Items = null;
+            this.carouselControl.Location = new System.Drawing.Point(48, 3);
+            this.carouselControl.Name = "carouselControl";
+            this.carouselControl.Size = new System.Drawing.Size(354, 260);
+            this.carouselControl.TabIndex = 20;
+            this.carouselControl.ButtonsChanged += new System.EventHandler<CIEID.Controls.CarouselControl.ButtonsEventArgs>(this.carouselControl_ButtonsChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1267,7 +1268,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1331,11 +1333,6 @@
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.Label labelCardHolder;
-        private System.Windows.Forms.Label labelSerialNumber;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button buttonDeleteCIE;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label labelProgressMessage;
@@ -1385,5 +1382,9 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Button buttonAggiungi;
         private System.Windows.Forms.Button buttonRemoveAll;
+        private Controls.CarouselControl carouselControl;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button buttonLeft;
+        private System.Windows.Forms.Button buttonRight;
     }
 }

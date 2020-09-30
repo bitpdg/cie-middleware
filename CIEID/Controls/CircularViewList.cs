@@ -9,6 +9,14 @@ namespace CIEID.Controls
 {
     class CircularViewList : List<BaseItemControl>
     {
+        public CircularViewList()
+        { }
+
+        public CircularViewList(IEnumerable<BaseItemControl> controls)
+        {
+            AddRange(controls);
+        }
+
         public void ShiftLeft()
         {
             BaseItemControl control = this.FirstOrDefault();

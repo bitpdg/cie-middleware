@@ -15,9 +15,6 @@ namespace CIEID.Controls
 
         private CieModel cieModel;
 
-        private const int IMAGE_WIDTH = 120;
-        private const int IMAGE_HEIGHT = 70;
-
         public CarouselItemControl(CieModel cieModel)
         {
             this.cieModel = cieModel;
@@ -30,18 +27,25 @@ namespace CIEID.Controls
 
         private void CreateLayout()
         {
+            AutoSize = true;
+            Anchor = (AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom);
+            this.Margin = new Padding(0);
+
             container = new FlowLayoutPanel();
             container.WrapContents = false;
             container.AutoSize = true;
             container.AutoSizeMode = AutoSizeMode.GrowOnly;
+            container.MaximumSize = new System.Drawing.Size(this.Width, 1000);
             container.FlowDirection = FlowDirection.TopDown;
-            container.Anchor = (AnchorStyles.Top);
+            container.Anchor = (AnchorStyles.Left | AnchorStyles.Right);
+            container.Margin = new Padding(0);
 
             image = new PictureBox
             {
                 Image = Properties.Resources.cie,
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Size = new System.Drawing.Size(IMAGE_WIDTH, IMAGE_HEIGHT)
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Size = new System.Drawing.Size(IMAGE_WIDTH, IMAGE_HEIGHT),
+                Anchor = (AnchorStyles.Left | AnchorStyles.Right)
             };
 
             container.Controls.Add(image);
@@ -51,6 +55,7 @@ namespace CIEID.Controls
                 Text = Resources.card_number_label,
                 Size = new System.Drawing.Size(120, 20),
                 TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
+                Font = new System.Drawing.Font(Font.Name, 9f, System.Drawing.FontStyle.Bold),
                 Padding = new Padding(10, 0, 10, 0)
             };
 
@@ -60,7 +65,7 @@ namespace CIEID.Controls
             {
                 Size = new System.Drawing.Size(120, 20),
                 TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
-                Font = new System.Drawing.Font(Font.Name, 10f),
+                Font = new System.Drawing.Font(Font.Name, 8f),
                 Padding = new Padding(10, 0, 10, 0)
             };
 
@@ -71,6 +76,7 @@ namespace CIEID.Controls
                 Text = Resources.owner_label,
                 Size = new System.Drawing.Size(120, 20),
                 TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
+                Font = new System.Drawing.Font(Font.Name, 9f, System.Drawing.FontStyle.Bold),
                 Padding = new Padding(10, 0, 10, 0)
             };
 
@@ -80,7 +86,7 @@ namespace CIEID.Controls
             {
                 Size = new System.Drawing.Size(120, 20),
                 TextAlign = System.Drawing.ContentAlignment.MiddleLeft,
-                Font = new System.Drawing.Font(Font.Name, 10f),
+                Font = new System.Drawing.Font(Font.Name, 8f),
                 Padding = new Padding(10, 0, 10, 0)
             };
 
