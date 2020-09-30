@@ -108,12 +108,7 @@ namespace CIEID
 
         long CompletedAbbina(string pan, string name, string efSeriale)
         {
-            Properties.Settings.Default.serialNumber = pan;
-            Properties.Settings.Default.cardHolder = name;
-            Properties.Settings.Default.efSeriale = efSeriale;
-            Properties.Settings.Default.Save();
-
-            CieColl.addCie(pan, name, efSeriale);
+            CieColl.addCie(pan, new CieModel(efSeriale, name));
 
             Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
             Properties.Settings.Default.Save();
@@ -218,13 +213,16 @@ namespace CIEID
             Properties.Settings.Default.Save();
             */
 
+            CieColl = new CieCollection(Properties.Settings.Default.cieList);
 
+            /*CieColl.addCie("123456", new CieModel("1233123", "Lio"));
+
+            Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
+            Properties.Settings.Default.Save();*/
 
             Console.WriteLine("Lista CIE abbinate: " + Properties.Settings.Default.cieList);
 
-            CieColl = new CieCollection(Properties.Settings.Default.cieList);
-
-            if(CieColl.MyDictionary.Count <= 1)
+            if (CieColl.MyDictionary.Count <= 1)
             {
                 buttonRemoveAll.Enabled = false;
             }
@@ -236,27 +234,10 @@ namespace CIEID
 
             if (CieColl.MyDictionary.Count == 0)
             {
-                Properties.Settings.Default.serialNumber = "";
-                Properties.Settings.Default.efSeriale = "";
-                Properties.Settings.Default.cardHolder = "";
-                Properties.Settings.Default.Save();
                 tabControlMain.SelectedIndex = 0;
             }
-/*
-            if(VerificaCIEAbilitata(Properties.Settings.Default.serialNumber) == 0)
-            {
-                Properties.Settings.Default.serialNumber = "";
-                Properties.Settings.Default.efSeriale = "";
-                Properties.Settings.Default.cardHolder = "";
-                Properties.Settings.Default.Save();
-                tabControlMain.SelectedIndex = 0;
-            }
-*/
-            else if(Properties.Settings.Default.cardHolder.Equals(""))
-            {
-                tabControlMain.SelectedIndex = 0;
-            }
-            else if (Properties.Settings.Default.efSeriale.Equals(""))
+            //TODO: ricordati PDG
+            /*else if (Properties.Settings.Default.efSeriale.Equals(""))
             {
 
 
@@ -285,7 +266,7 @@ namespace CIEID
                     
                      tabControlMain.SelectedIndex = 1;
                 }
-            }
+            }*/
             else
             {
                 labelSerialNumber.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -968,7 +949,8 @@ namespace CIEID
 
                 if (ret != CKR_OK)
                 {
-                    MessageBox.Show("Impossibile disabilitare la CIE numero " + CieColl.MyDictionary.ElementAt(i).Value[1], "CIE non disabilitata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    var cieModel = CieColl.MyDictionary.ElementAt(i).Value;
+                    MessageBox.Show("Impossibile disabilitare la CIE numero " + cieModel.SerialNumber, "CIE non disabilitata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
                     Properties.Settings.Default.Save();
                     selectHome();

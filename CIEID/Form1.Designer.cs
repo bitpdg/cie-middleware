@@ -45,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonRemoveAll = new System.Windows.Forms.Button();
             this.buttonAggiungi = new System.Windows.Forms.Button();
             this.buttonDeleteCIE = new System.Windows.Forms.Button();
             this.labelCardHolder = new System.Windows.Forms.Label();
@@ -114,7 +115,6 @@
             this.buttonTutorial = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
-            this.buttonRemoveAll = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -378,6 +378,20 @@
             this.tabPage2.Size = new System.Drawing.Size(457, 393);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
+            // 
+            // buttonRemoveAll
+            // 
+            this.buttonRemoveAll.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonRemoveAll.FlatAppearance.BorderSize = 0;
+            this.buttonRemoveAll.ForeColor = System.Drawing.Color.White;
+            this.buttonRemoveAll.Location = new System.Drawing.Point(182, 339);
+            this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRemoveAll.Name = "buttonRemoveAll";
+            this.buttonRemoveAll.Size = new System.Drawing.Size(114, 28);
+            this.buttonRemoveAll.TabIndex = 19;
+            this.buttonRemoveAll.Text = "Rimuovi tutto";
+            this.buttonRemoveAll.UseVisualStyleBackColor = false;
+            this.buttonRemoveAll.Click += new System.EventHandler(this.buttonRemoveAll_Click);
             // 
             // buttonAggiungi
             // 
@@ -1225,20 +1239,6 @@
             this.buttonInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
-            // 
-            // buttonRemoveAll
-            // 
-            this.buttonRemoveAll.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.buttonRemoveAll.FlatAppearance.BorderSize = 0;
-            this.buttonRemoveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(182, 339);
-            this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonRemoveAll.Name = "buttonRemoveAll";
-            this.buttonRemoveAll.Size = new System.Drawing.Size(114, 28);
-            this.buttonRemoveAll.TabIndex = 19;
-            this.buttonRemoveAll.Text = "Rimuovi tutto";
-            this.buttonRemoveAll.UseVisualStyleBackColor = false;
-            this.buttonRemoveAll.Click += new System.EventHandler(this.buttonRemoveAll_Click);
             // 
             // MainForm
             // 

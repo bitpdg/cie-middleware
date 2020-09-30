@@ -9,36 +9,36 @@ namespace CIEID
 {
     class CieCollection
     {
-        private Dictionary<string, List<string>> mydictionary;
+        private Dictionary<string, CieModel> mydictionary;
 
 
         public CieCollection()
         {
-            mydictionary = new Dictionary<string, List<string>>();
+            mydictionary = new Dictionary<string, CieModel>();
         }
 
         public CieCollection(string collectionString)
         {
             if(collectionString.Equals(""))
             {
-                mydictionary = new Dictionary<string, List<string>>();
+                mydictionary = new Dictionary<string, CieModel>();
             }
             else
             {
-                mydictionary = JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(collectionString);
+                mydictionary = JsonConvert.DeserializeObject<Dictionary<string, CieModel>>(collectionString);
             }
         }
 
-        public Dictionary<string, List<string>> MyDictionary
+        public Dictionary<string, CieModel> MyDictionary
         {
             get { return mydictionary; }
             set { mydictionary = value; }
         }
 
-        public void addCie(String pan, String owner, String serialNumber)
+        public void addCie(String pan, CieModel cieModel)
         {
             if (mydictionary != null)
-                mydictionary.Add(pan, new List<string> { owner, serialNumber });
+                mydictionary.Add(pan, cieModel);
         }
 
         public void removeCie(String pan)
