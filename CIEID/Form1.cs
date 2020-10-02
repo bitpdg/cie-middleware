@@ -15,7 +15,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Newtonsoft.Json;
-
+using CIEID.Controls;
 
 namespace CIEID
 {
@@ -63,6 +63,8 @@ namespace CIEID
 
         internal CieCollection CieColl { get => cieColl; set => cieColl = value; }
 
+        private CarouselControl carouselControl;
+
         public MainForm(string arg)
         {
             InitializeComponent();
@@ -108,7 +110,7 @@ namespace CIEID
 
         long CompletedAbbina(string pan, string name, string efSeriale)
         {
-            CieColl.addCie(pan, new CieModel(efSeriale, name));
+            CieColl.addCie(pan, new CieModel(efSeriale, name, pan));
 
             Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
             Properties.Settings.Default.Save();
@@ -269,21 +271,17 @@ namespace CIEID
             }*/
             else
             {
-                /*labelSerialNumber.Font = new Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                int y = labelSerialNumber.Height + labelSerialNumber.Location.Y + 10;
-                int x = label7.Location.X;
-                label7.Location = new System.Drawing.Point(x, y);*/
+                /*carouselControl.LoadData(CieColl);
+                carouselControl.PerformLayout();
+                carouselControl.UpdateLayout();*/
 
-                //TODO: implementare
-                //labelSerialNumber.Text = Properties.Settings.Default.efSeriale;
-                //labelCardHolder.Text = Properties.Settings.Default.cardHolder;
-
-                /*y = label7.Height + label7.Location.Y;
-                x = labelCardHolder.Location.X;
-                labelCardHolder.Location = new System.Drawing.Point(x, y);*/
+                if (carouselControl == null)
+                {
+                    carouselControl = new CarouselControl(tableLayoutPanelCarousel, dotsGroup);
+                    carouselControl.ButtonsChanged += carouselControl_ButtonsChanged;
+                }
 
                 carouselControl.LoadData(CieColl);
-                carouselControl.PerformLayout();
                 carouselControl.UpdateLayout();
 
                 tabControlMain.SelectedIndex = 1;
@@ -469,24 +467,27 @@ namespace CIEID
 
         private void buttonDeleteCIE_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Vuoi disabilitare la CIE?", "Disabilita CIE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            var model = carouselControl.ActiveCieModel;
+
+            if (MessageBox.Show(
+                    String.Format("Vuoi disabilitare la CIE numero {0}?", model.SerialNumber), 
+                    "Disabilita CIE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
-
-            //TODO: implementare
-            //int ret = DisabilitaCIE(Properties.Settings.Default.serialNumber);
-            int ret = CKR_OK;
-
-            //CieColl.removeCie(Properties.Settings.Default.serialNumber);
-            Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
-            Properties.Settings.Default.Save();
-             
-            Console.WriteLine("Cie Rimanenti: " + Properties.Settings.Default.cieList);
+            
+            int ret = DisabilitaCIE(model.Pan);
 
             switch (ret)
             {
                 case CKR_OK:
                     tabControlMain.SelectedIndex = 0;
                     MessageBox.Show("CIE disabilitata con successo", "CIE disabilitata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    CieColl.removeCie(model.Pan);
+                    Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
+                    Properties.Settings.Default.Save();
+
+                    Console.WriteLine("Cie Rimanenti: " + Properties.Settings.Default.cieList);
+
                     //TODO: implementare disabilitazione CIE
 
                     /*labelSerialNumber.Text = Properties.Settings.Default.serialNumber;
@@ -495,6 +496,9 @@ namespace CIEID
                     Properties.Settings.Default.cardHolder = "";
                     Properties.Settings.Default.efSeriale = "";
                     Properties.Settings.Default.Save();*/
+
+                    selectHome();
+
                     break;
 
                 case CKR_TOKEN_NOT_PRESENT:

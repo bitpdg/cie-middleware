@@ -7,7 +7,8 @@ using System.Windows.Forms;
 
 namespace CIEID.Controls
 {
-    class CarouselControl : FlowLayoutPanel {
+    class CarouselControl
+    {
 
         private const int DOT_SIZE = 10;
 
@@ -42,7 +43,8 @@ namespace CIEID.Controls
             }
         }
 
-        public CircularViewList Items {
+        public CircularViewList Items
+        {
             get
             {
                 return circularList;
@@ -58,13 +60,13 @@ namespace CIEID.Controls
 
                 if (value.Count == 1)
                 {
-                    circularList.Add(new EmptyItemControl());
+                    circularList.Add(new CieModel());
                     circularList.Add(value.First());
-                    circularList.Add(new EmptyItemControl());
+                    circularList.Add(new CieModel());
                 }
                 else if (value.Count == 2)
                 {
-                    circularList.Add(new EmptyItemControl());
+                    circularList.Add(new CieModel());
                     circularList.AddRange(value);
 
                     activeItemIndex = 0;
@@ -82,65 +84,37 @@ namespace CIEID.Controls
         {
             get
             {
-                return Items.Count(x => x is CarouselItemControl);
+                return Items.Count(x => !x.IsEmpty);
+            }
+        }
+
+        public CieModel ActiveCieModel
+        {
+            get
+            {
+                if (CarouselItemsCount == 1)
+                    return Items[1];
+
+                return Items.Where(x => !x.IsEmpty).ElementAt(activeItemIndex);
             }
         }
 
         private CircularViewList circularList;
-        private FlowLayoutPanel cardsContainer;
-        private TableLayoutPanel dotsContainer;
         private FlowLayoutPanel dotsGroup;
+        private TableLayoutPanel mainContainer;
 
         private int activeItemIndex { get; set; }
         private bool dotsCreated = false;
 
-        public void LoadData(CieCollection cieCollection)
+        public CarouselControl(TableLayoutPanel mainContainer, FlowLayoutPanel dotsGroup)
         {
-            var controls = from model in cieCollection.MyDictionary.Values
-                           select new CarouselItemControl(model)
-                           {
-                               Size = new System.Drawing.Size(BaseItemControl.IMAGE_WIDTH, BaseItemControl.IMAGE_HEIGHT),
-                           };
-
-            Items = new CircularViewList(controls);
+            this.mainContainer = mainContainer;
+            this.dotsGroup = dotsGroup;
         }
 
-        public new void PerformLayout()
+        public void LoadData(CieCollection cieCollection)
         {
-            this.FlowDirection = FlowDirection.TopDown;
-            this.WrapContents = true;
-            this.AutoSize = true;
-
-
-            SuspendLayout();
-
-            this.cardsContainer = new FlowLayoutPanel();
-            this.cardsContainer.FlowDirection = FlowDirection.LeftToRight;
-            this.cardsContainer.WrapContents = false;
-            this.cardsContainer.AutoSize = true;
-            this.cardsContainer.MaximumSize = new System.Drawing.Size(this.Width, 210);
-            this.cardsContainer.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom);
-
-            this.Controls.Add(this.cardsContainer);
-
-            this.dotsContainer = new TableLayoutPanel();
-            this.dotsContainer.RowCount = 1;
-            this.dotsContainer.ColumnCount = 1;
-            this.dotsContainer.GrowStyle = TableLayoutPanelGrowStyle.AddColumns;
-            this.dotsContainer.AutoSize = true;
-            this.dotsContainer.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom);
-
-            this.Controls.Add(this.dotsContainer);
-
-            this.dotsGroup = new FlowLayoutPanel();
-            this.dotsGroup.FlowDirection = FlowDirection.LeftToRight;
-            this.dotsGroup.AutoSize = true;
-            this.dotsGroup.WrapContents = true;
-            this.dotsGroup.Anchor = AnchorStyles.None;
-
-            this.dotsContainer.Controls.Add(this.dotsGroup);
-
-            ResumeLayout(false);
+            Items = new CircularViewList(cieCollection.MyDictionary.Values);
         }
 
         private void UpdateButtons()
@@ -149,11 +123,14 @@ namespace CIEID.Controls
             {
                 onButtonsChanged?.Invoke(this, new ButtonsEventArgs(false, true));
                 onButtonsChanged?.Invoke(this, new ButtonsEventArgs(true, true));
-            } else
-            if (CarouselItemsCount == 2) {
-                onButtonsChanged?.Invoke(this, new ButtonsEventArgs(false, circularList.LastOrDefault() is EmptyItemControl));
-                onButtonsChanged?.Invoke(this, new ButtonsEventArgs(true, circularList.FirstOrDefault() is EmptyItemControl));
-            } else
+            }
+            else
+            if (CarouselItemsCount == 2)
+            {
+                onButtonsChanged?.Invoke(this, new ButtonsEventArgs(false, circularList.LastOrDefault().IsEmpty));
+                onButtonsChanged?.Invoke(this, new ButtonsEventArgs(true, circularList.FirstOrDefault().IsEmpty));
+            }
+            else
             {
                 onButtonsChanged?.Invoke(this, new ButtonsEventArgs(false, false, false));
                 onButtonsChanged?.Invoke(this, new ButtonsEventArgs(true, false, false));
@@ -220,7 +197,7 @@ namespace CIEID.Controls
                     };
 
                     dot.CheckedChanged += dot_CheckedChanged;
-                    
+
                     this.dotsGroup.Controls.Add(dot);
                 }
             }
@@ -236,12 +213,12 @@ namespace CIEID.Controls
             {
                 var index = this.dotsGroup.Controls.GetChildIndex(radioButton);
                 var diff = Math.Abs(activeItemIndex - index);
-                Console.WriteLine("on checked #{0}", index);
 
                 if (activeItemIndex < index)
                 {
                     ShiftLeft(diff);
-                } else if (activeItemIndex > index)
+                }
+                else if (activeItemIndex > index)
                 {
                     ShiftRight(diff);
                 }
@@ -254,24 +231,11 @@ namespace CIEID.Controls
         {
             if (circularList != null && circularList.Count > 0)
             {
-                this.cardsContainer.Controls.Clear();
-                var itemWidth = (this.Width / 3);
                 var index = 0;
 
                 foreach (var item in circularList.Take(3))
                 {
-                    item.Location = new System.Drawing.Point(itemWidth * index, 0);
-                    item.MaximumSize = new System.Drawing.Size(itemWidth, this.Height);
-
-                    if (1 == index)
-                    {
-                        item.UpdateChildrenSizeFactor(-0.35f);
-                    } else
-                    {
-                        item.UpdateChildrenSizeFactor(0.2f);
-                    }
-
-                    this.cardsContainer.Controls.Add(item);
+                    UpdateCarouselItem(index, item);
 
                     index++;
                 }
@@ -281,10 +245,23 @@ namespace CIEID.Controls
                 CreateDots();
         }
 
-        private void InitializeComponent()
+        private void UpdateCarouselItem(int index, CieModel model)
         {
-            this.SuspendLayout();
-            this.ResumeLayout(false);
+            var carouselItem = mainContainer.Controls.Find(String.Format("carouselItem{0}", index), false).FirstOrDefault();
+
+            if (model.IsEmpty)
+            {
+                carouselItem.Hide();
+            } else
+            {
+                var labelCardNumberValue = carouselItem.Controls.Find(String.Format("labelCardNumberValue{0}", index), false).FirstOrDefault();
+                var labelOwnerValue = carouselItem.Controls.Find(String.Format("labelOwnerValue{0}", index), false).FirstOrDefault();
+
+                labelCardNumberValue.Text = model.SerialNumber;
+                labelOwnerValue.Text = model.Owner;
+
+                carouselItem.Show();
+            }
         }
     }
 }

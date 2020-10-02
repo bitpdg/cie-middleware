@@ -92,6 +92,16 @@ namespace CIEID.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cie_transparent {
+            get {
+                object obj = ResourceManager.GetObject("cie_transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward_3x {
             get {
                 object obj = ResourceManager.GetObject("forward@3x", resourceCulture);

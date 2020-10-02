@@ -60,20 +60,9 @@
   <ItemGroup>
     <Compile Include="CieCollection.cs" />
     <Compile Include="CieModel.cs" />
-    <Compile Include="Controls\BaseItemControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\CarouselControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\CarouselItemControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Controls\CarouselControl.cs" />
     <Compile Include="Controls\CircularViewList.cs" />
     <Compile Include="Controls\CustomRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\EmptyItemControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Form1.cs">
@@ -174,6 +163,7 @@
     <Content Include="images\Risorsa 24.png" />
     <Content Include="images\Risorsa 25%402x.png" />
     <Content Include="images\Risorsa 25.png" />
+    <None Include="Resources\cie_transparent.jpg" />
     <None Include="Resources\forward%403x.png" />
     <None Include="Resources\cie.jpg" />
     <None Include="Resources\back%403x.png" />

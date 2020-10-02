@@ -46,8 +46,28 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.tableLayoutPanelCarousel = new System.Windows.Forms.TableLayoutPanel();
+            this.carouselItem1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelCardNumberValue1 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.labelOwnerValue1 = new System.Windows.Forms.Label();
+            this.carouselItem0 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelCardNumber0 = new System.Windows.Forms.Label();
+            this.labelCardNumberValue0 = new System.Windows.Forms.Label();
+            this.labelOwner0 = new System.Windows.Forms.Label();
+            this.labelOwnerValue0 = new System.Windows.Forms.Label();
+            this.carouselItem2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.labelCardNumberValue2 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.labelOwnerValue2 = new System.Windows.Forms.Label();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.dotsGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonRemoveAll = new System.Windows.Forms.Button();
             this.buttonAggiungi = new System.Windows.Forms.Button();
             this.buttonDeleteCIE = new System.Windows.Forms.Button();
@@ -113,12 +133,18 @@
             this.buttonTutorial = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
-            this.carouselControl = new CIEID.Controls.CarouselControl();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanelCarousel.SuspendLayout();
+            this.carouselItem1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.carouselItem0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.carouselItem2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -142,6 +168,9 @@
             // 
             // tabControlMain
             // 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControlMain.Controls.Add(this.tabPage1);
             this.tabControlMain.Controls.Add(this.tabPage2);
@@ -159,7 +188,7 @@
             this.tabControlMain.Multiline = true;
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(465, 406);
+            this.tabControlMain.Size = new System.Drawing.Size(662, 536);
             this.tabControlMain.TabIndex = 0;
             // 
             // tabPage1
@@ -178,11 +207,11 @@
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 9);
+            this.tabPage1.Location = new System.Drawing.Point(4, 5);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(457, 393);
+            this.tabPage1.Size = new System.Drawing.Size(654, 527);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -367,10 +396,10 @@
             this.tabPage2.Controls.Add(this.buttonDeleteCIE);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 9);
+            this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(457, 393);
+            this.tabPage2.Size = new System.Drawing.Size(654, 527);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -384,28 +413,17 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonLeft, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.carouselControl, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonRight, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanelCarousel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonLeft, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dotsGroup, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 84);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(451, 266);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(640, 397);
             this.tableLayoutPanel1.TabIndex = 21;
-            // 
-            // buttonLeft
-            // 
-            this.buttonLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLeft.FlatAppearance.BorderSize = 0;
-            this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLeft.Image = global::CIEID.Properties.Resources.back_3x;
-            this.buttonLeft.Location = new System.Drawing.Point(5, 105);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(34, 56);
-            this.buttonLeft.TabIndex = 2;
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
             // 
             // buttonRight
             // 
@@ -413,19 +431,288 @@
             this.buttonRight.FlatAppearance.BorderSize = 0;
             this.buttonRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRight.Image = global::CIEID.Properties.Resources.forward_3x;
-            this.buttonRight.Location = new System.Drawing.Point(412, 105);
+            this.buttonRight.Location = new System.Drawing.Point(592, 160);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(31, 56);
             this.buttonRight.TabIndex = 3;
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
             // 
+            // tableLayoutPanelCarousel
+            // 
+            this.tableLayoutPanelCarousel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelCarousel.AutoSize = true;
+            this.tableLayoutPanelCarousel.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanelCarousel.ColumnCount = 3;
+            this.tableLayoutPanelCarousel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelCarousel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelCarousel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanelCarousel.Controls.Add(this.carouselItem1, 1, 0);
+            this.tableLayoutPanelCarousel.Controls.Add(this.carouselItem0, 0, 0);
+            this.tableLayoutPanelCarousel.Controls.Add(this.carouselItem2, 2, 0);
+            this.tableLayoutPanelCarousel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.tableLayoutPanelCarousel.Location = new System.Drawing.Point(67, 3);
+            this.tableLayoutPanelCarousel.Name = "tableLayoutPanelCarousel";
+            this.tableLayoutPanelCarousel.RowCount = 1;
+            this.tableLayoutPanelCarousel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCarousel.Size = new System.Drawing.Size(506, 371);
+            this.tableLayoutPanelCarousel.TabIndex = 4;
+            // 
+            // carouselItem1
+            // 
+            this.carouselItem1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.carouselItem1.AutoSize = true;
+            this.carouselItem1.Controls.Add(this.pictureBox12);
+            this.carouselItem1.Controls.Add(this.label6);
+            this.carouselItem1.Controls.Add(this.labelCardNumberValue1);
+            this.carouselItem1.Controls.Add(this.label24);
+            this.carouselItem1.Controls.Add(this.labelOwnerValue1);
+            this.carouselItem1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.carouselItem1.Location = new System.Drawing.Point(174, 83);
+            this.carouselItem1.Name = "carouselItem1";
+            this.carouselItem1.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.carouselItem1.Size = new System.Drawing.Size(156, 204);
+            this.carouselItem1.TabIndex = 1;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = global::CIEID.Properties.Resources.cie;
+            this.pictureBox12.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(150, 90);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 0;
+            this.pictureBox12.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 123);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Size = new System.Drawing.Size(95, 15);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Numero carta:";
+            // 
+            // labelCardNumberValue1
+            // 
+            this.labelCardNumberValue1.AutoSize = true;
+            this.labelCardNumberValue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCardNumberValue1.Location = new System.Drawing.Point(3, 138);
+            this.labelCardNumberValue1.Name = "labelCardNumberValue1";
+            this.labelCardNumberValue1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelCardNumberValue1.Size = new System.Drawing.Size(62, 17);
+            this.labelCardNumberValue1.TabIndex = 1;
+            this.labelCardNumberValue1.Text = "label6";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 160);
+            this.label24.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label24.Name = "label24";
+            this.label24.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label24.Size = new System.Drawing.Size(80, 15);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Intestatario:";
+            // 
+            // labelOwnerValue1
+            // 
+            this.labelOwnerValue1.AutoSize = true;
+            this.labelOwnerValue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOwnerValue1.Location = new System.Drawing.Point(3, 175);
+            this.labelOwnerValue1.Name = "labelOwnerValue1";
+            this.labelOwnerValue1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelOwnerValue1.Size = new System.Drawing.Size(71, 17);
+            this.labelOwnerValue1.TabIndex = 4;
+            this.labelOwnerValue1.Text = "label27";
+            // 
+            // carouselItem0
+            // 
+            this.carouselItem0.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.carouselItem0.AutoSize = true;
+            this.carouselItem0.Controls.Add(this.pictureBox2);
+            this.carouselItem0.Controls.Add(this.labelCardNumber0);
+            this.carouselItem0.Controls.Add(this.labelCardNumberValue0);
+            this.carouselItem0.Controls.Add(this.labelOwner0);
+            this.carouselItem0.Controls.Add(this.labelOwnerValue0);
+            this.carouselItem0.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.carouselItem0.Location = new System.Drawing.Point(31, 99);
+            this.carouselItem0.Name = "carouselItem0";
+            this.carouselItem0.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.carouselItem0.Size = new System.Drawing.Size(106, 172);
+            this.carouselItem0.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 70);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelCardNumber0
+            // 
+            this.labelCardNumber0.AutoSize = true;
+            this.labelCardNumber0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCardNumber0.ForeColor = System.Drawing.Color.LightGray;
+            this.labelCardNumber0.Location = new System.Drawing.Point(3, 103);
+            this.labelCardNumber0.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.labelCardNumber0.Name = "labelCardNumber0";
+            this.labelCardNumber0.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelCardNumber0.Size = new System.Drawing.Size(82, 13);
+            this.labelCardNumber0.TabIndex = 3;
+            this.labelCardNumber0.Text = "Numero carta:";
+            // 
+            // labelCardNumberValue0
+            // 
+            this.labelCardNumberValue0.AutoSize = true;
+            this.labelCardNumberValue0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCardNumberValue0.ForeColor = System.Drawing.Color.LightGray;
+            this.labelCardNumberValue0.Location = new System.Drawing.Point(3, 116);
+            this.labelCardNumberValue0.Name = "labelCardNumberValue0";
+            this.labelCardNumberValue0.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelCardNumberValue0.Size = new System.Drawing.Size(51, 13);
+            this.labelCardNumberValue0.TabIndex = 1;
+            this.labelCardNumberValue0.Text = "label6";
+            // 
+            // labelOwner0
+            // 
+            this.labelOwner0.AutoSize = true;
+            this.labelOwner0.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOwner0.ForeColor = System.Drawing.Color.LightGray;
+            this.labelOwner0.Location = new System.Drawing.Point(3, 134);
+            this.labelOwner0.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.labelOwner0.Name = "labelOwner0";
+            this.labelOwner0.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelOwner0.Size = new System.Drawing.Size(72, 13);
+            this.labelOwner0.TabIndex = 2;
+            this.labelOwner0.Text = "Intestatario:";
+            // 
+            // labelOwnerValue0
+            // 
+            this.labelOwnerValue0.AutoSize = true;
+            this.labelOwnerValue0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOwnerValue0.ForeColor = System.Drawing.Color.LightGray;
+            this.labelOwnerValue0.Location = new System.Drawing.Point(3, 147);
+            this.labelOwnerValue0.Name = "labelOwnerValue0";
+            this.labelOwnerValue0.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelOwnerValue0.Size = new System.Drawing.Size(58, 13);
+            this.labelOwnerValue0.TabIndex = 4;
+            this.labelOwnerValue0.Text = "label27";
+            // 
+            // carouselItem2
+            // 
+            this.carouselItem2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.carouselItem2.AutoSize = true;
+            this.carouselItem2.Controls.Add(this.pictureBox14);
+            this.carouselItem2.Controls.Add(this.label28);
+            this.carouselItem2.Controls.Add(this.labelCardNumberValue2);
+            this.carouselItem2.Controls.Add(this.label30);
+            this.carouselItem2.Controls.Add(this.labelOwnerValue2);
+            this.carouselItem2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.carouselItem2.Location = new System.Drawing.Point(368, 99);
+            this.carouselItem2.Name = "carouselItem2";
+            this.carouselItem2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.carouselItem2.Size = new System.Drawing.Size(106, 172);
+            this.carouselItem2.TabIndex = 5;
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(100, 70);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox14.TabIndex = 0;
+            this.pictureBox14.TabStop = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.LightGray;
+            this.label28.Location = new System.Drawing.Point(3, 103);
+            this.label28.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.label28.Name = "label28";
+            this.label28.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label28.Size = new System.Drawing.Size(82, 13);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "Numero carta:";
+            // 
+            // labelCardNumberValue2
+            // 
+            this.labelCardNumberValue2.AutoSize = true;
+            this.labelCardNumberValue2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCardNumberValue2.ForeColor = System.Drawing.Color.LightGray;
+            this.labelCardNumberValue2.Location = new System.Drawing.Point(3, 116);
+            this.labelCardNumberValue2.Name = "labelCardNumberValue2";
+            this.labelCardNumberValue2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelCardNumberValue2.Size = new System.Drawing.Size(51, 13);
+            this.labelCardNumberValue2.TabIndex = 1;
+            this.labelCardNumberValue2.Text = "label6";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.LightGray;
+            this.label30.Location = new System.Drawing.Point(3, 134);
+            this.label30.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.label30.Name = "label30";
+            this.label30.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label30.Size = new System.Drawing.Size(72, 13);
+            this.label30.TabIndex = 2;
+            this.label30.Text = "Intestatario:";
+            // 
+            // labelOwnerValue2
+            // 
+            this.labelOwnerValue2.AutoSize = true;
+            this.labelOwnerValue2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOwnerValue2.ForeColor = System.Drawing.Color.LightGray;
+            this.labelOwnerValue2.Location = new System.Drawing.Point(3, 147);
+            this.labelOwnerValue2.Name = "labelOwnerValue2";
+            this.labelOwnerValue2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelOwnerValue2.Size = new System.Drawing.Size(58, 13);
+            this.labelOwnerValue2.TabIndex = 4;
+            this.labelOwnerValue2.Text = "label27";
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLeft.FlatAppearance.BorderSize = 0;
+            this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeft.Image = global::CIEID.Properties.Resources.back_3x;
+            this.buttonLeft.Location = new System.Drawing.Point(15, 160);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(34, 56);
+            this.buttonLeft.TabIndex = 2;
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
+            // dotsGroup
+            // 
+            this.dotsGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dotsGroup.AutoSize = true;
+            this.dotsGroup.Location = new System.Drawing.Point(320, 387);
+            this.dotsGroup.Name = "dotsGroup";
+            this.dotsGroup.Size = new System.Drawing.Size(0, 0);
+            this.dotsGroup.TabIndex = 5;
+            // 
             // buttonRemoveAll
             // 
+            this.buttonRemoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonRemoveAll.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonRemoveAll.FlatAppearance.BorderSize = 0;
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(182, 352);
+            this.buttonRemoveAll.Location = new System.Drawing.Point(254, 489);
             this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(114, 28);
@@ -436,10 +723,11 @@
             // 
             // buttonAggiungi
             // 
+            this.buttonAggiungi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAggiungi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAggiungi.FlatAppearance.BorderSize = 0;
             this.buttonAggiungi.ForeColor = System.Drawing.Color.White;
-            this.buttonAggiungi.Location = new System.Drawing.Point(319, 352);
+            this.buttonAggiungi.Location = new System.Drawing.Point(408, 489);
             this.buttonAggiungi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAggiungi.Name = "buttonAggiungi";
             this.buttonAggiungi.Size = new System.Drawing.Size(114, 28);
@@ -450,10 +738,11 @@
             // 
             // buttonDeleteCIE
             // 
+            this.buttonDeleteCIE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDeleteCIE.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonDeleteCIE.FlatAppearance.BorderSize = 0;
             this.buttonDeleteCIE.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteCIE.Location = new System.Drawing.Point(41, 352);
+            this.buttonDeleteCIE.Location = new System.Drawing.Point(102, 489);
             this.buttonDeleteCIE.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDeleteCIE.Name = "buttonDeleteCIE";
             this.buttonDeleteCIE.Size = new System.Drawing.Size(114, 28);
@@ -465,7 +754,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(38, 53);
+            this.label2.Location = new System.Drawing.Point(120, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(380, 45);
@@ -477,7 +766,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(185, 22);
+            this.label5.Location = new System.Drawing.Point(269, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 29);
@@ -492,10 +781,10 @@
             this.tabPage3.Controls.Add(this.pictureBox3);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 9);
+            this.tabPage3.Location = new System.Drawing.Point(4, 5);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(457, 393);
+            this.tabPage3.Size = new System.Drawing.Size(654, 527);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             // 
@@ -568,10 +857,10 @@
             this.tabPage4.Controls.Add(this.pictureBox4);
             this.tabPage4.Controls.Add(this.label8);
             this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Location = new System.Drawing.Point(4, 9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 5);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(457, 393);
+            this.tabPage4.Size = new System.Drawing.Size(654, 527);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             // 
@@ -700,10 +989,10 @@
             this.tabPage5.Controls.Add(this.pictureBox5);
             this.tabPage5.Controls.Add(this.label17);
             this.tabPage5.Controls.Add(this.label18);
-            this.tabPage5.Location = new System.Drawing.Point(4, 9);
+            this.tabPage5.Location = new System.Drawing.Point(4, 5);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(457, 393);
+            this.tabPage5.Size = new System.Drawing.Size(654, 527);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             // 
@@ -775,10 +1064,10 @@
             this.tabPage6.Controls.Add(this.pictureBox6);
             this.tabPage6.Controls.Add(this.label22);
             this.tabPage6.Controls.Add(this.label23);
-            this.tabPage6.Location = new System.Drawing.Point(4, 9);
+            this.tabPage6.Location = new System.Drawing.Point(4, 5);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(457, 393);
+            this.tabPage6.Size = new System.Drawing.Size(654, 527);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "tabPage6";
             // 
@@ -908,10 +1197,10 @@
             this.tabPage7.Controls.Add(this.pictureBox7);
             this.tabPage7.Controls.Add(this.label25);
             this.tabPage7.Controls.Add(this.label26);
-            this.tabPage7.Location = new System.Drawing.Point(4, 9);
+            this.tabPage7.Location = new System.Drawing.Point(4, 5);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(457, 393);
+            this.tabPage7.Size = new System.Drawing.Size(654, 527);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "tabPage7";
             // 
@@ -974,10 +1263,10 @@
             // 
             this.tabPage8.BackColor = System.Drawing.Color.White;
             this.tabPage8.Controls.Add(this.webBrowserTutorial);
-            this.tabPage8.Location = new System.Drawing.Point(4, 9);
+            this.tabPage8.Location = new System.Drawing.Point(4, 5);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(457, 393);
+            this.tabPage8.Size = new System.Drawing.Size(654, 527);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "tabPage8";
             // 
@@ -988,7 +1277,7 @@
             this.webBrowserTutorial.Margin = new System.Windows.Forms.Padding(2);
             this.webBrowserTutorial.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowserTutorial.Name = "webBrowserTutorial";
-            this.webBrowserTutorial.Size = new System.Drawing.Size(457, 393);
+            this.webBrowserTutorial.Size = new System.Drawing.Size(654, 527);
             this.webBrowserTutorial.TabIndex = 0;
             // 
             // tabPage9
@@ -997,10 +1286,10 @@
             this.tabPage9.Controls.Add(this.pictureBox11);
             this.tabPage9.Controls.Add(this.pictureBox13);
             this.tabPage9.Controls.Add(this.webBrowserHelp);
-            this.tabPage9.Location = new System.Drawing.Point(4, 9);
+            this.tabPage9.Location = new System.Drawing.Point(4, 5);
             this.tabPage9.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(457, 393);
+            this.tabPage9.Size = new System.Drawing.Size(654, 527);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "tabPage9";
             // 
@@ -1042,10 +1331,10 @@
             this.tabPage10.Controls.Add(this.pictureBox9);
             this.tabPage10.Controls.Add(this.pictureBox8);
             this.tabPage10.Controls.Add(this.webBrowserInfo);
-            this.tabPage10.Location = new System.Drawing.Point(4, 9);
+            this.tabPage10.Location = new System.Drawing.Point(4, 5);
             this.tabPage10.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(457, 393);
+            this.tabPage10.Size = new System.Drawing.Size(654, 527);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "tabPage10";
             // 
@@ -1228,24 +1517,11 @@
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
-            // carouselControl
-            // 
-            this.carouselControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.carouselControl.AutoSize = true;
-            this.carouselControl.Items = null;
-            this.carouselControl.Location = new System.Drawing.Point(48, 3);
-            this.carouselControl.Name = "carouselControl";
-            this.carouselControl.Size = new System.Drawing.Size(354, 260);
-            this.carouselControl.TabIndex = 20;
-            this.carouselControl.ButtonsChanged += new System.EventHandler<CIEID.Controls.CarouselControl.ButtonsEventArgs>(this.carouselControl_ButtonsChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 390);
+            this.ClientSize = new System.Drawing.Size(799, 530);
             this.Controls.Add(this.buttonInfo);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonTutorial);
@@ -1270,6 +1546,17 @@
             this.tabPage2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanelCarousel.ResumeLayout(false);
+            this.tableLayoutPanelCarousel.PerformLayout();
+            this.carouselItem1.ResumeLayout(false);
+            this.carouselItem1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.carouselItem0.ResumeLayout(false);
+            this.carouselItem0.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.carouselItem2.ResumeLayout(false);
+            this.carouselItem2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1382,9 +1669,28 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Button buttonAggiungi;
         private System.Windows.Forms.Button buttonRemoveAll;
-        private Controls.CarouselControl carouselControl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCarousel;
+        private System.Windows.Forms.FlowLayoutPanel carouselItem1;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelCardNumberValue1;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label labelOwnerValue1;
+        private System.Windows.Forms.FlowLayoutPanel carouselItem0;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelCardNumber0;
+        private System.Windows.Forms.Label labelCardNumberValue0;
+        private System.Windows.Forms.Label labelOwner0;
+        private System.Windows.Forms.Label labelOwnerValue0;
+        private System.Windows.Forms.FlowLayoutPanel carouselItem2;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label labelCardNumberValue2;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label labelOwnerValue2;
+        private System.Windows.Forms.FlowLayoutPanel dotsGroup;
     }
 }

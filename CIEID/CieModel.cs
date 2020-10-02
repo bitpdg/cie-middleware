@@ -10,11 +10,32 @@ namespace CIEID
     {
         public String SerialNumber { get; set; }
         public String Owner { get; set; }
+        public String Pan { get; set; }
+
+        public bool IsEmpty
+        {
+            get
+            {
+                return String.IsNullOrEmpty(SerialNumber) &&
+                    String.IsNullOrEmpty(Owner) &&
+                    String.IsNullOrEmpty(Pan);
+            }
+        }
+
+        public CieModel()
+        { }
 
         public CieModel(String serialNumber, String owner)
         {
             this.SerialNumber = serialNumber;
             this.Owner = owner;
+        }
+
+        public CieModel(String serialNumber, String owner, String pan)
+        {
+            this.SerialNumber = serialNumber;
+            this.Owner = owner;
+            this.Pan = pan;
         }
     }
 }

@@ -1,40 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CIEID.Controls
 {
-    class CircularViewList : List<BaseItemControl>
+    class CircularViewList : List<CieModel>
     {
         public CircularViewList()
         { }
 
-        public CircularViewList(IEnumerable<BaseItemControl> controls)
+        public CircularViewList(IEnumerable<CieModel> controls)
         {
             AddRange(controls);
         }
 
         public void ShiftLeft()
         {
-            BaseItemControl control = this.FirstOrDefault();
+            var model = this.FirstOrDefault();
 
-            if (control == null) return;
+            if (model == null) return;
 
-            this.Remove(control);
-            this.Add(control);
+            this.Remove(model);
+            this.Add(model);
         }
 
         public void ShiftRight()
         {
-            BaseItemControl control = this.LastOrDefault();
+            var model = this.LastOrDefault();
 
-            if (control == null) return;
+            if (model == null) return;
 
-            this.Remove(control);
-            this.Insert(0, control);
+            this.Remove(model);
+            this.Insert(0, model);
         }
     }
 }
