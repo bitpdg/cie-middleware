@@ -889,7 +889,6 @@ namespace CIEID
             buttonTutorial.BackColor = Color.LightGray;
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.Transparent;
-
             webBrowserTutorial.Navigate("https://idserver.servizicie.interno.gov.it/idp/tutorial_win.jsp");
         }
 
@@ -1018,6 +1017,16 @@ namespace CIEID
             {
                 button.Hide();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
         //long ret = VerificaCIEAbilitata();

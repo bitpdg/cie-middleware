@@ -115,6 +115,7 @@ namespace CIEID.Controls
         public void LoadData(CieCollection cieCollection)
         {
             Items = new CircularViewList(cieCollection.MyDictionary.Values);
+            dotsCreated = false;
         }
 
         private void UpdateButtons()
