@@ -211,16 +211,29 @@ namespace CIEID
         private void selectHome()
         {
             /*
-            Properties.Settings.Default.cieList = "";
-            Properties.Settings.Default.Save();
+                    Properties.Settings.Default.serialNumber = "";
+                    Properties.Settings.Default.cardHolder = "";
+                    Properties.Settings.Default.efSeriale = "";
+            
             */
-
+            
+            Properties.Settings.Default.serialNumber = "123456";
+            Properties.Settings.Default.cardHolder = "Robin";
+            Properties.Settings.Default.efSeriale = "12345678";
+            
+            //Properties.Settings.Default.cieList = "";
             CieColl = new CieCollection(Properties.Settings.Default.cieList);
+            
 
-            /*CieColl.addCie("4444444", new CieModel("444444", "Robin"));
+            if (!Properties.Settings.Default.cardHolder.Equals(""))
+            {
+                CieColl.addCie(Properties.Settings.Default.serialNumber, new CieModel(Properties.Settings.Default.serialNumber, Properties.Settings.Default.cardHolder, Properties.Settings.Default.efSeriale));
 
-            Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
-            Properties.Settings.Default.Save();*/
+                Properties.Settings.Default.serialNumber = "";
+                Properties.Settings.Default.cardHolder = "";
+                Properties.Settings.Default.efSeriale = "";
+                Properties.Settings.Default.Save(); 
+            }
 
             Console.WriteLine("Lista CIE abbinate: " + Properties.Settings.Default.cieList);
 
@@ -237,44 +250,8 @@ namespace CIEID
             if (CieColl.MyDictionary.Count == 0)
             {
                 tabControlMain.SelectedIndex = 0;
-            }
-            //TODO: ricordati PDG
-            /*else if (Properties.Settings.Default.efSeriale.Equals(""))
+            }else
             {
-
-
-                tabControlMain.SelectedIndex = 1;
-                var result = MessageBox.Show("E’ necessario effettuare un nuovo abbinamento. Procedere?", "Abbinare nuovamente la CIE", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if (result == DialogResult.Yes)
-                {
-
-                    tabControlMain.SelectedIndex = 0;
-                }
-                else
-                {
-                    labelCardHolder.Text = Properties.Settings.Default.cardHolder;
-                    Properties.Settings.Default.Save();
-
-                    labelSerialNumber.Text = "Per visualizzarlo occorre\nrifare l'abbinamento";
-                    labelCardHolder.Text = Properties.Settings.Default.cardHolder;
-
-                    int y = labelSerialNumber.Height + labelSerialNumber.Location.Y + 10;
-                    int x = label7.Location.X;
-                    label7.Location = new System.Drawing.Point(x, y);
-
-                    y = label7.Height + label7.Location.Y;
-                    x = labelCardHolder.Location.X;
-                    labelCardHolder.Location = new System.Drawing.Point(x, y);
-                    
-                     tabControlMain.SelectedIndex = 1;
-                }
-            }*/
-            else
-            {
-                /*carouselControl.LoadData(CieColl);
-                carouselControl.PerformLayout();
-                carouselControl.UpdateLayout();*/
-
                 if (carouselControl == null)
                 {
                     carouselControl = new CarouselControl(tableLayoutPanelCarousel, dotsGroup);
@@ -408,20 +385,11 @@ namespace CIEID
                         this.Invoke((MethodInvoker)delegate
                         {
                             ((Control)sender).Enabled = true;
-                            /*
-                                if(alreadyEnabled == 1)
-                                {
-                                    MessageBox.Show("Carta già abilitata", "Carta già abilitata in", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    selectHome();
-                                    return;
-                                }
-                            */
                             switch (ret)
                             {
                                 case CKR_TOKEN_NOT_RECOGNIZED:
                                     MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     selectHome();
-                                    //[self showHomeFirstPage];
                                     break;
 
                                 case CKR_TOKEN_NOT_PRESENT:
@@ -446,11 +414,6 @@ namespace CIEID
 
                                 case CKR_OK:
                                     MessageBox.Show("L'abilitazione della CIE è avvenuta con successo", "CIE abilitata", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    //labelSerialNumber.Text = Properties.Settings.Default.efSeriale;
-                                    //labelCardHolder.Text = Properties.Settings.Default.cardHolder;
-                                    //TODO: implementare
-
-                                    //tabControlMain.SelectedIndex = 1;
                                     selectHome();
                                     break;
                             }
@@ -479,7 +442,6 @@ namespace CIEID
             switch (ret)
             {
                 case CKR_OK:
-                    tabControlMain.SelectedIndex = 0;
                     MessageBox.Show("CIE disabilitata con successo", "CIE disabilitata", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     CieColl.removeCie(model.Pan);
@@ -487,16 +449,6 @@ namespace CIEID
                     Properties.Settings.Default.Save();
 
                     Console.WriteLine("Cie Rimanenti: " + Properties.Settings.Default.cieList);
-
-                    //TODO: implementare disabilitazione CIE
-
-                    /*labelSerialNumber.Text = Properties.Settings.Default.serialNumber;
-                    labelCardHolder.Text = Properties.Settings.Default.cardHolder;
-                    Properties.Settings.Default.serialNumber = "";
-                    Properties.Settings.Default.cardHolder = "";
-                    Properties.Settings.Default.efSeriale = "";
-                    Properties.Settings.Default.Save();*/
-
                     selectHome();
 
                     break;
@@ -1025,6 +977,16 @@ namespace CIEID
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelOwnerValue1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelOwnerValue0_Click(object sender, EventArgs e)
         {
 
         }

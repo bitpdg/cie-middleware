@@ -46,5 +46,41 @@ namespace CIEID.Properties {
                 this["cieList"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string serialNumber {
+            get {
+                return ((string)(this["serialNumber"]));
+            }
+            set {
+                this["serialNumber"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cardHolder {
+            get {
+                return ((string)(this["cardHolder"]));
+            }
+            set {
+                this["cardHolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string efSeriale {
+            get {
+                return ((string)(this["efSeriale"]));
+            }
+            set {
+                this["efSeriale"] = value;
+            }
+        }
     }
 }
