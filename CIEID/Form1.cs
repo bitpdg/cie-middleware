@@ -203,6 +203,36 @@ namespace CIEID
             return null;
         }
 
+
+        private void configureHomeButtons(CieCollection cieColl)
+        {
+
+            if(cieColl.MyDictionary.Count > 1)
+            {
+                buttonDeleteCIE.Location = new Point(58, 483);
+                buttonRemoveAll.Location = new Point(buttonDeleteCIE.Location.X + 198, buttonDeleteCIE.Location.Y);
+                buttonAggiungi.Location = new Point(buttonRemoveAll.Location.X + 189, buttonDeleteCIE.Location.Y);
+                buttonRemoveAll.Visible = true;
+            }
+            else
+            {
+                buttonRemoveAll.Visible = false;
+                buttonDeleteCIE.Location = new Point(144, 483);
+                buttonAggiungi.Location = new Point(buttonDeleteCIE.Location.X + 203, buttonDeleteCIE.Location.Y);
+            }
+
+            if (CieColl.MyDictionary.Count >= 1)
+            {
+                buttonAbbina.Location = new System.Drawing.Point(buttonAnnulla.Location.X + 205, buttonAnnulla.Location.Y);
+                buttonAnnulla.Visible = true;
+            }
+            else
+            {
+                buttonAbbina.Location = new System.Drawing.Point(272, 437);
+                buttonAnnulla.Visible = false;
+            }
+        }
+
         private void buttonHome_Click(object sender, EventArgs e)
         {
             selectHome();
@@ -210,24 +240,27 @@ namespace CIEID
 
         private void selectHome()
         {
-            /*
-                    Properties.Settings.Default.serialNumber = "";
-                    Properties.Settings.Default.cardHolder = "";
-                    Properties.Settings.Default.efSeriale = "";
             
+            /*
+            Properties.Settings.Default.serialNumber = "";
+            Properties.Settings.Default.cardHolder = "";
+            Properties.Settings.Default.efSeriale = "";
             */
             
+            /*
             Properties.Settings.Default.serialNumber = "123456";
             Properties.Settings.Default.cardHolder = "Robin";
-            Properties.Settings.Default.efSeriale = "12345678";
+            Properties.Settings.Default.efSeriale = "CA12345678BB";
+            */
             
             //Properties.Settings.Default.cieList = "";
+
             CieColl = new CieCollection(Properties.Settings.Default.cieList);
-            
+
 
             if (!Properties.Settings.Default.cardHolder.Equals(""))
             {
-                CieColl.addCie(Properties.Settings.Default.serialNumber, new CieModel(Properties.Settings.Default.serialNumber, Properties.Settings.Default.cardHolder, Properties.Settings.Default.efSeriale));
+                CieColl.addCie(Properties.Settings.Default.serialNumber, new CieModel(Properties.Settings.Default.efSeriale, Properties.Settings.Default.cardHolder, Properties.Settings.Default.serialNumber));
 
                 Properties.Settings.Default.serialNumber = "";
                 Properties.Settings.Default.cardHolder = "";
@@ -235,17 +268,10 @@ namespace CIEID
                 Properties.Settings.Default.Save(); 
             }
 
+
+            configureHomeButtons(cieColl);
+
             Console.WriteLine("Lista CIE abbinate: " + Properties.Settings.Default.cieList);
-
-            if (CieColl.MyDictionary.Count <= 1)
-            {
-                buttonRemoveAll.Enabled = false;
-            }
-            else
-            {
-                buttonRemoveAll.Enabled = true;
-
-            }
 
             if (CieColl.MyDictionary.Count == 0)
             {
@@ -433,8 +459,8 @@ namespace CIEID
             var model = carouselControl.ActiveCieModel;
 
             if (MessageBox.Show(
-                    String.Format("Vuoi disabilitare la CIE numero {0}?", model.SerialNumber), 
-                    "Disabilita CIE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                    String.Format("Stai rimuovendo la Carta di Identità di {0} dal sistema, per utilizzarla nuovamente dovrai ripetere l'abbinamento.", model.Owner), 
+                    "Disabilita CIE", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 return;
             
             int ret = DisabilitaCIE(model.Pan);
@@ -900,6 +926,10 @@ namespace CIEID
 
         private void buttonRemoveAll_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show( String.Format("Rimuovere tutte le Carte di Identità attualmente abbinate?"),
+                "Disabilita tutte le CIE", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                return;
+
             String[] arrayCIE = new String[CieColl.MyDictionary.Count];
 
             for(int i = 0; i< arrayCIE.Count(); i++)
@@ -987,6 +1017,16 @@ namespace CIEID
         }
 
         private void labelOwnerValue0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAnnulla_Click(object sender, EventArgs e)
+        {
+            selectHome();
+        }
+
+        private void tabPage6_Click(object sender, EventArgs e)
         {
 
         }

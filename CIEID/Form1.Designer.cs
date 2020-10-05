@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonAnnulla = new System.Windows.Forms.Button();
             this.buttonAbbina = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -47,6 +48,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.buttonLeft = new System.Windows.Forms.Button();
+            this.dotsGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelCarousel = new System.Windows.Forms.TableLayoutPanel();
             this.carouselItem0 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -66,8 +69,6 @@
             this.labelCardNumberValue2 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.labelOwnerValue2 = new System.Windows.Forms.Label();
-            this.buttonLeft = new System.Windows.Forms.Button();
-            this.dotsGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonRemoveAll = new System.Windows.Forms.Button();
             this.buttonAggiungi = new System.Windows.Forms.Button();
             this.buttonDeleteCIE = new System.Windows.Forms.Button();
@@ -194,6 +195,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.buttonAnnulla);
             this.tabPage1.Controls.Add(this.buttonAbbina);
             this.tabPage1.Controls.Add(this.textBox8);
             this.tabPage1.Controls.Add(this.textBox7);
@@ -216,12 +218,26 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // buttonAnnulla
+            // 
+            this.buttonAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonAnnulla.FlatAppearance.BorderSize = 0;
+            this.buttonAnnulla.ForeColor = System.Drawing.Color.White;
+            this.buttonAnnulla.Location = new System.Drawing.Point(166, 483);
+            this.buttonAnnulla.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAnnulla.Name = "buttonAnnulla";
+            this.buttonAnnulla.Size = new System.Drawing.Size(114, 28);
+            this.buttonAnnulla.TabIndex = 21;
+            this.buttonAnnulla.Text = "Annulla";
+            this.buttonAnnulla.UseVisualStyleBackColor = false;
+            this.buttonAnnulla.Click += new System.EventHandler(this.buttonAnnulla_Click);
+            // 
             // buttonAbbina
             // 
             this.buttonAbbina.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAbbina.FlatAppearance.BorderSize = 0;
             this.buttonAbbina.ForeColor = System.Drawing.Color.White;
-            this.buttonAbbina.Location = new System.Drawing.Point(272, 437);
+            this.buttonAbbina.Location = new System.Drawing.Point(371, 483);
             this.buttonAbbina.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbbina.Name = "buttonAbbina";
             this.buttonAbbina.Size = new System.Drawing.Size(114, 28);
@@ -423,7 +439,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(645, 374);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(653, 374);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // buttonRight
@@ -432,12 +448,34 @@
             this.buttonRight.FlatAppearance.BorderSize = 0;
             this.buttonRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRight.Image = global::CIEID.Properties.Resources.forward_3x;
-            this.buttonRight.Location = new System.Drawing.Point(597, 149);
+            this.buttonRight.Location = new System.Drawing.Point(604, 149);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(31, 56);
             this.buttonRight.TabIndex = 3;
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonLeft.FlatAppearance.BorderSize = 0;
+            this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeft.Image = global::CIEID.Properties.Resources.back_3x;
+            this.buttonLeft.Location = new System.Drawing.Point(15, 149);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(34, 56);
+            this.buttonLeft.TabIndex = 2;
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
+            // 
+            // dotsGroup
+            // 
+            this.dotsGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dotsGroup.AutoSize = true;
+            this.dotsGroup.Location = new System.Drawing.Point(326, 364);
+            this.dotsGroup.Name = "dotsGroup";
+            this.dotsGroup.Size = new System.Drawing.Size(0, 0);
+            this.dotsGroup.TabIndex = 5;
             // 
             // tableLayoutPanelCarousel
             // 
@@ -454,11 +492,11 @@
             this.tableLayoutPanelCarousel.Controls.Add(this.carouselItem1, 1, 0);
             this.tableLayoutPanelCarousel.Controls.Add(this.carouselItem2, 2, 0);
             this.tableLayoutPanelCarousel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanelCarousel.Location = new System.Drawing.Point(67, 3);
+            this.tableLayoutPanelCarousel.Location = new System.Drawing.Point(68, 3);
             this.tableLayoutPanelCarousel.Name = "tableLayoutPanelCarousel";
             this.tableLayoutPanelCarousel.RowCount = 1;
             this.tableLayoutPanelCarousel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCarousel.Size = new System.Drawing.Size(510, 348);
+            this.tableLayoutPanelCarousel.Size = new System.Drawing.Size(516, 348);
             this.tableLayoutPanelCarousel.TabIndex = 4;
             // 
             // carouselItem0
@@ -470,7 +508,7 @@
             this.carouselItem0.Controls.Add(this.labelOwner0);
             this.carouselItem0.Controls.Add(this.labelOwnerValue0);
             this.carouselItem0.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.carouselItem0.Location = new System.Drawing.Point(6, 75);
+            this.carouselItem0.Location = new System.Drawing.Point(7, 75);
             this.carouselItem0.Name = "carouselItem0";
             this.carouselItem0.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
             this.carouselItem0.Size = new System.Drawing.Size(121, 198);
@@ -545,7 +583,7 @@
             this.carouselItem1.Controls.Add(this.label24);
             this.carouselItem1.Controls.Add(this.labelOwnerValue1);
             this.carouselItem1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.carouselItem1.Location = new System.Drawing.Point(138, 45);
+            this.carouselItem1.Location = new System.Drawing.Point(142, 45);
             this.carouselItem1.Name = "carouselItem1";
             this.carouselItem1.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
             this.carouselItem1.Size = new System.Drawing.Size(231, 257);
@@ -615,7 +653,7 @@
             this.carouselItem2.Controls.Add(this.label30);
             this.carouselItem2.Controls.Add(this.labelOwnerValue2);
             this.carouselItem2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.carouselItem2.Location = new System.Drawing.Point(381, 72);
+            this.carouselItem2.Location = new System.Drawing.Point(386, 72);
             this.carouselItem2.Name = "carouselItem2";
             this.carouselItem2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
             this.carouselItem2.Size = new System.Drawing.Size(122, 204);
@@ -680,38 +718,16 @@
             this.labelOwnerValue2.TabIndex = 4;
             this.labelOwnerValue2.Text = "label27";
             // 
-            // buttonLeft
-            // 
-            this.buttonLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLeft.FlatAppearance.BorderSize = 0;
-            this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLeft.Image = global::CIEID.Properties.Resources.back_3x;
-            this.buttonLeft.Location = new System.Drawing.Point(15, 149);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(34, 56);
-            this.buttonLeft.TabIndex = 2;
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
-            // 
-            // dotsGroup
-            // 
-            this.dotsGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dotsGroup.AutoSize = true;
-            this.dotsGroup.Location = new System.Drawing.Point(322, 364);
-            this.dotsGroup.Name = "dotsGroup";
-            this.dotsGroup.Size = new System.Drawing.Size(0, 0);
-            this.dotsGroup.TabIndex = 5;
-            // 
             // buttonRemoveAll
             // 
             this.buttonRemoveAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonRemoveAll.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonRemoveAll.FlatAppearance.BorderSize = 0;
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(253, 483);
+            this.buttonRemoveAll.Location = new System.Drawing.Point(256, 483);
             this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
-            this.buttonRemoveAll.Size = new System.Drawing.Size(114, 28);
+            this.buttonRemoveAll.Size = new System.Drawing.Size(152, 28);
             this.buttonRemoveAll.TabIndex = 19;
             this.buttonRemoveAll.Text = "Rimuovi tutto";
             this.buttonRemoveAll.UseVisualStyleBackColor = false;
@@ -723,10 +739,10 @@
             this.buttonAggiungi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAggiungi.FlatAppearance.BorderSize = 0;
             this.buttonAggiungi.ForeColor = System.Drawing.Color.White;
-            this.buttonAggiungi.Location = new System.Drawing.Point(412, 483);
+            this.buttonAggiungi.Location = new System.Drawing.Point(445, 483);
             this.buttonAggiungi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAggiungi.Name = "buttonAggiungi";
-            this.buttonAggiungi.Size = new System.Drawing.Size(114, 28);
+            this.buttonAggiungi.Size = new System.Drawing.Size(153, 28);
             this.buttonAggiungi.TabIndex = 18;
             this.buttonAggiungi.Text = "Aggiungi Carta";
             this.buttonAggiungi.UseVisualStyleBackColor = false;
@@ -738,10 +754,10 @@
             this.buttonDeleteCIE.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonDeleteCIE.FlatAppearance.BorderSize = 0;
             this.buttonDeleteCIE.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteCIE.Location = new System.Drawing.Point(101, 483);
+            this.buttonDeleteCIE.Location = new System.Drawing.Point(58, 483);
             this.buttonDeleteCIE.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDeleteCIE.Name = "buttonDeleteCIE";
-            this.buttonDeleteCIE.Size = new System.Drawing.Size(114, 28);
+            this.buttonDeleteCIE.Size = new System.Drawing.Size(157, 28);
             this.buttonDeleteCIE.TabIndex = 17;
             this.buttonDeleteCIE.Text = "Rimuovi Carta";
             this.buttonDeleteCIE.UseVisualStyleBackColor = false;
@@ -863,7 +879,7 @@
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(264, 348);
+            this.label15.Location = new System.Drawing.Point(264, 319);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(219, 87);
@@ -875,7 +891,7 @@
             this.buttonCambiaPIN.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonCambiaPIN.FlatAppearance.BorderSize = 0;
             this.buttonCambiaPIN.ForeColor = System.Drawing.Color.White;
-            this.buttonCambiaPIN.Location = new System.Drawing.Point(268, 481);
+            this.buttonCambiaPIN.Location = new System.Drawing.Point(268, 471);
             this.buttonCambiaPIN.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCambiaPIN.Name = "buttonCambiaPIN";
             this.buttonCambiaPIN.Size = new System.Drawing.Size(114, 28);
@@ -886,7 +902,7 @@
             // 
             // textBoxNewPIN2
             // 
-            this.textBoxNewPIN2.Location = new System.Drawing.Point(267, 293);
+            this.textBoxNewPIN2.Location = new System.Drawing.Point(267, 264);
             this.textBoxNewPIN2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNewPIN2.Name = "textBoxNewPIN2";
             this.textBoxNewPIN2.Size = new System.Drawing.Size(187, 20);
@@ -897,7 +913,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(265, 276);
+            this.label14.Location = new System.Drawing.Point(265, 247);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(95, 13);
@@ -906,7 +922,7 @@
             // 
             // textBoxNewPIN
             // 
-            this.textBoxNewPIN.Location = new System.Drawing.Point(267, 244);
+            this.textBoxNewPIN.Location = new System.Drawing.Point(267, 215);
             this.textBoxNewPIN.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNewPIN.Name = "textBoxNewPIN";
             this.textBoxNewPIN.Size = new System.Drawing.Size(187, 20);
@@ -917,7 +933,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(265, 227);
+            this.label13.Location = new System.Drawing.Point(265, 198);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(106, 13);
@@ -926,7 +942,7 @@
             // 
             // textBoxPIN
             // 
-            this.textBoxPIN.Location = new System.Drawing.Point(267, 196);
+            this.textBoxPIN.Location = new System.Drawing.Point(267, 167);
             this.textBoxPIN.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPIN.Name = "textBoxPIN";
             this.textBoxPIN.Size = new System.Drawing.Size(187, 20);
@@ -937,7 +953,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(265, 179);
+            this.label12.Location = new System.Drawing.Point(265, 150);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(114, 13);
@@ -947,7 +963,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(56, 176);
+            this.pictureBox4.Location = new System.Drawing.Point(56, 167);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(165, 161);
@@ -1066,14 +1082,15 @@
             this.tabPage6.Size = new System.Drawing.Size(659, 537);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "tabPage6";
+            this.tabPage6.Click += new System.EventHandler(this.tabPage6_Click);
             // 
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(234, 265);
+            this.label16.Location = new System.Drawing.Point(262, 315);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(186, 68);
+            this.label16.Size = new System.Drawing.Size(219, 87);
             this.label16.TabIndex = 36;
             this.label16.Text = resources.GetString("label16.Text");
             // 
@@ -1082,7 +1099,7 @@
             this.buttonUnlockPIN.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonUnlockPIN.FlatAppearance.BorderSize = 0;
             this.buttonUnlockPIN.ForeColor = System.Drawing.Color.White;
-            this.buttonUnlockPIN.Location = new System.Drawing.Point(147, 351);
+            this.buttonUnlockPIN.Location = new System.Drawing.Point(268, 471);
             this.buttonUnlockPIN.Margin = new System.Windows.Forms.Padding(2);
             this.buttonUnlockPIN.Name = "buttonUnlockPIN";
             this.buttonUnlockPIN.Size = new System.Drawing.Size(114, 28);
@@ -1093,7 +1110,7 @@
             // 
             // textBoxUnlockPIN2
             // 
-            this.textBoxUnlockPIN2.Location = new System.Drawing.Point(234, 236);
+            this.textBoxUnlockPIN2.Location = new System.Drawing.Point(265, 260);
             this.textBoxUnlockPIN2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUnlockPIN2.Name = "textBoxUnlockPIN2";
             this.textBoxUnlockPIN2.Size = new System.Drawing.Size(187, 20);
@@ -1104,7 +1121,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(232, 219);
+            this.label19.Location = new System.Drawing.Point(263, 243);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(95, 13);
@@ -1113,7 +1130,7 @@
             // 
             // textBoxUnlockPIN
             // 
-            this.textBoxUnlockPIN.Location = new System.Drawing.Point(234, 187);
+            this.textBoxUnlockPIN.Location = new System.Drawing.Point(265, 211);
             this.textBoxUnlockPIN.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUnlockPIN.Name = "textBoxUnlockPIN";
             this.textBoxUnlockPIN.Size = new System.Drawing.Size(187, 20);
@@ -1124,7 +1141,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(232, 170);
+            this.label20.Location = new System.Drawing.Point(263, 196);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(106, 13);
@@ -1133,7 +1150,7 @@
             // 
             // textBoxPUK
             // 
-            this.textBoxPUK.Location = new System.Drawing.Point(234, 139);
+            this.textBoxPUK.Location = new System.Drawing.Point(265, 163);
             this.textBoxPUK.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPUK.Name = "textBoxPUK";
             this.textBoxPUK.Size = new System.Drawing.Size(187, 20);
@@ -1144,7 +1161,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(232, 122);
+            this.label21.Location = new System.Drawing.Point(263, 146);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(77, 13);
@@ -1154,10 +1171,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(45, 123);
+            this.pictureBox6.Location = new System.Drawing.Point(54, 163);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(147, 158);
+            this.pictureBox6.Size = new System.Drawing.Size(165, 161);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 28;
             this.pictureBox6.TabStop = false;
@@ -1165,7 +1182,7 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(94, 53);
+            this.label22.Location = new System.Drawing.Point(222, 45);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(244, 32);
@@ -1178,7 +1195,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(142, 22);
+            this.label23.Location = new System.Drawing.Point(263, 16);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(177, 29);
@@ -1687,5 +1704,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label labelOwnerValue2;
         private System.Windows.Forms.FlowLayoutPanel dotsGroup;
+        private System.Windows.Forms.Button buttonAnnulla;
     }
 }
