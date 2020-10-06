@@ -207,28 +207,50 @@ namespace CIEID
         private void configureHomeButtons(CieCollection cieColl)
         {
 
-            if(cieColl.MyDictionary.Count > 1)
+
+            if (cieColl.MyDictionary.Count > 1)
             {
-                buttonDeleteCIE.Location = new Point(58, 483);
-                buttonRemoveAll.Location = new Point(buttonDeleteCIE.Location.X + 198, buttonDeleteCIE.Location.Y);
-                buttonAggiungi.Location = new Point(buttonRemoveAll.Location.X + 189, buttonDeleteCIE.Location.Y);
+                int size_x = tableLayoutPanel1.Size.Width;
+                int size_y = tableLayoutPanel1.Size.Height;
+                int remaining_space = (size_x - (3 * (buttonDeleteCIE.Width)))/4;
+
+
+                buttonRemoveAll.Location = new Point(remaining_space, tableLayoutPanel1.Location.Y + size_y + 10);
+                buttonDeleteCIE.Location = new Point(remaining_space + buttonRemoveAll.Width + buttonRemoveAll.Location.X, buttonRemoveAll.Location.Y);
+                buttonAggiungi.Location = new Point(remaining_space + buttonRemoveAll.Width + buttonDeleteCIE.Location.X, buttonRemoveAll.Location.Y);
                 buttonRemoveAll.Visible = true;
             }
             else
             {
+                int size_x = tableLayoutPanel1.Size.Width;
+                int size_y = tableLayoutPanel1.Size.Height;
+                int remaining_space = (size_x - (2 * (buttonDeleteCIE.Width)))/3;
+
                 buttonRemoveAll.Visible = false;
-                buttonDeleteCIE.Location = new Point(144, 483);
-                buttonAggiungi.Location = new Point(buttonDeleteCIE.Location.X + 203, buttonDeleteCIE.Location.Y);
+                buttonDeleteCIE.Location = new Point(remaining_space, tableLayoutPanel1.Location.Y + size_y + 10);
+                buttonAggiungi.Location = new Point(2* remaining_space + buttonDeleteCIE.Width, buttonDeleteCIE.Location.Y);
             }
 
             if (CieColl.MyDictionary.Count >= 1)
             {
-                buttonAbbina.Location = new System.Drawing.Point(buttonAnnulla.Location.X + 205, buttonAnnulla.Location.Y);
+                int size_x = tabPage1.Size.Width;
+                int size_y = tabPage1.Size.Height;
+                int remaining_space = (size_x - 2*((buttonAbbina.Width))) / 3;
+
+                int height = size_y - buttonAbbina.Height - 30;
+
+                buttonAnnulla.Location = new System.Drawing.Point(remaining_space, height); 
+                buttonAbbina.Location = new System.Drawing.Point(2 * remaining_space + buttonAnnulla.Width, buttonAnnulla.Location.Y);
                 buttonAnnulla.Visible = true;
             }
             else
             {
-                buttonAbbina.Location = new System.Drawing.Point(272, 437);
+                int size_x = tabPage1.Size.Width;
+                int size_y = tabPage1.Size.Height;
+                int remaining_space = (size_x - ((buttonAbbina.Width))) / 2;
+                int height = size_y - buttonAbbina.Height - 30;
+
+                buttonAbbina.Location = new System.Drawing.Point(remaining_space, height);
                 buttonAnnulla.Visible = false;
             }
         }

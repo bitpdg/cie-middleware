@@ -202,6 +202,18 @@ namespace CIEID.Controls
                     this.dotsGroup.Controls.Add(dot);
                 }
             }
+            else if(Items != null && CarouselItemsCount == 1)
+            {
+                var dot = new CustomRadioButton
+                {
+                    Name = "Dot1",
+                    Size = new System.Drawing.Size(DOT_SIZE, DOT_SIZE),
+                    Anchor = (AnchorStyles.None),
+                    Checked = true
+                };
+
+                this.dotsGroup.Controls.Add(dot);
+            }
 
             dotsCreated = true;
         }

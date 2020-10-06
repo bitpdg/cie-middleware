@@ -55,7 +55,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.ItemSize = new System.Drawing.Size(0, 1);
             this.tabControl.Location = new System.Drawing.Point(-1, -2);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -71,9 +71,9 @@
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(792, 523);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
@@ -84,7 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonContinue.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonContinue.Location = new System.Drawing.Point(355, 452);
-            this.buttonContinue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonContinue.Margin = new System.Windows.Forms.Padding(2);
             this.buttonContinue.Name = "buttonContinue";
             this.buttonContinue.Size = new System.Drawing.Size(85, 28);
             this.buttonContinue.TabIndex = 3;
@@ -99,7 +99,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(149, 161);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(512, 243);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -142,9 +142,9 @@
             this.tabPage2.Controls.Add(this.pictureBox2);
             this.tabPage2.Controls.Add(this.buttonStart);
             this.tabPage2.Location = new System.Drawing.Point(4, 5);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(792, 523);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
@@ -152,8 +152,8 @@
             // checkBoxNoMore
             // 
             this.checkBoxNoMore.AutoSize = true;
-            this.checkBoxNoMore.Location = new System.Drawing.Point(556, 482);
-            this.checkBoxNoMore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxNoMore.Location = new System.Drawing.Point(556, 459);
+            this.checkBoxNoMore.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxNoMore.Name = "checkBoxNoMore";
             this.checkBoxNoMore.Size = new System.Drawing.Size(106, 17);
             this.checkBoxNoMore.TabIndex = 8;
@@ -187,8 +187,8 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(125, 152);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(150, 156);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(512, 243);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -200,8 +200,8 @@
             this.buttonStart.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonStart.FlatAppearance.BorderSize = 0;
-            this.buttonStart.Location = new System.Drawing.Point(352, 452);
-            this.buttonStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonStart.Location = new System.Drawing.Point(355, 452);
+            this.buttonStart.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(85, 28);
             this.buttonStart.TabIndex = 4;
@@ -217,7 +217,7 @@
             this.ClientSize = new System.Drawing.Size(799, 530);
             this.Controls.Add(this.tabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Intro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CIE ID";
