@@ -92,10 +92,7 @@ namespace CIEID.Controls
         {
             get
             {
-                if (CarouselItemsCount == 1)
-                    return Items[1];
-
-                return Items.Where(x => !x.IsEmpty).ElementAt(activeItemIndex);
+                return Items[1];
             }
         }
 

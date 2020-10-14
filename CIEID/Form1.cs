@@ -30,6 +30,7 @@ namespace CIEID
         public const int CKR_PIN_INCORRECT = 0x000000A0;
         public const int CKR_PIN_INVALID = 0x000000A1;
         public const int CKR_PIN_LEN_RANGE = 0x000000A2;
+        public const int CARD_ALREADY_ENABLED = 0x000000F0;
 
         /* CKR_PIN_EXPIRED and CKR_PIN_LOCKED are new for v2.0 */
         public const int CKR_PIN_EXPIRED = 0x000000A3;
@@ -369,7 +370,6 @@ namespace CIEID
             ((Control)sender).Enabled = false;
 
             tabControlMain.SelectedIndex = 2;
-            ProgressAbbina(0, "Verifica carta esistente");
 
             ThreadStart processTaskThread = delegate { abbina(sender, pin); };
 
@@ -383,91 +383,49 @@ namespace CIEID
             {
                 int[] attempts = new int[1];
 
-                StringBuilder sb = new StringBuilder(10);
 
+                int ret = AbbinaCIE(null, pin, attempts, new ProgressCallback(ProgressAbbina), new CompletedCallback(CompletedAbbina));
 
-                int res = isCIEEnrolled(sb);
-
-                if(res != CKR_OK)
+                this.Invoke((MethodInvoker)delegate
                 {
-
-                    this.Invoke((MethodInvoker)delegate
+                    ((Control)sender).Enabled = true;
+                    switch (ret)
                     {
-                        ((Control)sender).Enabled = true;
+                        case CKR_TOKEN_NOT_RECOGNIZED:
+                            MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            selectHome();
+                            break;
 
-                        switch (res)
-                        {
-                            case CKR_TOKEN_NOT_RECOGNIZED:
-                                MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                selectHome();
-                                //[self showHomeFirstPage];
-                                break;
-                            case CKR_TOKEN_NOT_PRESENT:
-                                MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                selectHome();
-                                break;
-                            case CKR_GENERAL_ERROR:
-                                MessageBox.Show("Errore inaspettato durante la comunicazione con la smart card", "Errore inaspettato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                selectHome();
-                                break;
-                        }
-                    });
-                }
-                else
-                {
-                    Console.WriteLine("PAN: " + sb.ToString());
+                        case CKR_TOKEN_NOT_PRESENT:
+                            MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            selectHome();
+                            break;
 
-                    if (CieColl.MyDictionary.ContainsKey(sb.ToString()))
-                    {
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            ((Control)sender).Enabled = true;
+                        case CKR_PIN_INCORRECT:
+                            MessageBox.Show(String.Format("Il PIN digitato è errato. rimangono {0} tentativi", attempts[0]), "PIN non corretto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            selectHome();
+                            break;
+
+                        case CKR_PIN_LOCKED:
+                            MessageBox.Show("Munisciti del codice PUK e utilizza la funzione di sblocco carta per abilitarla", "Carta bloccata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            selectHome();
+                            break;
+
+                        case CKR_GENERAL_ERROR:
+                            MessageBox.Show("Errore inaspettato durante la comunicazione con la smart card", "Errore inaspettato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            selectHome();
+                            break;
+
+                        case CKR_OK:
+                            MessageBox.Show("L'abilitazione della CIE è avvenuta con successo", "CIE abilitata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            selectHome();
+                            break;
+                        case CARD_ALREADY_ENABLED:
                             MessageBox.Show("Carta già abilitata", "Carta già abilitata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             selectHome();
-                        });
+                            break;
                     }
-                    else
-                    {
-                        int ret = AbbinaCIE(null, pin, attempts, new ProgressCallback(ProgressAbbina), new CompletedCallback(CompletedAbbina));
-
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            ((Control)sender).Enabled = true;
-                            switch (ret)
-                            {
-                                case CKR_TOKEN_NOT_RECOGNIZED:
-                                    MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    selectHome();
-                                    break;
-
-                                case CKR_TOKEN_NOT_PRESENT:
-                                    MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    selectHome();
-                                    break;
-
-                                case CKR_PIN_INCORRECT:
-                                    MessageBox.Show(String.Format("Il PIN digitato è errato. rimangono {0} tentativi", attempts[0]), "PIN non corretto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    selectHome();
-                                    break;
-
-                                case CKR_PIN_LOCKED:
-                                    MessageBox.Show("Munisciti del codice PUK e utilizza la funzione di sblocco carta per abilitarla", "Carta bloccata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    selectHome();
-                                    break;
-
-                                case CKR_GENERAL_ERROR:
-                                    MessageBox.Show("Errore inaspettato durante la comunicazione con la smart card", "Errore inaspettato", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    selectHome();
-                                    break;
-
-                                case CKR_OK:
-                                    MessageBox.Show("L'abilitazione della CIE è avvenuta con successo", "CIE abilitata", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    selectHome();
-                                    break;
-                            }
-                        });
-                    }
-                }
+                });
                 
             }
             catch (Exception ex)
@@ -959,7 +917,7 @@ namespace CIEID
                 arrayCIE[i] = CieColl.MyDictionary.ElementAt(i).Key;
             }
             
-            for (int i = 0; i< arrayCIE.Count(); i++)
+            for (int i = 0; i< arrayCIE.Count(); i++)   
             {
 
                 int ret = DisabilitaCIE(arrayCIE[i]);
@@ -1049,6 +1007,11 @@ namespace CIEID
         }
 
         private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
         {
 
         }

@@ -18,6 +18,8 @@
 #include "../UI/SystemTray.h"
 
 
+#define CARD_ALREADY_ENABLED		0x000000F0;
+
 typedef CK_RV(*AbilitaCIEfn)(const char*  szPAN,
 	const char*  szPIN,
 	int* attempts,
@@ -61,94 +63,6 @@ extern "C" {
 
 		return CKR_FUNCTION_FAILED;
 	}
-
-	CK_RV CK_ENTRY __stdcall isCIEEnrolled( char* seriale)
-	{
-		char* readers = NULL;
-		char* ATR = NULL;
-		try
-		{
-			std::map<uint8_t, ByteDynArray> hashSet;
-
-			DWORD len = 0;
-			ByteDynArray CertCIE;
-			ByteDynArray SOD;
-
-			SCARDCONTEXT hSC;
-
-			long nRet = SCardEstablishContext(SCARD_SCOPE_USER, nullptr, nullptr, &hSC);
-			if (nRet != SCARD_S_SUCCESS)
-				return CKR_DEVICE_ERROR;
-
-			if (SCardListReaders(hSC, nullptr, NULL, &len) != SCARD_S_SUCCESS) {
-				return CKR_TOKEN_NOT_PRESENT;
-			}
-
-			if (len == 1)
-				return CKR_TOKEN_NOT_PRESENT;
-
-			readers = (char*)malloc(len);
-
-			if (SCardListReaders(hSC, nullptr, (char*)readers, &len) != SCARD_S_SUCCESS) {
-				free(readers);
-				return CKR_TOKEN_NOT_PRESENT;
-			}
-
-			char *curreader = readers;
-			bool foundCIE = false;
-			for (; curreader[0] != 0; curreader += strnlen(curreader, len) + 1)
-			{
-				safeConnection conn(hSC, curreader, SCARD_SHARE_SHARED);
-				if (!conn.hCard)
-					continue;
-
-				DWORD atrLen = 40;
-				if (SCardGetAttrib(conn.hCard, SCARD_ATTR_ATR_STRING, (uint8_t*)ATR, &atrLen) != SCARD_S_SUCCESS) {
-					free(readers);
-					return CKR_DEVICE_ERROR;
-				}
-
-				ATR = (char*)malloc(atrLen);
-
-				if (SCardGetAttrib(conn.hCard, SCARD_ATTR_ATR_STRING, (uint8_t*)ATR, &atrLen) != SCARD_S_SUCCESS) {
-					free(readers);
-					free(ATR);
-					return CKR_DEVICE_ERROR;
-				}
-
-				ByteArray atrBa((BYTE*)ATR, atrLen);
-
-				IAS ias((CToken::TokenTransmitCallback)TokenTransmitCallback, atrBa);
-				ias.SetCardContext(&conn);
-
-				foundCIE = false;
-
-				ias.token.Reset();
-				ias.SelectAID_IAS();
-				ias.ReadPAN();
-
-				ias.SelectAID_CIE();
-
-				ByteDynArray IdServizi;
-				ias.ReadIdServizi(IdServizi);
-				
-				memcpy(seriale, IdServizi.data(), IdServizi.size());
-			}
-
-			
-				return SCARD_S_SUCCESS;
-		}
-		catch (std::exception &ex) {
-			OutputDebugString(ex.what());
-			if (ATR)
-				free(ATR);
-			Log.write("%d Eccezione: %s", ex.what());
-			if (readers)
-				free(readers);
-			return CKR_GENERAL_ERROR;
-		}
-	}
-
 	
 	CK_RV CK_ENTRY __stdcall AbbinaCIE(const char*  szPAN, const char*  szPIN, int* attempts, PROGRESS_CALLBACK progressCallBack, COMPLETED_CALLBACK completedCallBack)
 	{
@@ -194,6 +108,10 @@ extern "C" {
 				if (!conn.hCard)
 					continue;
 
+				safeTransaction Tran(conn, SCARD_LEAVE_CARD);
+				if (!Tran.isLocked())
+					continue;
+
 				DWORD atrLen = 40;
 				if (SCardGetAttrib(conn.hCard, SCARD_ATTR_ATR_STRING, (uint8_t*)ATR, &atrLen) != SCARD_S_SUCCESS) {
 					free(readers);
@@ -210,6 +128,8 @@ extern "C" {
 
 				ByteArray atrBa((BYTE*)ATR, atrLen);
 
+				progressCallBack(10, "Verifica carta esistente");
+
 				IAS ias((CToken::TokenTransmitCallback)TokenTransmitCallback, atrBa);
 				ias.SetCardContext(&conn);
 
@@ -218,9 +138,7 @@ extern "C" {
 				ias.token.Reset();
 				ias.SelectAID_IAS();
 				ias.ReadPAN();
-
-				progressCallBack(10, "Lettura dati dalla CIE");
-
+				
 				ByteDynArray IntAuth;
 				ias.SelectAID_CIE();
 				ias.ReadDappPubKey(IntAuth);
@@ -229,6 +147,15 @@ extern "C" {
 
 				ByteDynArray IdServizi;
 				ias.ReadIdServizi(IdServizi);
+
+				if (ias.IsEnrolled())
+				{
+					Log.write("Carta già abilitata\n");
+					return CARD_ALREADY_ENABLED;
+				}
+
+
+				progressCallBack(15, "Lettura dati dalla CIE");
 
 				ByteArray serviziData(IdServizi.left(12));
 				
