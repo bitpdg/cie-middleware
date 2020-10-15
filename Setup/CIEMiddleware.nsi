@@ -76,6 +76,7 @@ Section "Install"
   ${EndIf}
 
   RMDir /r "$LOCALAPPDATA\CIEID"
+  RMDir /r "$%LOCALAPPDATA%\IPZS"
  
   SetShellVarContext all
   RMDir /r "$SMPROGRAMS\CIE Middleware"

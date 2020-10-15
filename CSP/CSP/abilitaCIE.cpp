@@ -84,7 +84,10 @@ extern "C" {
 			if (nRet != SCARD_S_SUCCESS)
 				return CKR_DEVICE_ERROR;
 
+			Log.write("Establish Context ok\n");
+
 			if (SCardListReaders(hSC, nullptr, NULL, &len) != SCARD_S_SUCCESS) {
+				Log.write("List readers ko\n");
 				return CKR_TOKEN_NOT_PRESENT;
 			}
 
@@ -97,26 +100,39 @@ extern "C" {
 				free(readers);
 				return CKR_TOKEN_NOT_PRESENT;
 			}
-
-			progressCallBack(5, "CIE Connessa");
-
+			
 			char *curreader = readers;
 			bool foundCIE = false;
 			for (; curreader[0] != 0; curreader += strnlen(curreader, len) + 1)
 			{
+
 				safeConnection conn(hSC, curreader, SCARD_SHARE_SHARED);
 				if (!conn.hCard)
 					continue;
 
-				safeTransaction Tran(conn, SCARD_LEAVE_CARD);
-				if (!Tran.isLocked())
-					continue;
+				LONG res = 0;
 
+				res = SCardBeginTransaction(conn.hCard);
+
+				while (res != SCARD_S_SUCCESS)
+				{
+					DWORD protocol = 0;
+					SCardReconnect(conn.hCard, SCARD_SHARE_SHARED, SCARD_PROTOCOL_Tx, SCARD_UNPOWER_CARD, &protocol);
+					Log.write("errore\n");
+					res = SCardBeginTransaction(conn.hCard);
+				}
+
+
+				progressCallBack(5, "CIE Connessa");
+				
 				DWORD atrLen = 40;
-				if (SCardGetAttrib(conn.hCard, SCARD_ATTR_ATR_STRING, (uint8_t*)ATR, &atrLen) != SCARD_S_SUCCESS) {
+				res = SCardGetAttrib(conn.hCard, SCARD_ATTR_ATR_STRING, (uint8_t*)ATR, &atrLen);
+				if (res != SCARD_S_SUCCESS) {
 					free(readers);
+					Log.write("GetAttrib ko 1, %d\n", res);
 					return CKR_DEVICE_ERROR;
 				}
+
 
 				ATR = (char*)malloc(atrLen);
 
@@ -127,6 +143,7 @@ extern "C" {
 				}
 
 				ByteArray atrBa((BYTE*)ATR, atrLen);
+				
 
 				progressCallBack(10, "Verifica carta esistente");
 
@@ -275,6 +292,8 @@ extern "C" {
 
 				std::string fullname = name + " " + surname;
 				completedCallBack(span.c_str(), fullname.c_str(), seriale.c_str());
+
+				SCardEndTransaction(conn.hCard, SCARD_RESET_CARD);
 			}
 
 			if (!foundCIE) {
@@ -292,6 +311,8 @@ extern "C" {
 			Log.write("%d Eccezione: %s", ex.what());
 			if (readers)
 				free(readers);
+
+			Log.write("General error\n");
 			return CKR_GENERAL_ERROR;
 		}
 

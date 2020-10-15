@@ -985,11 +985,7 @@ namespace CIEID
         {
 
         }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void labelOwnerValue1_Click(object sender, EventArgs e)
         {
@@ -1015,6 +1011,7 @@ namespace CIEID
         {
 
         }
+        
     }
         //long ret = VerificaCIEAbilitata();
 

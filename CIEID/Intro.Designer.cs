@@ -83,10 +83,10 @@
             this.buttonContinue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonContinue.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonContinue.Location = new System.Drawing.Point(355, 452);
+            this.buttonContinue.Location = new System.Drawing.Point(326, 454);
             this.buttonContinue.Margin = new System.Windows.Forms.Padding(2);
             this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(85, 28);
+            this.buttonContinue.Size = new System.Drawing.Size(114, 30);
             this.buttonContinue.TabIndex = 3;
             this.buttonContinue.Text = "Continua";
             this.buttonContinue.UseVisualStyleBackColor = false;
@@ -98,10 +98,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(149, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(130, 160);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(512, 243);
+            this.pictureBox1.Size = new System.Drawing.Size(531, 259);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -110,11 +110,11 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(68, 46);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(68, 59);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(651, 60);
+            this.label2.Size = new System.Drawing.Size(671, 60);
             this.label2.TabIndex = 1;
             this.label2.Text = "Il software che ti permette di autenticarti ai servizi online della Pubblica Ammi" +
     "nistrazione per mezzo della nuova carta d\'identità elettronica";
@@ -125,11 +125,11 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(287, 17);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(236, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 29);
+            this.label1.Size = new System.Drawing.Size(303, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Benvenuto in CIE ID";
             // 
@@ -152,21 +152,22 @@
             // checkBoxNoMore
             // 
             this.checkBoxNoMore.AutoSize = true;
-            this.checkBoxNoMore.Location = new System.Drawing.Point(556, 459);
+            this.checkBoxNoMore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxNoMore.Location = new System.Drawing.Point(555, 455);
             this.checkBoxNoMore.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxNoMore.Name = "checkBoxNoMore";
-            this.checkBoxNoMore.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxNoMore.Size = new System.Drawing.Size(121, 19);
             this.checkBoxNoMore.TabIndex = 8;
             this.checkBoxNoMore.Text = "Non mostrare più";
             this.checkBoxNoMore.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(216, 47);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(195, 58);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(380, 45);
+            this.label3.Size = new System.Drawing.Size(393, 50);
             this.label3.TabIndex = 7;
             this.label3.Text = "Munisciti di un lettore di smart card contactless, della tua Carta di Identità El" +
     "ettronica e del PIN";
@@ -175,11 +176,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(331, 13);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(315, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 29);
+            this.label4.Size = new System.Drawing.Size(176, 36);
             this.label4.TabIndex = 6;
             this.label4.Text = "Per iniziare";
             // 
@@ -187,10 +188,10 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(150, 156);
+            this.pictureBox2.Location = new System.Drawing.Point(134, 148);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(512, 243);
+            this.pictureBox2.Size = new System.Drawing.Size(528, 257);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -200,10 +201,10 @@
             this.buttonStart.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonStart.FlatAppearance.BorderSize = 0;
-            this.buttonStart.Location = new System.Drawing.Point(355, 452);
+            this.buttonStart.Location = new System.Drawing.Point(344, 448);
             this.buttonStart.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(85, 28);
+            this.buttonStart.Size = new System.Drawing.Size(96, 32);
             this.buttonStart.TabIndex = 4;
             this.buttonStart.Text = "Inizia";
             this.buttonStart.UseVisualStyleBackColor = false;
