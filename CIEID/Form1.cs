@@ -39,6 +39,7 @@ namespace CIEID
         public const int ENROLLED = 1;
         public const int NOT_ENROLLED = 0;
 
+
         delegate long ProgressCallback(int progress, string message);
         delegate long CompletedCallback(string pan, string name, string ef_seriale);
 
@@ -263,21 +264,6 @@ namespace CIEID
 
         private void selectHome()
         {
-            
-            /*
-            Properties.Settings.Default.serialNumber = "";
-            Properties.Settings.Default.cardHolder = "";
-            Properties.Settings.Default.efSeriale = "";
-            */
-            
-            /*
-            Properties.Settings.Default.serialNumber = "123456";
-            Properties.Settings.Default.cardHolder = "Robin";
-            Properties.Settings.Default.efSeriale = "CA12345678BB";
-            */
-            
-            //Properties.Settings.Default.cieList = "";
-
             CieColl = new CieCollection(Properties.Settings.Default.cieList);
 
 
