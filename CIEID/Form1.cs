@@ -1007,10 +1007,6 @@ namespace CIEID
 
         }
 
-        private void label28_Click(object sender, EventArgs e)
-        {
-
-        }
         
     }
         //long ret = VerificaCIEAbilitata();
