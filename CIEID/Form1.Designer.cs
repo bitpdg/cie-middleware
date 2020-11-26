@@ -538,7 +538,7 @@
             // 
             // labelCardNumberValue0
             // 
-            this.labelCardNumberValue0.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
+            this.labelCardNumberValue0.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCardNumberValue0.ForeColor = System.Drawing.Color.LightGray;
             this.labelCardNumberValue0.Location = new System.Drawing.Point(3, 129);
             this.labelCardNumberValue0.Name = "labelCardNumberValue0";
