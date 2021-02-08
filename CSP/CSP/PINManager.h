@@ -27,6 +27,10 @@ typedef DEF_CALLBACK_FUNCTION(CK_RV, COMPLETED_CALLBACK)(
 	const char* name,
 	const char* seriale);
 
+typedef DEF_CALLBACK_FUNCTION(CK_RV, SIGN_COMPLETED_CALLBACK)(
+	const int resValue);
+
+
 typedef CK_RV (*CambioPINfn)(const char*  szCurrentPIN,
                             const char*  szNewPIN,
                             int* attempts,

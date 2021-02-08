@@ -61,6 +61,16 @@ namespace CIEID.Properties {
         }
         
         /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Allura_Regular {
+            get {
+                object obj = ResourceManager.GetObject("Allura_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap back_3x {
@@ -106,6 +116,16 @@ namespace CIEID.Properties {
             get {
                 object obj = ResourceManager.GetObject("forward@3x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Byte[].
+        /// </summary>
+        internal static byte[] mutool {
+            get {
+                object obj = ResourceManager.GetObject("mutool", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

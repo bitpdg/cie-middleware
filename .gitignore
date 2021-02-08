@@ -57,6 +57,8 @@ x64/Release/
 /TestCIE/Release
 /CIEID/bin/Release
 NoteCIEtxt/
-sign*
+signtool.exe
+sign_sha*
+CSP/Dependencies/
 script.bat
 Middleware-produzione/*
