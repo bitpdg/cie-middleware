@@ -1264,7 +1264,15 @@ namespace CIEID
 
             signOp = opSelectedState.NO_OP;
 
-            changeHomeObjects();           
+            if(CieColl.MyDictionary.Count == 0)
+            {
+                selectHome();
+            }
+            else
+            {
+                changeHomeObjects();           
+
+            }
         }
 
         private void lbPeronalizza_Click(object sender, EventArgs e)
