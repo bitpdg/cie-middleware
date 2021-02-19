@@ -57,7 +57,7 @@ extern "C" {
 
 	}
 
-	
+
 	CK_RV CK_ENTRY __stdcall DisabilitaCIE(const char*  szPAN)
 	{
 		if (IAS::IsEnrolled(szPAN))
@@ -68,8 +68,8 @@ extern "C" {
 
 		return CKR_FUNCTION_FAILED;
 	}
-	
-	
+
+
 	VERIFY_RESULT verifyResult;
 
 	CK_RV CK_ENTRY __stdcall getNumberOfSign()
@@ -79,15 +79,19 @@ extern "C" {
 
 	CK_RV CK_ENTRY __stdcall getVerifyInfo(int index, struct verifyInfo_t* vInfos)
 	{
-		SIGNER_INFO tmpSignerInfo = (verifyResult.verifyInfo.pSignerInfos->pSignerInfo)[index];// +(index * sizeof(SIGNER_INFO)));
-		strcpy_s(vInfos->name, 512, tmpSignerInfo.szGIVENNAME);
-		strcpy_s(vInfos->surname, 512, tmpSignerInfo.szSURNAME);
-		strcpy_s(vInfos->cn, 512, tmpSignerInfo.szCN);
-		strcpy_s(vInfos->cadn, 512, tmpSignerInfo.szCADN);
-		strcpy_s(vInfos->signingTime, 512, tmpSignerInfo.szSigningTime);
-		vInfos->CertRevocStatus = tmpSignerInfo.pRevocationInfo->nRevocationStatus;
-		vInfos->isCertValid = (tmpSignerInfo.bitmask & VERIFIED_CERT_GOOD) == VERIFIED_CERT_GOOD;
-		vInfos->isSignValid = (tmpSignerInfo.bitmask & VERIFIED_SIGNATURE) == VERIFIED_SIGNATURE;
+
+		if (index >= 0 && index < getNumberOfSign())
+		{
+			SIGNER_INFO tmpSignerInfo = (verifyResult.verifyInfo.pSignerInfos->pSignerInfo)[index];// +(index * sizeof(SIGNER_INFO)));
+			strcpy_s(vInfos->name, 512, tmpSignerInfo.szGIVENNAME);
+			strcpy_s(vInfos->surname, 512, tmpSignerInfo.szSURNAME);
+			strcpy_s(vInfos->cn, 512, tmpSignerInfo.szCN);
+			strcpy_s(vInfos->cadn, 512, tmpSignerInfo.szCADN);
+			strcpy_s(vInfos->signingTime, 512, tmpSignerInfo.szSigningTime);
+			vInfos->CertRevocStatus = tmpSignerInfo.pRevocationInfo->nRevocationStatus;
+			vInfos->isCertValid = (tmpSignerInfo.bitmask & VERIFIED_CERT_GOOD) == VERIFIED_CERT_GOOD;
+			vInfos->isSignValid = (tmpSignerInfo.bitmask & VERIFIED_SIGNATURE) == VERIFIED_SIGNATURE;
+		}
 
 		return 0;
 	}

@@ -115,6 +115,7 @@ namespace CIEID
             signPicture.Width = signImage.Width;
             signPicture.Height = signImage.Height;
             signPicture.BringToFront();
+            signPicture.BorderStyle = BorderStyle.FixedSingle;
 
             pbPdfPreview = new PictureBox();
 

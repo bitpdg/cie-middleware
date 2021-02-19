@@ -107,21 +107,21 @@ namespace CIEID
                 s_cert = "Il certificato non è valido";
             }
 
-            string s_sign = "";
+            string s_sign = "La firma non è valida";
+            pbSign.Image = CIEID.Properties.Resources.orange_checkbox;
             if (vInfo.isSignValid == true)
             {
                 s_sign = "La firma è valida";
-            }
-            else
-            {
-                s_sign = "La firma non è valida";
+                pbSign.Image = CIEID.Properties.Resources.blue_checkbox;
             }
 
             
-            string s_revoc = "";
+            string s_revoc = "Servizio di revoca non raggiungibile";
+            pbCertRev.Image = CIEID.Properties.Resources.orange_checkbox;
             if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_GOOD)
             {
                 s_revoc = "Il certificato non è revocato";
+                pbCertRev.Image = CIEID.Properties.Resources.blue_checkbox;
             }
             else if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_REVOKED)
             {
@@ -130,9 +130,6 @@ namespace CIEID
             else if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_SUSPENDED)
             {
                 s_revoc = "Il certificato è sospeso";
-            }else
-            {
-                s_revoc = "Servizio di revoca non raggiungibile";
             }
 
             string s_cadn = vInfo.cadn; 
@@ -190,7 +187,7 @@ namespace CIEID
             pbVName.TabIndex = 6;
             pbVName.TabStop = false;
             pbVName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbVName.Image = Image.FromFile("F:\\Projects\\IPZS\\Resources\\user.png");
+            pbVName.Image = CIEID.Properties.Resources.user;
 
             // 
             // lblSignTime
@@ -213,7 +210,7 @@ namespace CIEID
             pbSignTime.TabIndex = 7;
             pbSignTime.TabStop = false;
             pbSignTime.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbSignTime.Image = Image.FromFile("F:\\Projects\\IPZS\\Resources\\calendar.jpg");
+            pbSignTime.Image = CIEID.Properties.Resources.calendar;
 
             // 
             // lblSign
@@ -235,7 +232,6 @@ namespace CIEID
             pbSign.TabIndex = 8;
             pbSign.TabStop = false;
             pbSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbSign.Image = Image.FromFile("F:\\Projects\\IPZS\\Resources\\check.png");
 
             // 
             // lblCertValid
@@ -259,7 +255,7 @@ namespace CIEID
             pbCertValid.TabIndex = 9;
             pbCertValid.TabStop = false;
             pbCertValid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbCertValid.Image = Image.FromFile("F:\\Projects\\IPZS\\Resources\\check.png");
+            pbCertValid.Image = CIEID.Properties.Resources.orange_checkbox;
 
             // 
             // lblCertRev
@@ -282,7 +278,7 @@ namespace CIEID
             pbCertRev.TabIndex = 10;
             pbCertRev.TabStop = false;
             pbCertRev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbCertRev.Image = Image.FromFile("F:\\Projects\\IPZS\\Resources\\check.png");            
+            pbCertRev.Image = CIEID.Properties.Resources.orange_checkbox;
 
             // 
             // lblCn
@@ -306,7 +302,7 @@ namespace CIEID
             pbCn.TabIndex = 11;
             pbCn.TabStop = false;
             pbCn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbCn.Image = Image.FromFile("F:\\Projects\\IPZS\\Resources\\check.png");
+            pbCn.Image = CIEID.Properties.Resources.medal;
 
             return tbVerifyInfo;
         }
@@ -324,6 +320,14 @@ namespace CIEID
             verifyPanel.WrapContents = false;
 
             int n_sign = (int)verificaConCIE(filePath);
+
+            if(n_sign < 0)
+            {
+                n_sign = 0;
+            }
+
+
+            Console.WriteLine("Numero di firme: {0}", n_sign);
             vInfos = new verifyInfo_t[n_sign];
 
 

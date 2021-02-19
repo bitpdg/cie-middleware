@@ -1604,7 +1604,8 @@ namespace CIEID
             pbFirmaPin.Hide();
             lblFirmaSuccess.Hide();
 
-            tabControlMain.SelectedIndex = 10;
+            changeHomeObjects();
+
         }
 
         private void goToSignPin(string pdfPath)
@@ -1675,32 +1676,46 @@ namespace CIEID
             lblFirmaPin.TextAlign = ContentAlignment.MiddleCenter;
             lblFirmaPin.Text = "Firma in corso...";
             lblFirmaPin.Update();
-            
-            //invocare metodo firma in un altro thread
 
-
-            var model = carouselControl.ActiveCieModel;
-            if (cbFirmaGrafica.Checked && (signOp == opSelectedState.FIRMA_PADES))
+            ((Control)sender).Enabled = false;
+            ThreadStart processTaskThread = delegate
             {
-                Console.WriteLine("Pades con grafica");
-                Dictionary<string, float> signImageInfo = pdfPreview.getSignImageInfos();
-                firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, (int)signImageInfo["pageNumber"], signImageInfo["x"], signImageInfo["y"], signImageInfo["w"], signImageInfo["h"],
-                    pdfPreview.getSignImagePath(), pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
+                var model = carouselControl.ActiveCieModel;
+                if (cbFirmaGrafica.Checked && (signOp == opSelectedState.FIRMA_PADES))
+                {
+                    Console.WriteLine("Pades con grafica");
+                    Dictionary<string, float> signImageInfo = pdfPreview.getSignImageInfos();
+                    firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, (int)signImageInfo["pageNumber"], signImageInfo["x"], signImageInfo["y"], signImageInfo["w"], signImageInfo["h"],
+                        pdfPreview.getSignImagePath(), pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
 
-            }
-            else if (signOp == opSelectedState.FIRMA_PADES)
+                }
+                else if (signOp == opSelectedState.FIRMA_PADES)
+                {
+                    Console.WriteLine("Pades senza grafica");
+
+                    firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
+                }
+                else if (signOp == opSelectedState.FIRMA_CADES)
+                {
+                    Console.WriteLine("Cades");
+
+                    firmaConCIE(lblPath4.Text, "p7m", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
+                }
+
+            };
+
+            ((Control)sender).Enabled = true;
+            new Thread(processTaskThread).Start();
+        }
+
+        private void firma(object sender, String inFilePath, String outFilePath, String fileType, String pin, String pan, int page, float x, float y, float w, float h,  String signImgPath )
+        {
+            firmaConCIE(inFilePath, fileType, pin, pan, page, x, y, w, h, signImgPath, outFilePath, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
+
+            this.Invoke((MethodInvoker)delegate
             {
-                Console.WriteLine("Pades senza grafica");
-
-                firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
-            }
-            else if (signOp == opSelectedState.FIRMA_CADES)
-            {
-                Console.WriteLine("Cades");
-
-                firmaConCIE(lblPath4.Text, "p7m", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
-            }
-                
+                ((Control)sender).Enabled = true;
+            });
         }
 
         private void btnPersonalizzaAnnulla_Click(object sender, EventArgs e)
@@ -1747,6 +1762,7 @@ namespace CIEID
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //changeHomeObjects();
             tabControlMain.SelectedIndex = 10;
         }
 

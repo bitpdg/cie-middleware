@@ -200,11 +200,6 @@ namespace CIEID
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tbFirmaPersonalizzata = new System.Windows.Forms.TabPage();
-            this.label34 = new System.Windows.Forms.Label();
-            this.lblPersonalizzaPreambolo = new System.Windows.Forms.Label();
-            this.pnFirmaGrafica = new System.Windows.Forms.Panel();
-            this.btnPersonalizzaSelect = new System.Windows.Forms.Button();
-            this.btnPersonalizzaAnnulla = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.tbVerifica = new System.Windows.Forms.TabPage();
             this.pnVerifica = new System.Windows.Forms.Panel();
@@ -224,6 +219,13 @@ namespace CIEID
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonFirma = new System.Windows.Forms.Button();
+            this.btnPersonalizzaSelect = new System.Windows.Forms.Button();
+            this.lblPersonalizzaPreambolo = new System.Windows.Forms.Label();
+            this.btnPersonalizzaAnnulla = new System.Windows.Forms.Button();
+            this.label34 = new System.Windows.Forms.Label();
+            this.pnFirmaGrafica = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -285,6 +287,8 @@ namespace CIEID
             this.pnVerifica.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -1624,7 +1628,7 @@ namespace CIEID
             // label27
             // 
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(58, 157);
+            this.label27.Location = new System.Drawing.Point(58, 179);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(377, 25);
@@ -1635,7 +1639,7 @@ namespace CIEID
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(58, 102);
+            this.label7.Location = new System.Drawing.Point(58, 121);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(377, 45);
@@ -1648,9 +1652,9 @@ namespace CIEID
             // 
             this.pbFolder.Image = ((System.Drawing.Image)(resources.GetObject("pbFolder.Image")));
             this.pbFolder.InitialImage = null;
-            this.pbFolder.Location = new System.Drawing.Point(201, 19);
+            this.pbFolder.Location = new System.Drawing.Point(201, 14);
             this.pbFolder.Name = "pbFolder";
-            this.pbFolder.Size = new System.Drawing.Size(75, 69);
+            this.pbFolder.Size = new System.Drawing.Size(85, 104);
             this.pbFolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFolder.TabIndex = 0;
             this.pbFolder.TabStop = false;
@@ -1684,7 +1688,7 @@ namespace CIEID
             this.btnAnnullaOp.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnAnnullaOp.FlatAppearance.BorderSize = 0;
             this.btnAnnullaOp.ForeColor = System.Drawing.Color.White;
-            this.btnAnnullaOp.Location = new System.Drawing.Point(234, 484);
+            this.btnAnnullaOp.Location = new System.Drawing.Point(256, 484);
             this.btnAnnullaOp.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnnullaOp.Name = "btnAnnullaOp";
             this.btnAnnullaOp.Size = new System.Drawing.Size(157, 28);
@@ -1699,7 +1703,7 @@ namespace CIEID
             this.panel1.Controls.Add(this.pnVerificaOp);
             this.panel1.Controls.Add(this.lblPath);
             this.panel1.Controls.Add(this.pictureBox16);
-            this.panel1.Location = new System.Drawing.Point(61, 104);
+            this.panel1.Location = new System.Drawing.Point(73, 104);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 362);
             this.panel1.TabIndex = 18;
@@ -1708,7 +1712,7 @@ namespace CIEID
             // 
             this.pnFirmaOp.Controls.Add(this.lblFirmaOp);
             this.pnFirmaOp.Controls.Add(this.pictureBox17);
-            this.pnFirmaOp.Location = new System.Drawing.Point(132, 137);
+            this.pnFirmaOp.Location = new System.Drawing.Point(133, 128);
             this.pnFirmaOp.Name = "pnFirmaOp";
             this.pnFirmaOp.Size = new System.Drawing.Size(247, 99);
             this.pnFirmaOp.TabIndex = 3;
@@ -1721,7 +1725,7 @@ namespace CIEID
             this.lblFirmaOp.AutoSize = true;
             this.lblFirmaOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirmaOp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFirmaOp.Location = new System.Drawing.Point(98, 32);
+            this.lblFirmaOp.Location = new System.Drawing.Point(116, 43);
             this.lblFirmaOp.Name = "lblFirmaOp";
             this.lblFirmaOp.Size = new System.Drawing.Size(128, 25);
             this.lblFirmaOp.TabIndex = 3;
@@ -1734,9 +1738,9 @@ namespace CIEID
             // 
             this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
             this.pictureBox17.InitialImage = null;
-            this.pictureBox17.Location = new System.Drawing.Point(11, 17);
+            this.pictureBox17.Location = new System.Drawing.Point(9, 14);
             this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(70, 68);
+            this.pictureBox17.Size = new System.Drawing.Size(65, 82);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox17.TabIndex = 2;
             this.pictureBox17.TabStop = false;
@@ -1745,9 +1749,9 @@ namespace CIEID
             // 
             this.pnVerificaOp.Controls.Add(this.pictureBox18);
             this.pnVerificaOp.Controls.Add(this.lblVerificaOp);
-            this.pnVerificaOp.Location = new System.Drawing.Point(132, 251);
+            this.pnVerificaOp.Location = new System.Drawing.Point(133, 242);
             this.pnVerificaOp.Name = "pnVerificaOp";
-            this.pnVerificaOp.Size = new System.Drawing.Size(247, 91);
+            this.pnVerificaOp.Size = new System.Drawing.Size(247, 99);
             this.pnVerificaOp.TabIndex = 4;
             this.pnVerificaOp.Click += new System.EventHandler(this.pnVerificaOp_MouseClick);
             this.pnVerificaOp.MouseEnter += new System.EventHandler(this.pnVerificaOp_MouseEnter);
@@ -1757,9 +1761,9 @@ namespace CIEID
             // 
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
             this.pictureBox18.InitialImage = null;
-            this.pictureBox18.Location = new System.Drawing.Point(9, 8);
+            this.pictureBox18.Location = new System.Drawing.Point(9, 14);
             this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(70, 68);
+            this.pictureBox18.Size = new System.Drawing.Size(65, 82);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox18.TabIndex = 5;
             this.pictureBox18.TabStop = false;
@@ -1769,7 +1773,7 @@ namespace CIEID
             this.lblVerificaOp.AutoSize = true;
             this.lblVerificaOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVerificaOp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblVerificaOp.Location = new System.Drawing.Point(97, 27);
+            this.lblVerificaOp.Location = new System.Drawing.Point(116, 43);
             this.lblVerificaOp.Name = "lblVerificaOp";
             this.lblVerificaOp.Size = new System.Drawing.Size(129, 25);
             this.lblVerificaOp.TabIndex = 4;
@@ -1782,19 +1786,20 @@ namespace CIEID
             // 
             this.lblPath.AutoEllipsis = true;
             this.lblPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPath.Location = new System.Drawing.Point(165, 41);
+            this.lblPath.Location = new System.Drawing.Point(142, 23);
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(320, 51);
             this.lblPath.TabIndex = 2;
-            this.lblPath.Text = "label32";
+            this.lblPath.Text = "label32label32label32label32label32label32label32label32label32label32label32labe" +
+    "l32label32label32label32label32label32label32";
             // 
             // pictureBox16
             // 
             this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
             this.pictureBox16.InitialImage = null;
-            this.pictureBox16.Location = new System.Drawing.Point(66, 17);
+            this.pictureBox16.Location = new System.Drawing.Point(61, 3);
             this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(75, 69);
+            this.pictureBox16.Size = new System.Drawing.Size(75, 89);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 1;
             this.pictureBox16.TabStop = false;
@@ -1831,7 +1836,7 @@ namespace CIEID
             this.btnSignProsegui.Enabled = false;
             this.btnSignProsegui.FlatAppearance.BorderSize = 0;
             this.btnSignProsegui.ForeColor = System.Drawing.Color.White;
-            this.btnSignProsegui.Location = new System.Drawing.Point(338, 484);
+            this.btnSignProsegui.Location = new System.Drawing.Point(350, 484);
             this.btnSignProsegui.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignProsegui.Name = "btnSignProsegui";
             this.btnSignProsegui.Size = new System.Drawing.Size(157, 28);
@@ -1874,7 +1879,7 @@ namespace CIEID
             this.panel2.Controls.Add(this.panelChooseCades);
             this.panel2.Controls.Add(this.lblPath2);
             this.panel2.Controls.Add(this.pictureBox21);
-            this.panel2.Location = new System.Drawing.Point(61, 104);
+            this.panel2.Location = new System.Drawing.Point(73, 104);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(501, 362);
             this.panel2.TabIndex = 22;
@@ -1885,9 +1890,9 @@ namespace CIEID
             this.panelChoosePades.Controls.Add(this.lblPadesExp);
             this.panelChoosePades.Controls.Add(this.lblPadesTitle);
             this.panelChoosePades.Controls.Add(this.pbPades);
-            this.panelChoosePades.Location = new System.Drawing.Point(268, 179);
+            this.panelChoosePades.Location = new System.Drawing.Point(256, 160);
             this.panelChoosePades.Name = "panelChoosePades";
-            this.panelChoosePades.Size = new System.Drawing.Size(169, 148);
+            this.panelChoosePades.Size = new System.Drawing.Size(220, 180);
             this.panelChoosePades.TabIndex = 26;
             this.panelChoosePades.Click += new System.EventHandler(this.panelChoosePades_MouseClick);
             this.panelChoosePades.MouseEnter += new System.EventHandler(this.panelChoosePades_MouseEnter);
@@ -1897,7 +1902,7 @@ namespace CIEID
             // 
             this.cbFirmaGrafica.AutoSize = true;
             this.cbFirmaGrafica.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.cbFirmaGrafica.Location = new System.Drawing.Point(8, 122);
+            this.cbFirmaGrafica.Location = new System.Drawing.Point(21, 160);
             this.cbFirmaGrafica.Name = "cbFirmaGrafica";
             this.cbFirmaGrafica.Size = new System.Drawing.Size(127, 17);
             this.cbFirmaGrafica.TabIndex = 6;
@@ -1912,11 +1917,12 @@ namespace CIEID
             // 
             this.lblPadesExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblPadesExp.Location = new System.Drawing.Point(3, 73);
+            this.lblPadesExp.Location = new System.Drawing.Point(59, 51);
             this.lblPadesExp.Name = "lblPadesExp";
-            this.lblPadesExp.Size = new System.Drawing.Size(157, 46);
+            this.lblPadesExp.Size = new System.Drawing.Size(155, 106);
             this.lblPadesExp.TabIndex = 4;
-            this.lblPadesExp.Text = "Qui spieghiamo cos\'è una firma PADES";
+            this.lblPadesExp.Text = "Si appone su documenti PDF nella versione grafica oppure in maniera invisibile. I" +
+    "l documento firmato avrà estensione .pdf.";
             this.lblPadesExp.Click += new System.EventHandler(this.panelChoosePades_MouseClick);
             this.lblPadesExp.MouseEnter += new System.EventHandler(this.panelChoosePades_MouseEnter);
             this.lblPadesExp.MouseLeave += new System.EventHandler(this.panelChoosePades_MouseLeave);
@@ -1941,7 +1947,7 @@ namespace CIEID
             this.pbPades.InitialImage = null;
             this.pbPades.Location = new System.Drawing.Point(3, 11);
             this.pbPades.Name = "pbPades";
-            this.pbPades.Size = new System.Drawing.Size(47, 47);
+            this.pbPades.Size = new System.Drawing.Size(47, 59);
             this.pbPades.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPades.TabIndex = 2;
             this.pbPades.TabStop = false;
@@ -1966,9 +1972,9 @@ namespace CIEID
             this.panelChooseCades.Controls.Add(this.lblCadesExp);
             this.panelChooseCades.Controls.Add(this.lblCadesTitle);
             this.panelChooseCades.Controls.Add(this.pbCades);
-            this.panelChooseCades.Location = new System.Drawing.Point(66, 179);
+            this.panelChooseCades.Location = new System.Drawing.Point(25, 160);
             this.panelChooseCades.Name = "panelChooseCades";
-            this.panelChooseCades.Size = new System.Drawing.Size(169, 148);
+            this.panelChooseCades.Size = new System.Drawing.Size(210, 180);
             this.panelChooseCades.TabIndex = 3;
             this.panelChooseCades.Click += new System.EventHandler(this.panelChooseCades_MouseClick);
             this.panelChooseCades.MouseEnter += new System.EventHandler(this.panelChooseCades_MouseEnter);
@@ -1978,11 +1984,12 @@ namespace CIEID
             // 
             this.lblCadesExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblCadesExp.Location = new System.Drawing.Point(3, 73);
+            this.lblCadesExp.Location = new System.Drawing.Point(56, 51);
             this.lblCadesExp.Name = "lblCadesExp";
-            this.lblCadesExp.Size = new System.Drawing.Size(157, 46);
+            this.lblCadesExp.Size = new System.Drawing.Size(145, 108);
             this.lblCadesExp.TabIndex = 4;
-            this.lblCadesExp.Text = "Qui spieghiamo cos\'è una firma CADES";
+            this.lblCadesExp.Text = "Si appone su una qualsiasi tipologia di documento e prevede la generazione di una" +
+    " busta crittografica. Il documento firmato avrà estensione .p7m.";
             this.lblCadesExp.Click += new System.EventHandler(this.panelChooseCades_MouseClick);
             this.lblCadesExp.MouseEnter += new System.EventHandler(this.panelChooseCades_MouseEnter);
             this.lblCadesExp.MouseLeave += new System.EventHandler(this.panelChooseCades_MouseLeave);
@@ -2004,7 +2011,7 @@ namespace CIEID
             this.pbCades.InitialImage = null;
             this.pbCades.Location = new System.Drawing.Point(3, 11);
             this.pbCades.Name = "pbCades";
-            this.pbCades.Size = new System.Drawing.Size(47, 47);
+            this.pbCades.Size = new System.Drawing.Size(47, 59);
             this.pbCades.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCades.TabIndex = 2;
             this.pbCades.TabStop = false;
@@ -2016,7 +2023,7 @@ namespace CIEID
             // 
             this.lblPath2.AutoEllipsis = true;
             this.lblPath2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPath2.Location = new System.Drawing.Point(165, 41);
+            this.lblPath2.Location = new System.Drawing.Point(142, 23);
             this.lblPath2.Name = "lblPath2";
             this.lblPath2.Size = new System.Drawing.Size(320, 51);
             this.lblPath2.TabIndex = 2;
@@ -2026,9 +2033,9 @@ namespace CIEID
             // 
             this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
             this.pictureBox21.InitialImage = null;
-            this.pictureBox21.Location = new System.Drawing.Point(66, 17);
+            this.pictureBox21.Location = new System.Drawing.Point(61, 3);
             this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(75, 69);
+            this.pictureBox21.Size = new System.Drawing.Size(75, 89);
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox21.TabIndex = 1;
             this.pictureBox21.TabStop = false;
@@ -2078,7 +2085,7 @@ namespace CIEID
             this.panel3.Controls.Add(this.pictureBox22);
             this.panel3.Location = new System.Drawing.Point(61, 104);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(501, 362);
+            this.panel3.Size = new System.Drawing.Size(501, 375);
             this.panel3.TabIndex = 27;
             // 
             // btnDown
@@ -2089,7 +2096,7 @@ namespace CIEID
             this.btnDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDown.ForeColor = System.Drawing.Color.White;
             this.btnDown.Image = ((System.Drawing.Image)(resources.GetObject("btnDown.Image")));
-            this.btnDown.Location = new System.Drawing.Point(450, 285);
+            this.btnDown.Location = new System.Drawing.Point(450, 298);
             this.btnDown.Margin = new System.Windows.Forms.Padding(2);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(34, 35);
@@ -2105,7 +2112,7 @@ namespace CIEID
             this.btnUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUp.ForeColor = System.Drawing.Color.White;
             this.btnUp.Image = ((System.Drawing.Image)(resources.GetObject("btnUp.Image")));
-            this.btnUp.Location = new System.Drawing.Point(450, 155);
+            this.btnUp.Location = new System.Drawing.Point(450, 168);
             this.btnUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(34, 26);
@@ -2116,7 +2123,7 @@ namespace CIEID
             // panePreview
             // 
             this.panePreview.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panePreview.Location = new System.Drawing.Point(44, 95);
+            this.panePreview.Location = new System.Drawing.Point(44, 108);
             this.panePreview.Name = "panePreview";
             this.panePreview.Size = new System.Drawing.Size(401, 264);
             this.panePreview.TabIndex = 0;
@@ -2125,7 +2132,7 @@ namespace CIEID
             // 
             this.lblPath3.AutoEllipsis = true;
             this.lblPath3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPath3.Location = new System.Drawing.Point(165, 41);
+            this.lblPath3.Location = new System.Drawing.Point(142, 23);
             this.lblPath3.Name = "lblPath3";
             this.lblPath3.Size = new System.Drawing.Size(320, 51);
             this.lblPath3.TabIndex = 2;
@@ -2135,9 +2142,9 @@ namespace CIEID
             // 
             this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
             this.pictureBox22.InitialImage = null;
-            this.pictureBox22.Location = new System.Drawing.Point(66, 17);
+            this.pictureBox22.Location = new System.Drawing.Point(61, 3);
             this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(75, 69);
+            this.pictureBox22.Size = new System.Drawing.Size(75, 89);
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox22.TabIndex = 1;
             this.pictureBox22.TabStop = false;
@@ -2240,18 +2247,10 @@ namespace CIEID
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.lblFirmaSuccess);
-            this.panel4.Controls.Add(this.progressFirmaPina);
-            this.panel4.Controls.Add(this.pbFirmaPin);
-            this.panel4.Controls.Add(this.textBox9);
-            this.panel4.Controls.Add(this.textBox10);
-            this.panel4.Controls.Add(this.textBox11);
-            this.panel4.Controls.Add(this.textBox12);
-            this.panel4.Controls.Add(this.lblFirmaPin);
-            this.panel4.Controls.Add(this.pictureBox20);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.lblPath4);
             this.panel4.Controls.Add(this.pictureBox19);
-            this.panel4.Location = new System.Drawing.Point(61, 104);
+            this.panel4.Location = new System.Drawing.Point(73, 104);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(501, 362);
             this.panel4.TabIndex = 30;
@@ -2259,7 +2258,7 @@ namespace CIEID
             // lblFirmaSuccess
             // 
             this.lblFirmaSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirmaSuccess.Location = new System.Drawing.Point(255, 192);
+            this.lblFirmaSuccess.Location = new System.Drawing.Point(240, 102);
             this.lblFirmaSuccess.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirmaSuccess.Name = "lblFirmaSuccess";
             this.lblFirmaSuccess.Size = new System.Drawing.Size(226, 20);
@@ -2270,7 +2269,7 @@ namespace CIEID
             // progressFirmaPina
             // 
             this.progressFirmaPina.ForeColor = System.Drawing.Color.Blue;
-            this.progressFirmaPina.Location = new System.Drawing.Point(217, 202);
+            this.progressFirmaPina.Location = new System.Drawing.Point(202, 112);
             this.progressFirmaPina.Margin = new System.Windows.Forms.Padding(2);
             this.progressFirmaPina.Name = "progressFirmaPina";
             this.progressFirmaPina.Size = new System.Drawing.Size(228, 13);
@@ -2282,7 +2281,7 @@ namespace CIEID
             // 
             this.pbFirmaPin.Image = ((System.Drawing.Image)(resources.GetObject("pbFirmaPin.Image")));
             this.pbFirmaPin.InitialImage = null;
-            this.pbFirmaPin.Location = new System.Drawing.Point(209, 180);
+            this.pbFirmaPin.Location = new System.Drawing.Point(194, 90);
             this.pbFirmaPin.Name = "pbFirmaPin";
             this.pbFirmaPin.Size = new System.Drawing.Size(41, 42);
             this.pbFirmaPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2294,7 +2293,7 @@ namespace CIEID
             // 
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(354, 207);
+            this.textBox9.Location = new System.Drawing.Point(339, 117);
             this.textBox9.Margin = new System.Windows.Forms.Padding(2);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(20, 23);
@@ -2308,7 +2307,7 @@ namespace CIEID
             // 
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(330, 207);
+            this.textBox10.Location = new System.Drawing.Point(315, 117);
             this.textBox10.Margin = new System.Windows.Forms.Padding(2);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(20, 23);
@@ -2323,7 +2322,7 @@ namespace CIEID
             this.textBox11.BackColor = System.Drawing.SystemColors.Window;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(306, 207);
+            this.textBox11.Location = new System.Drawing.Point(291, 117);
             this.textBox11.Margin = new System.Windows.Forms.Padding(2);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(20, 23);
@@ -2337,7 +2336,7 @@ namespace CIEID
             // 
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox12.Location = new System.Drawing.Point(282, 207);
+            this.textBox12.Location = new System.Drawing.Point(267, 117);
             this.textBox12.Margin = new System.Windows.Forms.Padding(2);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(20, 23);
@@ -2350,7 +2349,7 @@ namespace CIEID
             // lblFirmaPin
             // 
             this.lblFirmaPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirmaPin.Location = new System.Drawing.Point(205, 170);
+            this.lblFirmaPin.Location = new System.Drawing.Point(190, 68);
             this.lblFirmaPin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirmaPin.Name = "lblFirmaPin";
             this.lblFirmaPin.Size = new System.Drawing.Size(276, 20);
@@ -2360,7 +2359,7 @@ namespace CIEID
             // pictureBox20
             // 
             this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(29, 128);
+            this.pictureBox20.Location = new System.Drawing.Point(14, 38);
             this.pictureBox20.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(153, 153);
@@ -2372,7 +2371,7 @@ namespace CIEID
             // 
             this.lblPath4.AutoEllipsis = true;
             this.lblPath4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPath4.Location = new System.Drawing.Point(165, 41);
+            this.lblPath4.Location = new System.Drawing.Point(142, 23);
             this.lblPath4.Name = "lblPath4";
             this.lblPath4.Size = new System.Drawing.Size(320, 51);
             this.lblPath4.TabIndex = 2;
@@ -2382,9 +2381,9 @@ namespace CIEID
             // 
             this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
             this.pictureBox19.InitialImage = null;
-            this.pictureBox19.Location = new System.Drawing.Point(66, 17);
+            this.pictureBox19.Location = new System.Drawing.Point(31, 3);
             this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(75, 69);
+            this.pictureBox19.Size = new System.Drawing.Size(75, 89);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox19.TabIndex = 1;
             this.pictureBox19.TabStop = false;
@@ -2403,9 +2402,7 @@ namespace CIEID
             // tbFirmaPersonalizzata
             // 
             this.tbFirmaPersonalizzata.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbFirmaPersonalizzata.Controls.Add(this.label34);
-            this.tbFirmaPersonalizzata.Controls.Add(this.lblPersonalizzaPreambolo);
-            this.tbFirmaPersonalizzata.Controls.Add(this.pnFirmaGrafica);
+            this.tbFirmaPersonalizzata.Controls.Add(this.panel7);
             this.tbFirmaPersonalizzata.Controls.Add(this.btnPersonalizzaSelect);
             this.tbFirmaPersonalizzata.Controls.Add(this.btnPersonalizzaAnnulla);
             this.tbFirmaPersonalizzata.Controls.Add(this.label33);
@@ -2414,63 +2411,6 @@ namespace CIEID
             this.tbFirmaPersonalizzata.Size = new System.Drawing.Size(649, 533);
             this.tbFirmaPersonalizzata.TabIndex = 15;
             this.tbFirmaPersonalizzata.Text = "tabPage11";
-            // 
-            // label34
-            // 
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(96, 378);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(459, 57);
-            this.label34.TabIndex = 34;
-            this.label34.Text = "Puoi caricare un file in formato PNG, se non hai un file contenente una firma gra" +
-    "fica puoi realizzarne uno utilizzanto l\'app CieSign disponibile per smartphone i" +
-    "OS o Android";
-            // 
-            // lblPersonalizzaPreambolo
-            // 
-            this.lblPersonalizzaPreambolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonalizzaPreambolo.Location = new System.Drawing.Point(99, 265);
-            this.lblPersonalizzaPreambolo.Name = "lblPersonalizzaPreambolo";
-            this.lblPersonalizzaPreambolo.Size = new System.Drawing.Size(459, 81);
-            this.lblPersonalizzaPreambolo.TabIndex = 33;
-            this.lblPersonalizzaPreambolo.Text = resources.GetString("lblPersonalizzaPreambolo.Text");
-            // 
-            // pnFirmaGrafica
-            // 
-            this.pnFirmaGrafica.Location = new System.Drawing.Point(99, 116);
-            this.pnFirmaGrafica.Name = "pnFirmaGrafica";
-            this.pnFirmaGrafica.Size = new System.Drawing.Size(459, 100);
-            this.pnFirmaGrafica.TabIndex = 32;
-            // 
-            // btnPersonalizzaSelect
-            // 
-            this.btnPersonalizzaSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPersonalizzaSelect.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPersonalizzaSelect.FlatAppearance.BorderSize = 0;
-            this.btnPersonalizzaSelect.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizzaSelect.Location = new System.Drawing.Point(359, 484);
-            this.btnPersonalizzaSelect.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPersonalizzaSelect.Name = "btnPersonalizzaSelect";
-            this.btnPersonalizzaSelect.Size = new System.Drawing.Size(157, 28);
-            this.btnPersonalizzaSelect.TabIndex = 31;
-            this.btnPersonalizzaSelect.Text = "Seleziona un file";
-            this.btnPersonalizzaSelect.UseVisualStyleBackColor = false;
-            this.btnPersonalizzaSelect.Click += new System.EventHandler(this.btnPersonalizzaSelect_Click);
-            // 
-            // btnPersonalizzaAnnulla
-            // 
-            this.btnPersonalizzaAnnulla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPersonalizzaAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPersonalizzaAnnulla.FlatAppearance.BorderSize = 0;
-            this.btnPersonalizzaAnnulla.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizzaAnnulla.Location = new System.Drawing.Point(122, 484);
-            this.btnPersonalizzaAnnulla.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPersonalizzaAnnulla.Name = "btnPersonalizzaAnnulla";
-            this.btnPersonalizzaAnnulla.Size = new System.Drawing.Size(157, 28);
-            this.btnPersonalizzaAnnulla.TabIndex = 30;
-            this.btnPersonalizzaAnnulla.Text = "Annulla";
-            this.btnPersonalizzaAnnulla.UseVisualStyleBackColor = false;
-            this.btnPersonalizzaAnnulla.Click += new System.EventHandler(this.btnPersonalizzaAnnulla_Click);
             // 
             // label33
             // 
@@ -2519,7 +2459,7 @@ namespace CIEID
             // 
             this.lblSottoscrittori.AutoSize = true;
             this.lblSottoscrittori.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSottoscrittori.Location = new System.Drawing.Point(334, 84);
+            this.lblSottoscrittori.Location = new System.Drawing.Point(335, 89);
             this.lblSottoscrittori.Name = "lblSottoscrittori";
             this.lblSottoscrittori.Size = new System.Drawing.Size(54, 17);
             this.lblSottoscrittori.TabIndex = 31;
@@ -2529,9 +2469,9 @@ namespace CIEID
             // 
             this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
             this.pictureBox23.InitialImage = null;
-            this.pictureBox23.Location = new System.Drawing.Point(66, 17);
+            this.pictureBox23.Location = new System.Drawing.Point(61, 3);
             this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.Size = new System.Drawing.Size(75, 69);
+            this.pictureBox23.Size = new System.Drawing.Size(75, 89);
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox23.TabIndex = 29;
             this.pictureBox23.TabStop = false;
@@ -2540,7 +2480,7 @@ namespace CIEID
             // 
             this.lblVerificaPath.AutoEllipsis = true;
             this.lblVerificaPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVerificaPath.Location = new System.Drawing.Point(165, 41);
+            this.lblVerificaPath.Location = new System.Drawing.Point(142, 23);
             this.lblVerificaPath.Name = "lblVerificaPath";
             this.lblVerificaPath.Size = new System.Drawing.Size(320, 51);
             this.lblVerificaPath.TabIndex = 30;
@@ -2759,6 +2699,89 @@ namespace CIEID
             this.buttonFirma.UseVisualStyleBackColor = false;
             this.buttonFirma.Click += new System.EventHandler(this.buttonFirma_Click);
             // 
+            // btnPersonalizzaSelect
+            // 
+            this.btnPersonalizzaSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPersonalizzaSelect.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPersonalizzaSelect.FlatAppearance.BorderSize = 0;
+            this.btnPersonalizzaSelect.ForeColor = System.Drawing.Color.White;
+            this.btnPersonalizzaSelect.Location = new System.Drawing.Point(359, 484);
+            this.btnPersonalizzaSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPersonalizzaSelect.Name = "btnPersonalizzaSelect";
+            this.btnPersonalizzaSelect.Size = new System.Drawing.Size(157, 28);
+            this.btnPersonalizzaSelect.TabIndex = 31;
+            this.btnPersonalizzaSelect.Text = "Seleziona un file";
+            this.btnPersonalizzaSelect.UseVisualStyleBackColor = false;
+            this.btnPersonalizzaSelect.Click += new System.EventHandler(this.btnPersonalizzaSelect_Click);
+            // 
+            // lblPersonalizzaPreambolo
+            // 
+            this.lblPersonalizzaPreambolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonalizzaPreambolo.Location = new System.Drawing.Point(23, 178);
+            this.lblPersonalizzaPreambolo.Name = "lblPersonalizzaPreambolo";
+            this.lblPersonalizzaPreambolo.Size = new System.Drawing.Size(456, 81);
+            this.lblPersonalizzaPreambolo.TabIndex = 33;
+            this.lblPersonalizzaPreambolo.Text = resources.GetString("lblPersonalizzaPreambolo.Text");
+            // 
+            // btnPersonalizzaAnnulla
+            // 
+            this.btnPersonalizzaAnnulla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPersonalizzaAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPersonalizzaAnnulla.FlatAppearance.BorderSize = 0;
+            this.btnPersonalizzaAnnulla.ForeColor = System.Drawing.Color.White;
+            this.btnPersonalizzaAnnulla.Location = new System.Drawing.Point(122, 484);
+            this.btnPersonalizzaAnnulla.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPersonalizzaAnnulla.Name = "btnPersonalizzaAnnulla";
+            this.btnPersonalizzaAnnulla.Size = new System.Drawing.Size(157, 28);
+            this.btnPersonalizzaAnnulla.TabIndex = 30;
+            this.btnPersonalizzaAnnulla.Text = "Annulla";
+            this.btnPersonalizzaAnnulla.UseVisualStyleBackColor = false;
+            this.btnPersonalizzaAnnulla.Click += new System.EventHandler(this.btnPersonalizzaAnnulla_Click);
+            // 
+            // label34
+            // 
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(23, 288);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(456, 57);
+            this.label34.TabIndex = 34;
+            this.label34.Text = "Puoi caricare un file in formato PNG, se non hai un file contenente una firma gra" +
+    "fica puoi realizzarne uno utilizzanto l\'app CieSign disponibile per smartphone i" +
+    "OS o Android";
+            // 
+            // pnFirmaGrafica
+            // 
+            this.pnFirmaGrafica.Location = new System.Drawing.Point(26, 30);
+            this.pnFirmaGrafica.Name = "pnFirmaGrafica";
+            this.pnFirmaGrafica.Size = new System.Drawing.Size(456, 100);
+            this.pnFirmaGrafica.TabIndex = 32;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pnFirmaGrafica);
+            this.panel7.Controls.Add(this.lblPersonalizzaPreambolo);
+            this.panel7.Controls.Add(this.label34);
+            this.panel7.Location = new System.Drawing.Point(73, 104);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(501, 362);
+            this.panel7.TabIndex = 35;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBox20);
+            this.panel5.Controls.Add(this.lblFirmaPin);
+            this.panel5.Controls.Add(this.lblFirmaSuccess);
+            this.panel5.Controls.Add(this.textBox12);
+            this.panel5.Controls.Add(this.progressFirmaPina);
+            this.panel5.Controls.Add(this.textBox11);
+            this.panel5.Controls.Add(this.pbFirmaPin);
+            this.panel5.Controls.Add(this.textBox10);
+            this.panel5.Controls.Add(this.textBox9);
+            this.panel5.Location = new System.Drawing.Point(3, 108);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(495, 239);
+            this.panel5.TabIndex = 31;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2855,7 +2878,6 @@ namespace CIEID
             this.tbFirmaPin.ResumeLayout(false);
             this.tbFirmaPin.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFirmaPin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
@@ -2867,6 +2889,9 @@ namespace CIEID
             this.pnVerifica.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3049,11 +3074,6 @@ namespace CIEID
         private ProgressBar progressFirmaPina;
         private Label lblFirmaSuccess;
         private TabPage tbFirmaPersonalizzata;
-        private Label label34;
-        private Label lblPersonalizzaPreambolo;
-        private Panel pnFirmaGrafica;
-        private Button btnPersonalizzaSelect;
-        private Button btnPersonalizzaAnnulla;
         private Label label33;
         private TabPage tbVerifica;
         private Button button1;
@@ -3066,5 +3086,12 @@ namespace CIEID
         private PictureBox pictureBox23;
         private Label lblVerificaPath;
         private Button btnSigSelectCie;
+        private Label label34;
+        private Label lblPersonalizzaPreambolo;
+        private Panel pnFirmaGrafica;
+        private Button btnPersonalizzaSelect;
+        private Button btnPersonalizzaAnnulla;
+        private Panel panel7;
+        private Panel panel5;
     }
 }
