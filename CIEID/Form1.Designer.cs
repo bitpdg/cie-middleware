@@ -187,19 +187,26 @@ namespace CIEID
             this.btnAnullaFirmaPin = new System.Windows.Forms.Button();
             this.lblCartaFirmaPin = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblFirmaSuccess = new System.Windows.Forms.Label();
-            this.progressFirmaPina = new System.Windows.Forms.ProgressBar();
-            this.pbFirmaPin = new System.Windows.Forms.PictureBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.lblFirmaPin = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.lblFirmaPin = new System.Windows.Forms.Label();
+            this.lblFirmaSuccess = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.progressFirmaPina = new System.Windows.Forms.ProgressBar();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.pbFirmaPin = new System.Windows.Forms.PictureBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.lblPath4 = new System.Windows.Forms.Label();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tbFirmaPersonalizzata = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pnFirmaGrafica = new System.Windows.Forms.Panel();
+            this.lblPersonalizzaPreambolo = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.btnPersonalizzaSelect = new System.Windows.Forms.Button();
+            this.btnPersonalizzaAnnulla = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.tbVerifica = new System.Windows.Forms.TabPage();
             this.pnVerifica = new System.Windows.Forms.Panel();
@@ -219,13 +226,6 @@ namespace CIEID
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonFirma = new System.Windows.Forms.Button();
-            this.btnPersonalizzaSelect = new System.Windows.Forms.Button();
-            this.lblPersonalizzaPreambolo = new System.Windows.Forms.Label();
-            this.btnPersonalizzaAnnulla = new System.Windows.Forms.Button();
-            this.label34 = new System.Windows.Forms.Label();
-            this.pnFirmaGrafica = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -279,16 +279,16 @@ namespace CIEID
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             this.tbFirmaPin.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFirmaPin)).BeginInit();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFirmaPin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             this.tbFirmaPersonalizzata.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.tbVerifica.SuspendLayout();
             this.pnVerifica.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            this.panel7.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -787,7 +787,6 @@ namespace CIEID
             this.labelOwnerValue1.Padding = new System.Windows.Forms.Padding(20, 0, 5, 0);
             this.labelOwnerValue1.Size = new System.Drawing.Size(238, 41);
             this.labelOwnerValue1.TabIndex = 4;
-            this.labelOwnerValue1.Text = "label27";
             this.labelOwnerValue1.Click += new System.EventHandler(this.labelOwnerValue1_Click);
             // 
             // carouselItem2
@@ -911,7 +910,7 @@ namespace CIEID
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(128, 53);
+            this.label2.Location = new System.Drawing.Point(143, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(380, 45);
@@ -921,14 +920,14 @@ namespace CIEID
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(269, 22);
+            this.label5.Location = new System.Drawing.Point(71, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 36);
+            this.label5.Size = new System.Drawing.Size(513, 36);
             this.label5.TabIndex = 10;
             this.label5.Text = "CIE ID";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPage3
             // 
@@ -1575,9 +1574,9 @@ namespace CIEID
             // 
             this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
             this.pictureBox15.InitialImage = null;
-            this.pictureBox15.Location = new System.Drawing.Point(45, 437);
+            this.pictureBox15.Location = new System.Drawing.Point(23, 440);
             this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(51, 48);
+            this.pictureBox15.Size = new System.Drawing.Size(79, 41);
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox15.TabIndex = 21;
             this.pictureBox15.TabStop = false;
@@ -1608,15 +1607,17 @@ namespace CIEID
             this.panelChooseDoc.TabIndex = 17;
             this.panelChooseDoc.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelChooseDoc_dragDrop);
             this.panelChooseDoc.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelChooseDoc_dragEnter);
+            this.panelChooseDoc.DragLeave += new System.EventHandler(this.panelChooseDoc_dragLeave);
             this.panelChooseDoc.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // selectDocument
             // 
-            this.selectDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.selectDocument.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.selectDocument.BackColor = System.Drawing.Color.CornflowerBlue;
             this.selectDocument.FlatAppearance.BorderSize = 0;
             this.selectDocument.ForeColor = System.Drawing.Color.White;
-            this.selectDocument.Location = new System.Drawing.Point(163, 229);
+            this.selectDocument.Location = new System.Drawing.Point(171, 229);
             this.selectDocument.Margin = new System.Windows.Forms.Padding(2);
             this.selectDocument.Name = "selectDocument";
             this.selectDocument.Size = new System.Drawing.Size(157, 28);
@@ -1627,8 +1628,10 @@ namespace CIEID
             // 
             // label27
             // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(58, 179);
+            this.label27.Location = new System.Drawing.Point(58, 184);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(377, 25);
@@ -1639,7 +1642,7 @@ namespace CIEID
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(58, 121);
+            this.label7.Location = new System.Drawing.Point(58, 124);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(377, 45);
@@ -1943,7 +1946,7 @@ namespace CIEID
             // 
             // pbPades
             // 
-            this.pbPades.Image = ((System.Drawing.Image)(resources.GetObject("pbPades.Image")));
+            this.pbPades.Image = global::CIEID.Properties.Resources.pdf_2x_gray;
             this.pbPades.InitialImage = null;
             this.pbPades.Location = new System.Drawing.Point(3, 11);
             this.pbPades.Name = "pbPades";
@@ -2007,7 +2010,7 @@ namespace CIEID
             // 
             // pbCades
             // 
-            this.pbCades.Image = ((System.Drawing.Image)(resources.GetObject("pbCades.Image")));
+            this.pbCades.Image = global::CIEID.Properties.Resources.p7m_2x_gray;
             this.pbCades.InitialImage = null;
             this.pbCades.Location = new System.Drawing.Point(3, 11);
             this.pbCades.Name = "pbCades";
@@ -2255,6 +2258,43 @@ namespace CIEID
             this.panel4.Size = new System.Drawing.Size(501, 362);
             this.panel4.TabIndex = 30;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBox20);
+            this.panel5.Controls.Add(this.lblFirmaPin);
+            this.panel5.Controls.Add(this.lblFirmaSuccess);
+            this.panel5.Controls.Add(this.textBox12);
+            this.panel5.Controls.Add(this.progressFirmaPina);
+            this.panel5.Controls.Add(this.textBox11);
+            this.panel5.Controls.Add(this.pbFirmaPin);
+            this.panel5.Controls.Add(this.textBox10);
+            this.panel5.Controls.Add(this.textBox9);
+            this.panel5.Location = new System.Drawing.Point(3, 108);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(495, 239);
+            this.panel5.TabIndex = 31;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
+            this.pictureBox20.Location = new System.Drawing.Point(14, 38);
+            this.pictureBox20.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(153, 153);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox20.TabIndex = 26;
+            this.pictureBox20.TabStop = false;
+            // 
+            // lblFirmaPin
+            // 
+            this.lblFirmaPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirmaPin.Location = new System.Drawing.Point(190, 68);
+            this.lblFirmaPin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirmaPin.Name = "lblFirmaPin";
+            this.lblFirmaPin.Size = new System.Drawing.Size(276, 20);
+            this.lblFirmaPin.TabIndex = 27;
+            this.lblFirmaPin.Text = "Inserisci le ultime 4 cifre del PIN";
+            // 
             // lblFirmaSuccess
             // 
             this.lblFirmaSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2266,6 +2306,20 @@ namespace CIEID
             this.lblFirmaSuccess.Text = "File firmato con successo";
             this.lblFirmaSuccess.Visible = false;
             // 
+            // textBox12
+            // 
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBox12.Location = new System.Drawing.Point(267, 117);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(20, 23);
+            this.textBox12.TabIndex = 22;
+            this.textBox12.Tag = "9";
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox12.UseSystemPasswordChar = true;
+            this.textBox12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
+            // 
             // progressFirmaPina
             // 
             this.progressFirmaPina.ForeColor = System.Drawing.Color.Blue;
@@ -2276,46 +2330,6 @@ namespace CIEID
             this.progressFirmaPina.TabIndex = 29;
             this.progressFirmaPina.Value = 55;
             this.progressFirmaPina.Visible = false;
-            // 
-            // pbFirmaPin
-            // 
-            this.pbFirmaPin.Image = ((System.Drawing.Image)(resources.GetObject("pbFirmaPin.Image")));
-            this.pbFirmaPin.InitialImage = null;
-            this.pbFirmaPin.Location = new System.Drawing.Point(194, 90);
-            this.pbFirmaPin.Name = "pbFirmaPin";
-            this.pbFirmaPin.Size = new System.Drawing.Size(41, 42);
-            this.pbFirmaPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFirmaPin.TabIndex = 28;
-            this.pbFirmaPin.TabStop = false;
-            this.pbFirmaPin.Visible = false;
-            // 
-            // textBox9
-            // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(339, 117);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(20, 23);
-            this.textBox9.TabIndex = 25;
-            this.textBox9.Tag = "12";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox9.UseSystemPasswordChar = true;
-            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
-            // 
-            // textBox10
-            // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(315, 117);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(20, 23);
-            this.textBox10.TabIndex = 24;
-            this.textBox10.Tag = "11";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox10.UseSystemPasswordChar = true;
-            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
             // 
             // textBox11
             // 
@@ -2332,40 +2346,45 @@ namespace CIEID
             this.textBox11.UseSystemPasswordChar = true;
             this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
             // 
-            // textBox12
+            // pbFirmaPin
             // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox12.Location = new System.Drawing.Point(267, 117);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(20, 23);
-            this.textBox12.TabIndex = 22;
-            this.textBox12.Tag = "9";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox12.UseSystemPasswordChar = true;
-            this.textBox12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
+            this.pbFirmaPin.Image = ((System.Drawing.Image)(resources.GetObject("pbFirmaPin.Image")));
+            this.pbFirmaPin.InitialImage = null;
+            this.pbFirmaPin.Location = new System.Drawing.Point(194, 90);
+            this.pbFirmaPin.Name = "pbFirmaPin";
+            this.pbFirmaPin.Size = new System.Drawing.Size(41, 42);
+            this.pbFirmaPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFirmaPin.TabIndex = 28;
+            this.pbFirmaPin.TabStop = false;
+            this.pbFirmaPin.Visible = false;
             // 
-            // lblFirmaPin
+            // textBox10
             // 
-            this.lblFirmaPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirmaPin.Location = new System.Drawing.Point(190, 68);
-            this.lblFirmaPin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFirmaPin.Name = "lblFirmaPin";
-            this.lblFirmaPin.Size = new System.Drawing.Size(276, 20);
-            this.lblFirmaPin.TabIndex = 27;
-            this.lblFirmaPin.Text = "Inserisci le ultime 4 cifre del PIN";
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(315, 117);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(20, 23);
+            this.textBox10.TabIndex = 24;
+            this.textBox10.Tag = "11";
+            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox10.UseSystemPasswordChar = true;
+            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
             // 
-            // pictureBox20
+            // textBox9
             // 
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
-            this.pictureBox20.Location = new System.Drawing.Point(14, 38);
-            this.pictureBox20.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(153, 153);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox20.TabIndex = 26;
-            this.pictureBox20.TabStop = false;
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(339, 117);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(20, 23);
+            this.textBox9.TabIndex = 25;
+            this.textBox9.Tag = "12";
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox9.UseSystemPasswordChar = true;
+            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSignPin_KeyPress);
             // 
             // lblPath4
             // 
@@ -2412,6 +2431,73 @@ namespace CIEID
             this.tbFirmaPersonalizzata.TabIndex = 15;
             this.tbFirmaPersonalizzata.Text = "tabPage11";
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pnFirmaGrafica);
+            this.panel7.Controls.Add(this.lblPersonalizzaPreambolo);
+            this.panel7.Controls.Add(this.label34);
+            this.panel7.Location = new System.Drawing.Point(73, 104);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(501, 362);
+            this.panel7.TabIndex = 35;
+            // 
+            // pnFirmaGrafica
+            // 
+            this.pnFirmaGrafica.Location = new System.Drawing.Point(26, 30);
+            this.pnFirmaGrafica.Name = "pnFirmaGrafica";
+            this.pnFirmaGrafica.Size = new System.Drawing.Size(456, 100);
+            this.pnFirmaGrafica.TabIndex = 32;
+            // 
+            // lblPersonalizzaPreambolo
+            // 
+            this.lblPersonalizzaPreambolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPersonalizzaPreambolo.Location = new System.Drawing.Point(23, 178);
+            this.lblPersonalizzaPreambolo.Name = "lblPersonalizzaPreambolo";
+            this.lblPersonalizzaPreambolo.Size = new System.Drawing.Size(456, 81);
+            this.lblPersonalizzaPreambolo.TabIndex = 33;
+            this.lblPersonalizzaPreambolo.Text = resources.GetString("lblPersonalizzaPreambolo.Text");
+            // 
+            // label34
+            // 
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(23, 288);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(456, 57);
+            this.label34.TabIndex = 34;
+            this.label34.Text = "Puoi caricare un file in formato PNG, se non hai un file contenente una firma gra" +
+    "fica puoi realizzarne uno utilizzanto l\'app CieSign disponibile per smartphone i" +
+    "OS o Android";
+            // 
+            // btnPersonalizzaSelect
+            // 
+            this.btnPersonalizzaSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPersonalizzaSelect.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPersonalizzaSelect.FlatAppearance.BorderSize = 0;
+            this.btnPersonalizzaSelect.ForeColor = System.Drawing.Color.White;
+            this.btnPersonalizzaSelect.Location = new System.Drawing.Point(359, 484);
+            this.btnPersonalizzaSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPersonalizzaSelect.Name = "btnPersonalizzaSelect";
+            this.btnPersonalizzaSelect.Size = new System.Drawing.Size(157, 28);
+            this.btnPersonalizzaSelect.TabIndex = 31;
+            this.btnPersonalizzaSelect.Text = "Seleziona un file";
+            this.btnPersonalizzaSelect.UseVisualStyleBackColor = false;
+            this.btnPersonalizzaSelect.Click += new System.EventHandler(this.btnPersonalizzaSelect_Click);
+            // 
+            // btnPersonalizzaAnnulla
+            // 
+            this.btnPersonalizzaAnnulla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPersonalizzaAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnPersonalizzaAnnulla.FlatAppearance.BorderSize = 0;
+            this.btnPersonalizzaAnnulla.ForeColor = System.Drawing.Color.White;
+            this.btnPersonalizzaAnnulla.Location = new System.Drawing.Point(122, 484);
+            this.btnPersonalizzaAnnulla.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPersonalizzaAnnulla.Name = "btnPersonalizzaAnnulla";
+            this.btnPersonalizzaAnnulla.Size = new System.Drawing.Size(157, 28);
+            this.btnPersonalizzaAnnulla.TabIndex = 30;
+            this.btnPersonalizzaAnnulla.Text = "Indietro";
+            this.btnPersonalizzaAnnulla.UseVisualStyleBackColor = false;
+            this.btnPersonalizzaAnnulla.Click += new System.EventHandler(this.btnPersonalizzaAnnulla_Click);
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -2450,6 +2536,7 @@ namespace CIEID
             // 
             // pnSignerInfo
             // 
+            this.pnSignerInfo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnSignerInfo.Location = new System.Drawing.Point(104, 123);
             this.pnSignerInfo.Name = "pnSignerInfo";
             this.pnSignerInfo.Size = new System.Drawing.Size(341, 247);
@@ -2691,96 +2778,13 @@ namespace CIEID
             this.buttonFirma.Location = new System.Drawing.Point(6, 156);
             this.buttonFirma.Margin = new System.Windows.Forms.Padding(2);
             this.buttonFirma.Name = "buttonFirma";
-            this.buttonFirma.Size = new System.Drawing.Size(140, 36);
+            this.buttonFirma.Size = new System.Drawing.Size(140, 38);
             this.buttonFirma.TabIndex = 8;
             this.buttonFirma.Text = "Firma Elettronica";
             this.buttonFirma.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFirma.UseVisualStyleBackColor = false;
             this.buttonFirma.Click += new System.EventHandler(this.buttonFirma_Click);
-            // 
-            // btnPersonalizzaSelect
-            // 
-            this.btnPersonalizzaSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPersonalizzaSelect.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPersonalizzaSelect.FlatAppearance.BorderSize = 0;
-            this.btnPersonalizzaSelect.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizzaSelect.Location = new System.Drawing.Point(359, 484);
-            this.btnPersonalizzaSelect.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPersonalizzaSelect.Name = "btnPersonalizzaSelect";
-            this.btnPersonalizzaSelect.Size = new System.Drawing.Size(157, 28);
-            this.btnPersonalizzaSelect.TabIndex = 31;
-            this.btnPersonalizzaSelect.Text = "Seleziona un file";
-            this.btnPersonalizzaSelect.UseVisualStyleBackColor = false;
-            this.btnPersonalizzaSelect.Click += new System.EventHandler(this.btnPersonalizzaSelect_Click);
-            // 
-            // lblPersonalizzaPreambolo
-            // 
-            this.lblPersonalizzaPreambolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonalizzaPreambolo.Location = new System.Drawing.Point(23, 178);
-            this.lblPersonalizzaPreambolo.Name = "lblPersonalizzaPreambolo";
-            this.lblPersonalizzaPreambolo.Size = new System.Drawing.Size(456, 81);
-            this.lblPersonalizzaPreambolo.TabIndex = 33;
-            this.lblPersonalizzaPreambolo.Text = resources.GetString("lblPersonalizzaPreambolo.Text");
-            // 
-            // btnPersonalizzaAnnulla
-            // 
-            this.btnPersonalizzaAnnulla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPersonalizzaAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnPersonalizzaAnnulla.FlatAppearance.BorderSize = 0;
-            this.btnPersonalizzaAnnulla.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizzaAnnulla.Location = new System.Drawing.Point(122, 484);
-            this.btnPersonalizzaAnnulla.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPersonalizzaAnnulla.Name = "btnPersonalizzaAnnulla";
-            this.btnPersonalizzaAnnulla.Size = new System.Drawing.Size(157, 28);
-            this.btnPersonalizzaAnnulla.TabIndex = 30;
-            this.btnPersonalizzaAnnulla.Text = "Annulla";
-            this.btnPersonalizzaAnnulla.UseVisualStyleBackColor = false;
-            this.btnPersonalizzaAnnulla.Click += new System.EventHandler(this.btnPersonalizzaAnnulla_Click);
-            // 
-            // label34
-            // 
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(23, 288);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(456, 57);
-            this.label34.TabIndex = 34;
-            this.label34.Text = "Puoi caricare un file in formato PNG, se non hai un file contenente una firma gra" +
-    "fica puoi realizzarne uno utilizzanto l\'app CieSign disponibile per smartphone i" +
-    "OS o Android";
-            // 
-            // pnFirmaGrafica
-            // 
-            this.pnFirmaGrafica.Location = new System.Drawing.Point(26, 30);
-            this.pnFirmaGrafica.Name = "pnFirmaGrafica";
-            this.pnFirmaGrafica.Size = new System.Drawing.Size(456, 100);
-            this.pnFirmaGrafica.TabIndex = 32;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.pnFirmaGrafica);
-            this.panel7.Controls.Add(this.lblPersonalizzaPreambolo);
-            this.panel7.Controls.Add(this.label34);
-            this.panel7.Location = new System.Drawing.Point(73, 104);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(501, 362);
-            this.panel7.TabIndex = 35;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.pictureBox20);
-            this.panel5.Controls.Add(this.lblFirmaPin);
-            this.panel5.Controls.Add(this.lblFirmaSuccess);
-            this.panel5.Controls.Add(this.textBox12);
-            this.panel5.Controls.Add(this.progressFirmaPina);
-            this.panel5.Controls.Add(this.textBox11);
-            this.panel5.Controls.Add(this.pbFirmaPin);
-            this.panel5.Controls.Add(this.textBox10);
-            this.panel5.Controls.Add(this.textBox9);
-            this.panel5.Location = new System.Drawing.Point(3, 108);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(495, 239);
-            this.panel5.TabIndex = 31;
             // 
             // MainForm
             // 
@@ -2878,20 +2882,20 @@ namespace CIEID
             this.tbFirmaPin.ResumeLayout(false);
             this.tbFirmaPin.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbFirmaPin)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFirmaPin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             this.tbFirmaPersonalizzata.ResumeLayout(false);
             this.tbFirmaPersonalizzata.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.tbVerifica.ResumeLayout(false);
             this.tbVerifica.PerformLayout();
             this.pnVerifica.ResumeLayout(false);
             this.pnVerifica.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

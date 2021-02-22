@@ -154,9 +154,15 @@ namespace CIEID
                 Console.WriteLine("111111111111111111 {0}", retValue);
                 if (retValue != 0)
                 {
-                    Console.WriteLine("22222222");
                     lblFirmaSuccess.Text = "Si è verificato un errore";
                     //TODO cambiare immagine con X rossa
+                    pbFirmaPin.Image = Properties.Resources.cross;
+                    pbFirmaPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                }else
+                {
+                    lblFirmaSuccess.Text = "File firmato con successo";
+                    pbFirmaPin.Image = Properties.Resources.check;
+                    pbFirmaPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
                 }
 
                 progressFirmaPina.Hide();
@@ -444,8 +450,10 @@ namespace CIEID
             if (CieColl.MyDictionary.Count == 0)
             {
                 tabControlMain.SelectedIndex = 0;
+                btnFirma.Enabled = false;
             }else
             {
+                btnFirma.Enabled = true;
                 if (carouselControl == null)
                 {
                     carouselControl = new CarouselControl(tableLayoutPanelCarousel, dotsGroup);
@@ -1322,10 +1330,17 @@ namespace CIEID
         void panelChooseDoc_dragEnter(object sender, DragEventArgs e)
         {
             Console.WriteLine("Panel_DragEnter");
+            panelChooseDoc.BackColor = Color.LightGray;
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
                 e.Effect = DragDropEffects.Copy;
         }
 
+
+        void panelChooseDoc_dragLeave(object sender, EventArgs e)
+        {
+            Console.WriteLine("Panel_DragLeave");
+            panelChooseDoc.BackColor = Color.Transparent;
+        }
 
         private void goToSelectSignOp(string file_name)
         {
@@ -1338,6 +1353,7 @@ namespace CIEID
         {
             Console.WriteLine("Panel_DropEnter");
 
+            panelChooseDoc.BackColor = Color.Transparent;
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             Console.WriteLine("File drop: {0}", files[0]);
             goToSelectSignOp(files[0]);
@@ -1367,17 +1383,21 @@ namespace CIEID
             signOp = opSelectedState.NO_OP;
             btnSignProsegui.Enabled = false;
 
-            //TODO immagine PADES grigia
             lblPadesTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             lblPadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 
-            //TODO immagine CADES grigia
             lblCadesTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             lblCadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 
+            pbCades.Image = CIEID.Properties.Resources.p7m_2x_gray;
+            pbPades.Image = CIEID.Properties.Resources.pdf_2x_gray;
+
             cbFirmaGrafica.Checked = false;
 
-
+            if (lblPath2.Text.EndsWith(".pdf"))
+                cbFirmaGrafica.Enabled = true;
+            else
+                cbFirmaGrafica.Enabled = false;
             tabControlMain.SelectedIndex = 12;
         }
 
@@ -1398,16 +1418,26 @@ namespace CIEID
             SignerInfo sInfo = new SignerInfo(lblVerificaPath.Text, pnSignerInfo);
             int n_sott = sInfo.verify();
 
-            Console.WriteLine(lblVerificaPath.Text);
+            if(n_sott == 0)
+            {
+                MessageBox.Show("Il file selezionato non contiene firme", "Verifica completata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tabControlMain.SelectedIndex = 10;
+            }
+            else if(n_sott < 0)
+            {
+                MessageBox.Show("Errore nella verifica del file", "Errore nella verifica", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tabControlMain.SelectedIndex = 10;
+            }
+            else
+            {
+                lblSottoscrittori.Text = string.Format("Numero di sottoscrittori: {0}", n_sott);
+                lblSottoscrittori.Update();
 
-            lblSottoscrittori.Text = string.Format("Numero di sottoscrittori: {0}", n_sott);
-            lblSottoscrittori.Update();
+                pnVerifica.Visible = true;
 
-            pnVerifica.Visible = true;
+                tabControlMain.SelectedIndex = 16;
 
-            tabControlMain.SelectedIndex = 16;
-
-
+            }
         }
 
         private void pnVerificaOp_MouseEnter(object sender, EventArgs e)
@@ -1448,13 +1478,14 @@ namespace CIEID
             signOp = opSelectedState.NO_OP;
             btnSignProsegui.Enabled = false;
 
-            //TODO immagine PADES grigia
             lblPadesTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             lblPadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
 
-            //TODO immagine CADES grigia
             lblCadesTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             lblCadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+
+            pbCades.Image = CIEID.Properties.Resources.p7m_2x_gray;
+            pbPades.Image = CIEID.Properties.Resources.pdf_2x_gray;
 
             cbFirmaGrafica.Checked = false;
 
@@ -1486,13 +1517,14 @@ namespace CIEID
         {
             if(lblPath2.Text.EndsWith(".pdf"))
             {
-                //TODO immagine PADES colorata
                 lblPadesTitle.ForeColor = Color.Red;
                 lblPadesExp.ForeColor = Color.Black;
 
                 lblCadesTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
                 lblCadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-                //TODO immagine CADES grigia
+
+                pbCades.Image = CIEID.Properties.Resources.p7m_2x_gray;
+                pbPades.Image = CIEID.Properties.Resources.pdf_2x;
 
                 signOp = opSelectedState.FIRMA_PADES;
                 btnSignProsegui.Enabled = true;
@@ -1503,14 +1535,15 @@ namespace CIEID
 
         private void panelChooseCades_MouseClick(object sender, EventArgs e)
         {
-            //TODO immagine CADES colorata
             lblCadesTitle.ForeColor = System.Drawing.SystemColors.Highlight;
             lblCadesExp.ForeColor = Color.Black;
 
             lblPadesTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             lblPadesExp.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             cbFirmaGrafica.Checked = false;
-            //TODO immagine PADES grigia
+
+            pbCades.Image = CIEID.Properties.Resources.p7m_2x;
+            pbPades.Image = CIEID.Properties.Resources.pdf_2x_gray;
 
             signOp = opSelectedState.FIRMA_CADES;
             btnSignProsegui.Enabled = true;
@@ -1580,7 +1613,7 @@ namespace CIEID
 
         }
 
-        private void btnConcludi_Click(object sender, EventArgs e)
+        private void changeFirmaPinObjects()
         {
             lblFirmaPin.Text = "Inserisci le ultime 4 cifre del PIN";
             lblFirmaPin.TextAlign = ContentAlignment.MiddleLeft;
@@ -1599,11 +1632,19 @@ namespace CIEID
             btnFirma.Show();
             btnFirma.Enabled = false;
             btnConcludi.Hide();
+            
 
             lblCartaFirmaPin.Show();
             pbFirmaPin.Hide();
             lblFirmaSuccess.Hide();
+            progressFirmaPina.Hide();
 
+        }
+
+        private void btnConcludi_Click(object sender, EventArgs e)
+        {
+
+            changeFirmaPinObjects();
             changeHomeObjects();
 
         }
@@ -1681,11 +1722,12 @@ namespace CIEID
             ThreadStart processTaskThread = delegate
             {
                 var model = carouselControl.ActiveCieModel;
+                int ret = 0;
                 if (cbFirmaGrafica.Checked && (signOp == opSelectedState.FIRMA_PADES))
                 {
                     Console.WriteLine("Pades con grafica");
                     Dictionary<string, float> signImageInfo = pdfPreview.getSignImageInfos();
-                    firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, (int)signImageInfo["pageNumber"], signImageInfo["x"], signImageInfo["y"], signImageInfo["w"], signImageInfo["h"],
+                    ret = firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, (int)signImageInfo["pageNumber"], signImageInfo["x"], signImageInfo["y"], signImageInfo["w"], signImageInfo["h"],
                         pdfPreview.getSignImagePath(), pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
 
                 }
@@ -1693,21 +1735,53 @@ namespace CIEID
                 {
                     Console.WriteLine("Pades senza grafica");
 
-                    firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
+                    ret = firmaConCIE(lblPath4.Text, "pdf", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
                 }
                 else if (signOp == opSelectedState.FIRMA_CADES)
                 {
                     Console.WriteLine("Cades");
 
-                    firmaConCIE(lblPath4.Text, "p7m", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
+                    ret = firmaConCIE(lblPath4.Text, "p7m", pin, model.Pan, 0, 0.0f, 0.0f, 0.0f, 0.0f, null, pathToSaveFile, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
                 }
+                
+                this.Invoke((MethodInvoker)delegate
+                {
+                    ((Control)sender).Enabled = true;
+                    switch (ret)
+                    {
+                        case CKR_TOKEN_NOT_RECOGNIZED:
+                            MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            changeFirmaPinObjects();
+                            break;
+
+                        case CKR_TOKEN_NOT_PRESENT:
+                            MessageBox.Show("CIE non presente sul lettore", "Abilitazione CIE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            changeFirmaPinObjects();
+                            break;
+
+                        case CKR_PIN_INCORRECT:
+                            MessageBox.Show(String.Format("Il PIN digitato è errato."), "PIN non corretto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            changeFirmaPinObjects();
+                            break;
+
+                        case CKR_PIN_LOCKED:
+                            MessageBox.Show("Munisciti del codice PUK e utilizza la funzione di sblocco carta per abilitarla", "Carta bloccata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            changeFirmaPinObjects();
+                            break;
+
+                        case CARD_PAN_MISMATCH:
+                            MessageBox.Show("CIE selezionata diversa da quella presente sul lettore", "CIE non corrispondente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            changeFirmaPinObjects();
+                            break;
+                    }
+                });
 
             };
 
-            ((Control)sender).Enabled = true;
             new Thread(processTaskThread).Start();
         }
 
+        /*
         private void firma(object sender, String inFilePath, String outFilePath, String fileType, String pin, String pan, int page, float x, float y, float w, float h,  String signImgPath )
         {
             firmaConCIE(inFilePath, fileType, pin, pan, page, x, y, w, h, signImgPath, outFilePath, new ProgressCallback(ProgressFirma), new SignCompletedCallback(CompletedFirma));
@@ -1717,9 +1791,19 @@ namespace CIEID
                 ((Control)sender).Enabled = true;
             });
         }
+        */
 
         private void btnPersonalizzaAnnulla_Click(object sender, EventArgs e)
         {
+
+            var model = carouselControl.ActiveCieModel;
+
+            if (model.isCustomSign)
+            {
+                lbPeronalizza.Text = "Aggiorna";
+                label29.Text = "Firma personalizzata correttamente";
+            }
+
             tabControlMain.SelectedIndex = 10;
         }
 
@@ -1763,6 +1847,18 @@ namespace CIEID
         private void button1_Click_1(object sender, EventArgs e)
         {
             //changeHomeObjects();
+            var model = carouselControl.ActiveCieModel;
+
+            if (model.isCustomSign)
+            {
+                lbPeronalizza.Text = "Aggiorna";
+                label29.Text = "Firma personalizzata correttamente";
+            }
+            else
+            {
+                lbPeronalizza.Text = "Personalizza";
+                label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+            }
             tabControlMain.SelectedIndex = 10;
         }
 
@@ -1771,12 +1867,16 @@ namespace CIEID
 
             var model = carouselControl.ActiveCieModel;
 
-            if(model.isCustomSign)
+            if (model.isCustomSign)
             {
                 lbPeronalizza.Text = "Aggiorna";
                 label29.Text = "Firma personalizzata correttamente";
             }
-
+            else
+            {
+                lbPeronalizza.Text = "Personalizza";
+                label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+            }
             tabControlMain.SelectedIndex = 10;
 
 

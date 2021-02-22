@@ -168,6 +168,12 @@
     <Content Include="images\Risorsa 24.png" />
     <Content Include="images\Risorsa 25%402x.png" />
     <Content Include="images\Risorsa 25.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\Firma\2x\pdf%402x.png" />
+    <None Include="Resources\Firma\2x\p7m%402x.png" />
+    <None Include="Resources\Firma\2x\pdf%402x_gray.png" />
+    <None Include="Resources\Firma\2x\p7m%402x_gray.png" />
     <None Include="Resources\Firma\orange_checkbox.png" />
     <None Include="Resources\Firma\blue_checkbox.png" />
     <None Include="Resources\Firma\user.png" />

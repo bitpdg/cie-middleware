@@ -112,6 +112,16 @@ namespace CIEID.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check {
+            get {
+                object obj = ResourceManager.GetObject("check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cie {
             get {
                 object obj = ResourceManager.GetObject("cie", resourceCulture);
@@ -125,6 +135,16 @@ namespace CIEID.Properties {
         internal static System.Drawing.Bitmap cie_transparent {
             get {
                 object obj = ResourceManager.GetObject("cie_transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cross {
+            get {
+                object obj = ResourceManager.GetObject("cross", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -175,6 +195,46 @@ namespace CIEID.Properties {
         internal static string owner_label {
             get {
                 return ResourceManager.GetString("owner_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p7m_2x {
+            get {
+                object obj = ResourceManager.GetObject("p7m_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap p7m_2x_gray {
+            get {
+                object obj = ResourceManager.GetObject("p7m_2x_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf_2x {
+            get {
+                object obj = ResourceManager.GetObject("pdf_2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdf_2x_gray {
+            get {
+                object obj = ResourceManager.GetObject("pdf_2x_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
