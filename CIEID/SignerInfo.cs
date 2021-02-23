@@ -92,9 +92,16 @@ namespace CIEID
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             string name = vInfo.name + " " + vInfo.surname + '\n' + vInfo.cn;
             string s_time = vInfo.signingTime;
+
             if (s_time == "")
             {
                 s_time = "Attributo Signing Time non presente";
+            }
+            else
+            {
+                s_time = vInfo.signingTime.Substring(0, vInfo.signingTime.Length - 1);
+                DateTime dateTime = DateTime.ParseExact(s_time, "yyMMddHHmmss", null);
+                s_time = dateTime.ToString();
             }
 
             string s_cert = "";
@@ -183,14 +190,14 @@ namespace CIEID
             // 
             // pbVName
             // 
-            pbVName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            pbVName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             //pbVName.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
             pbVName.Location = new System.Drawing.Point(3, 3);
             pbVName.Name = "pbVName";
             pbVName.Size = new System.Drawing.Size(29, 31);
             pbVName.TabIndex = 6;
             pbVName.TabStop = false;
-            pbVName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pbVName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pbVName.Image = CIEID.Properties.Resources.user;
 
             // 
@@ -209,14 +216,14 @@ namespace CIEID
             // 
             // pbSignTime
             // 
-            pbSignTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left  | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            //pbSignTime.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
-            pbSignTime.Location = new System.Drawing.Point(3, 40);
-            pbSignTime.Name = "pbSignTime";
+            pbSignTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            //pbVName.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
+            pbSignTime.Location = new System.Drawing.Point(3, 3);
+            pbSignTime.Name = "pbVName";
             pbSignTime.Size = new System.Drawing.Size(29, 31);
-            pbSignTime.TabIndex = 7;
+            pbSignTime.TabIndex = 6;
             pbSignTime.TabStop = false;
-            pbSignTime.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pbSignTime.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pbSignTime.Image = CIEID.Properties.Resources.calendar;
 
             // 
@@ -235,15 +242,15 @@ namespace CIEID
             // 
             // pbSign
             // 
-            pbSign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            pbSign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             //pbSign.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
             pbSign.Location = new System.Drawing.Point(3, 77);
             pbSign.Name = "pbSign";
-            pbSign.Size = new System.Drawing.Size(31, 31);
+            pbSign.Size = new System.Drawing.Size(29, 31);
             pbSign.TabIndex = 8;
             pbSign.TabStop = false;
-            pbSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            
+            pbSign.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+
 
             // 
             // lblCertValid
@@ -261,14 +268,14 @@ namespace CIEID
             // 
             // pbCertValid
             // 
-            pbCertValid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            pbCertValid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             //pbCertValid.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
             pbCertValid.Location = new System.Drawing.Point(3, 114);
             pbCertValid.Name = "pbCertValid";
             pbCertValid.Size = new System.Drawing.Size(29, 31);
             pbCertValid.TabIndex = 9;
             pbCertValid.TabStop = false;
-            pbCertValid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pbCertValid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pbCertValid.Image = CIEID.Properties.Resources.orange_checkbox;
 
             // 
@@ -287,14 +294,14 @@ namespace CIEID
             // 
             // pbCertRev
             // 
-            pbCertRev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            pbCertRev.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             //pbCertRev.Padding = new System.Windows.Forms.Padding(15, 12, 15, 12);
             pbCertRev.Location = new System.Drawing.Point(3, 151);
             pbCertRev.Name = "pbCertRev";
             pbCertRev.Size = new System.Drawing.Size(29, 31);
             pbCertRev.TabIndex = 10;
             pbCertRev.TabStop = false;
-            pbCertRev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pbCertRev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pbCertRev.Image = CIEID.Properties.Resources.orange_checkbox;
 
             // 
@@ -313,14 +320,14 @@ namespace CIEID
             // 
             // pbCn
             // 
-            pbCn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left  | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            pbCn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             //pbCn.Padding = new System.Windows.Forms.Padding(15, 28, 15, 28);
             pbCn.Location = new System.Drawing.Point(3, 188);
             pbCn.Name = "pbCn";
             pbCn.Size = new System.Drawing.Size(29, 31);
             pbCn.TabIndex = 11;
             pbCn.TabStop = false;
-            pbCn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pbCn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pbCn.Image = CIEID.Properties.Resources.medal;
 
             return tbVerifyInfo;
@@ -345,23 +352,11 @@ namespace CIEID
                 return n_sign;
             }
 
-
-            Console.WriteLine("Numero di firme: {0}", n_sign);
             vInfos = new verifyInfo_t[n_sign];
 
             for (int i = 0; i<n_sign; i++)
             {
                 getVerifyInfo(i, ref vInfos[i]);
-                
-                Console.WriteLine("Info: {0}", vInfos[i].name);
-                Console.WriteLine("Info: {0}", vInfos[i].surname);
-                Console.WriteLine("Info: {0}", vInfos[i].cadn);
-                Console.WriteLine("Info: {0}", vInfos[i].cn);
-                Console.WriteLine("Info: {0}", vInfos[i].isCertValid);
-                Console.WriteLine("Info: {0}", vInfos[i].isSignValid);
-                Console.WriteLine("Info: {0}", vInfos[i].CertRevocStatus);
-
-
                 verifyPanel.Controls.Add(createTable(vInfos[i]));
             }
 

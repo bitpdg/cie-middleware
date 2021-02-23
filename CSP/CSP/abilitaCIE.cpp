@@ -215,8 +215,7 @@ extern "C" {
 
 				if (memcmp(baPan.data(), IdServizi.data(), IdServizi.size()) != 0)
 				{
-					int ret = CARD_PAN_MISMATCH;
-					completedCallBack(ret);
+					return CARD_PAN_MISMATCH;
 				}
 
 				ByteDynArray FullPIN;
@@ -235,6 +234,19 @@ extern "C" {
 
 				uint16_t ret = cieSign->sign(inFilePath, type, fullPinCStr, page, x, y, w, h, imagePathFile, outFilePath);
 				
+				if ((ret & (0x63C0)) == 0x63C0)
+				{
+					return CKR_PIN_INCORRECT;
+				}
+				else if (ret == 0x6983)
+				{
+					return CKR_PIN_LOCKED;
+				}
+				else if (ret != 0)
+				{
+					return CKR_GENERAL_ERROR;
+				}
+
 				progressCallBack(100, "");
 				
 				Log.write("CieSign ret: %d", ret);

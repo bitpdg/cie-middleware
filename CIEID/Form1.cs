@@ -52,7 +52,7 @@ namespace CIEID
             FIRMA_PADES = 1,
             FIRMA_CADES = 2
         }
-        private int signFontSize = 60;
+        private int signFontSize = 120;
 
         private opSelectedState signOp = opSelectedState.NO_OP;
 
