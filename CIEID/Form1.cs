@@ -1285,15 +1285,19 @@ namespace CIEID
 
         private void lbPeronalizza_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Carta selezionata: {0}", labelCardNumberValue1.Text);
             string signImagePath = getSignImagePath(labelCardNumberValue1.Text);
-            Console.WriteLine("SignImagePath: {0}", signImagePath);
 
             if (pnFirmaGrafica.Controls.Count > 0 && pnFirmaGrafica.Controls[0] != null)
             {
                 pnFirmaGrafica.Controls[0].Dispose();
 
-                Console.WriteLine("PictureBox disposing");
+            }
+
+            if (!System.IO.File.Exists(signImagePath))
+            {
+                TextInfo nameInfo = new CultureInfo("it-IT", false).TextInfo;
+                string name = CieColl.MyDictionary.ElementAt(0).Value.Owner;
+                DrawText(nameInfo.ToTitleCase(name.ToLower()), Color.Black, signImagePath);
             }
 
             PictureBox signPicture = new PictureBox();
@@ -1313,6 +1317,22 @@ namespace CIEID
 
             signPicture.Update();
             pnFirmaGrafica.Controls.Add(signPicture);
+
+            var model = carouselControl.ActiveCieModel;
+
+            if(model.isCustomSign)
+            {
+                lblPersonalizzaPreambolo.Text = "Una tua firma grafica personalizzata è già stata caricata. Vuoi aggiornarla?";
+                lblPersonalizzaPreambolo.Update();
+            }
+            else
+            {
+                lblPersonalizzaPreambolo.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. " +
+                                                "Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati." +
+                                                "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. " +
+                                                "Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+                lblPersonalizzaPreambolo.Update();
+            }
 
             tabControlMain.SelectedIndex = 15;
 
@@ -1645,7 +1665,8 @@ namespace CIEID
         {
 
             changeFirmaPinObjects();
-            changeHomeObjects();
+            //changeHomeObjects();
+            tabControlMain.SelectedIndex = 10;
 
         }
 

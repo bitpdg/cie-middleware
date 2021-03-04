@@ -201,7 +201,6 @@ namespace CIEID
                 StartInfo = new ProcessStartInfo
                 {
                     FileName = mutoolPath,
-                    //Arguments = string.Format("{0} {1} {2} {3} {4} {5} {6} {7}", "draw -o", "page%d.png", "-w", 271, "-h", 332, file_name, 1),
                     Arguments = string.Format("{0} {1} \"{2}\" {3}", "draw -o", tmpFolderName + "\\page%d.png", filePath, pageNumber),
                     UseShellExecute = false,
                     RedirectStandardOutput = true,

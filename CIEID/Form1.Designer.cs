@@ -353,7 +353,7 @@ namespace CIEID
             this.buttonAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAnnulla.FlatAppearance.BorderSize = 0;
             this.buttonAnnulla.ForeColor = System.Drawing.Color.White;
-            this.buttonAnnulla.Location = new System.Drawing.Point(124, 481);
+            this.buttonAnnulla.Location = new System.Drawing.Point(101, 484);
             this.buttonAnnulla.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAnnulla.Name = "buttonAnnulla";
             this.buttonAnnulla.Size = new System.Drawing.Size(156, 30);
@@ -367,7 +367,7 @@ namespace CIEID
             this.buttonAbbina.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAbbina.FlatAppearance.BorderSize = 0;
             this.buttonAbbina.ForeColor = System.Drawing.Color.White;
-            this.buttonAbbina.Location = new System.Drawing.Point(368, 481);
+            this.buttonAbbina.Location = new System.Drawing.Point(392, 484);
             this.buttonAbbina.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAbbina.Name = "buttonAbbina";
             this.buttonAbbina.Size = new System.Drawing.Size(156, 30);
@@ -748,21 +748,21 @@ namespace CIEID
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 169);
             this.label6.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
-            this.label6.Size = new System.Drawing.Size(128, 17);
+            this.label6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label6.Size = new System.Drawing.Size(105, 15);
             this.label6.TabIndex = 3;
             this.label6.Text = "Numero carta:";
             // 
             // labelCardNumberValue1
             // 
-            this.labelCardNumberValue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelCardNumberValue1.Location = new System.Drawing.Point(3, 186);
+            this.labelCardNumberValue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCardNumberValue1.Location = new System.Drawing.Point(3, 184);
             this.labelCardNumberValue1.Name = "labelCardNumberValue1";
-            this.labelCardNumberValue1.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
+            this.labelCardNumberValue1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.labelCardNumberValue1.Size = new System.Drawing.Size(228, 20);
             this.labelCardNumberValue1.TabIndex = 1;
             this.labelCardNumberValue1.Text = "label6";
@@ -770,23 +770,24 @@ namespace CIEID
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label24.Location = new System.Drawing.Point(3, 211);
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 209);
             this.label24.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label24.Name = "label24";
-            this.label24.Padding = new System.Windows.Forms.Padding(20, 0, 10, 0);
-            this.label24.Size = new System.Drawing.Size(112, 17);
+            this.label24.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label24.Size = new System.Drawing.Size(90, 15);
             this.label24.TabIndex = 2;
             this.label24.Text = "Intestatario:";
             // 
             // labelOwnerValue1
             // 
-            this.labelOwnerValue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelOwnerValue1.Location = new System.Drawing.Point(3, 228);
+            this.labelOwnerValue1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOwnerValue1.Location = new System.Drawing.Point(3, 224);
             this.labelOwnerValue1.Name = "labelOwnerValue1";
-            this.labelOwnerValue1.Padding = new System.Windows.Forms.Padding(20, 0, 5, 0);
-            this.labelOwnerValue1.Size = new System.Drawing.Size(238, 41);
+            this.labelOwnerValue1.Padding = new System.Windows.Forms.Padding(10, 0, 5, 0);
+            this.labelOwnerValue1.Size = new System.Drawing.Size(244, 41);
             this.labelOwnerValue1.TabIndex = 4;
+            this.labelOwnerValue1.Text = "ALESSANDRO JAMES LARELLI";
             this.labelOwnerValue1.Click += new System.EventHandler(this.labelOwnerValue1_Click);
             // 
             // carouselItem2
@@ -1839,7 +1840,7 @@ namespace CIEID
             this.btnSignProsegui.Enabled = false;
             this.btnSignProsegui.FlatAppearance.BorderSize = 0;
             this.btnSignProsegui.ForeColor = System.Drawing.Color.White;
-            this.btnSignProsegui.Location = new System.Drawing.Point(350, 484);
+            this.btnSignProsegui.Location = new System.Drawing.Point(392, 484);
             this.btnSignProsegui.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignProsegui.Name = "btnSignProsegui";
             this.btnSignProsegui.Size = new System.Drawing.Size(157, 28);
@@ -1866,7 +1867,7 @@ namespace CIEID
             this.btnSignAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnSignAnnulla.FlatAppearance.BorderSize = 0;
             this.btnSignAnnulla.ForeColor = System.Drawing.Color.White;
-            this.btnSignAnnulla.Location = new System.Drawing.Point(139, 484);
+            this.btnSignAnnulla.Location = new System.Drawing.Point(101, 484);
             this.btnSignAnnulla.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignAnnulla.Name = "btnSignAnnulla";
             this.btnSignAnnulla.Size = new System.Drawing.Size(157, 28);
@@ -2213,7 +2214,7 @@ namespace CIEID
             this.btnFirma.Enabled = false;
             this.btnFirma.FlatAppearance.BorderSize = 0;
             this.btnFirma.ForeColor = System.Drawing.Color.White;
-            this.btnFirma.Location = new System.Drawing.Point(357, 484);
+            this.btnFirma.Location = new System.Drawing.Point(392, 484);
             this.btnFirma.Margin = new System.Windows.Forms.Padding(2);
             this.btnFirma.Name = "btnFirma";
             this.btnFirma.Size = new System.Drawing.Size(156, 30);
@@ -2227,7 +2228,7 @@ namespace CIEID
             this.btnAnullaFirmaPin.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnAnullaFirmaPin.FlatAppearance.BorderSize = 0;
             this.btnAnullaFirmaPin.ForeColor = System.Drawing.Color.White;
-            this.btnAnullaFirmaPin.Location = new System.Drawing.Point(116, 484);
+            this.btnAnullaFirmaPin.Location = new System.Drawing.Point(101, 484);
             this.btnAnullaFirmaPin.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnullaFirmaPin.Name = "btnAnullaFirmaPin";
             this.btnAnullaFirmaPin.Size = new System.Drawing.Size(156, 30);

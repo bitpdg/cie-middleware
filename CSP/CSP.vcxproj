@@ -216,8 +216,7 @@
       <AdditionalManifestFiles>custom.manifest</AdditionalManifestFiles>
     </Manifest>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>"$(SolutionDir)sign_sha256.bat" "$(TargetPath)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
