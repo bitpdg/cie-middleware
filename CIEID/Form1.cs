@@ -37,6 +37,7 @@ namespace CIEID
         public const int CKR_PIN_LEN_RANGE = 0x000000A2;
         public const int CARD_ALREADY_ENABLED = 0x000000F0;
         public const int CARD_PAN_MISMATCH = 0x000000F1;
+        public const UInt32 INVALID_FILE_TYPE = 0x84000005;
 
         /* CKR_PIN_EXPIRED and CKR_PIN_LOCKED are new for v2.0 */
         public const int CKR_PIN_EXPIRED = 0x000000A3;
@@ -1324,19 +1325,24 @@ namespace CIEID
             {
                 lblPersonalizzaPreambolo.Text = "Una tua firma grafica personalizzata è già stata caricata. Vuoi aggiornarla?";
                 lblPersonalizzaPreambolo.Update();
+
+                btnCreaFirma.Enabled = true;
+
             }
             else
             {
                 lblPersonalizzaPreambolo.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. " +
-                                                "Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati." +
-                                                "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. " +
                                                 "Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+
                 lblPersonalizzaPreambolo.Update();
+
+                btnCreaFirma.Enabled = false;
             }
 
             tabControlMain.SelectedIndex = 15;
 
         }
+
 
         private void lbPeronalizza_MouseEnter(object sender, EventArgs e)
         { 
@@ -1443,6 +1449,13 @@ namespace CIEID
                 MessageBox.Show("Il file selezionato non contiene firme", "Verifica completata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tabControlMain.SelectedIndex = 10;
             }
+            
+            else if((UInt32) n_sott == INVALID_FILE_TYPE)
+            {
+                MessageBox.Show("Il file selezionato non è un file valido. E' possibile verificare solo file con estensione .p7m o .pdf", "Errore nella verifica", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tabControlMain.SelectedIndex = 10;
+            }
+            
             else if(n_sott < 0)
             {
                 MessageBox.Show("Errore nella verifica del file", "Errore nella verifica", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1698,8 +1711,11 @@ namespace CIEID
                 return;
             }
 
-            //Chiedere all'utente dove salvare il file firmato
+            string fileName = Path.GetFileNameWithoutExtension(lblPath4.Text);
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.FileName = fileName + "_signed";
+            Console.WriteLine("{0}, {1}", fileName, fileName + "-signed");
+
             if(signOp == opSelectedState.FIRMA_PADES)
             {
                 saveFileDialog1.Filter = "File (*.pdf) | *.pdf";
@@ -1862,6 +1878,8 @@ namespace CIEID
                 lblPersonalizzaPreambolo.Text = "Una tua firma grafica personalizzata è già stata caricata. Vuoi aggiornarla?";
                 lblPersonalizzaPreambolo.Update();
 
+
+                btnCreaFirma.Enabled = true;
             }
         }
 
@@ -1874,12 +1892,16 @@ namespace CIEID
             {
                 lbPeronalizza.Text = "Aggiorna";
                 label29.Text = "Firma personalizzata correttamente";
+
             }
             else
             {
                 lbPeronalizza.Text = "Personalizza";
-                label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+                label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, " +
+                                "ma ti consentirà di dare un tocco personale ai documenti firmati.";
+                
             }
+
             tabControlMain.SelectedIndex = 10;
         }
 
@@ -1901,6 +1923,45 @@ namespace CIEID
             tabControlMain.SelectedIndex = 10;
 
 
+        }
+
+        private void btnCreaFirma_Click(object sender, EventArgs e)
+        {
+
+            var model = carouselControl.ActiveCieModel;
+
+            string defaultSignImagePath = getSignImagePath(model.SerialNumber);
+
+            Console.WriteLine("Immagine firma salvata in: {0}", defaultSignImagePath);
+
+            TextInfo nameInfo = new CultureInfo("it-IT", false).TextInfo;
+            DrawText(nameInfo.ToTitleCase(model.Owner.ToLower()), Color.Black, defaultSignImagePath);
+
+            Image image;
+            using (Stream stream = File.OpenRead(getSignImagePath(model.SerialNumber)))
+            {
+                image = System.Drawing.Image.FromStream(stream);
+            }
+
+            PictureBox signPicture = (PictureBox)pnFirmaGrafica.Controls[0];
+            Bitmap signImage = new Bitmap(image, signPicture.Width, signPicture.Height);
+            signImage.MakeTransparent();
+            signPicture.Image = signImage;
+            signPicture.Update();
+
+            CieColl.MyDictionary[model.Pan].isCustomSign = false;
+            Properties.Settings.Default.cieList = JsonConvert.SerializeObject(CieColl.MyDictionary);
+            Properties.Settings.Default.Save();
+
+
+            label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+
+            lbPeronalizza.Text = "Personalizza";
+
+            lblPersonalizzaPreambolo.Text = label29.Text;
+            lblPersonalizzaPreambolo.Update();
+
+            btnCreaFirma.Enabled = false;
         }
     }
         //long ret = VerificaCIEAbilitata();

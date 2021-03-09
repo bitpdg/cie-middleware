@@ -83,16 +83,6 @@ namespace CIEID.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blue_checkbox {
-            get {
-                object obj = ResourceManager.GetObject("blue_checkbox", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap calendar {
             get {
                 object obj = ResourceManager.GetObject("calendar", resourceCulture);
@@ -155,6 +145,16 @@ namespace CIEID.Properties {
         internal static System.Drawing.Bitmap forward_3x {
             get {
                 object obj = ResourceManager.GetObject("forward@3x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap green_checkbox {
+            get {
+                object obj = ResourceManager.GetObject("green_checkbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

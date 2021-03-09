@@ -96,11 +96,11 @@ extern "C" {
 		return 0;
 	}
 
-	CK_RV CK_ENTRY __stdcall verificaConCIE(const char* inFilePath)
+	CK_RV CK_ENTRY __stdcall verificaConCIE(const char* inFilePath, const char* proxyAddress, int proxyPort, const char* usrPass)
 	{
 		CIEVerify* verifier = new CIEVerify();
 
-		verifier->verify(inFilePath, (VERIFY_RESULT*)&verifyResult);
+		verifier->verify(inFilePath, (VERIFY_RESULT*)&verifyResult, proxyAddress, proxyPort, usrPass);
 
 		if (verifyResult.nErrorCode == 0)
 		{
@@ -198,6 +198,7 @@ extern "C" {
 
 				IAS* ias = new IAS((CToken::TokenTransmitCallback)TokenTransmitCallback, atrBa);
 				ias->SetCardContext(&conn);
+				foundCIE = false;
 
 				ias->token.Reset();
 				ias->SelectAID_IAS();
@@ -218,6 +219,7 @@ extern "C" {
 					return CARD_PAN_MISMATCH;
 				}
 
+				foundCIE = true;
 				ByteDynArray FullPIN;
 				ByteArray LastPIN = ByteArray((uint8_t*)pin, strlen(pin));
 				ias->GetFirstPIN(FullPIN);
@@ -255,6 +257,13 @@ extern "C" {
 				free(cieSign);
 
 				completedCallBack(ret);
+			}
+
+			if (!foundCIE) {
+				free(ATR);
+				free(readers);
+				return CKR_TOKEN_NOT_RECOGNIZED;
+
 			}
 		}
 		catch (std::exception &ex) {

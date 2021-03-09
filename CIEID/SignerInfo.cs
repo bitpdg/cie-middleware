@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace CIEID
 
 
         [DllImport("ciepki.dll", CallingConvention = CallingConvention.StdCall)]
-        static extern long verificaConCIE(string filePath);
+        static extern long verificaConCIE(string filePath, string proxyAddress, int proxyPort, string usrPass);
         [DllImport("ciepki.dll", CallingConvention = CallingConvention.StdCall)]
         static extern long getVerifyInfo(int index, ref verifyInfo_t vInfo);
 
@@ -107,10 +108,13 @@ namespace CIEID
             string s_cert = "";
             if (vInfo.isCertValid == true) 
             {
+                pbCertValid.Image = CIEID.Properties.Resources.green_checkbox;
+                pbCertValid.Update();
                 s_cert = "Il certificato è valido";
             }
             else
             {
+                pbCertValid.Image = CIEID.Properties.Resources.orange_checkbox;
                 s_cert = "Il certificato non è valido";
             }
 
@@ -119,16 +123,17 @@ namespace CIEID
             if (vInfo.isSignValid == true)
             {
                 s_sign = "La firma è valida";
-                pbSign.Image = CIEID.Properties.Resources.blue_checkbox;
+                pbSign.Image = CIEID.Properties.Resources.green_checkbox;
             }
 
             
             string s_revoc = "Servizio di revoca non raggiungibile";
             pbCertRev.Image = CIEID.Properties.Resources.orange_checkbox;
+
             if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_GOOD)
             {
                 s_revoc = "Il certificato non è revocato";
-                pbCertRev.Image = CIEID.Properties.Resources.blue_checkbox;
+                pbCertRev.Image = CIEID.Properties.Resources.green_checkbox;
             }
             else if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_REVOKED)
             {
@@ -137,6 +142,9 @@ namespace CIEID
             else if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_SUSPENDED)
             {
                 s_revoc = "Il certificato è sospeso";
+            }else if (vInfo.CertRevocStatus == (int)revStatus.REVOCATION_STATUS_UNKNOWN)
+            {
+                s_cert = "Certificato non verificato";
             }
 
             string s_cadn = vInfo.cadn; 
@@ -276,7 +284,6 @@ namespace CIEID
             pbCertValid.TabIndex = 9;
             pbCertValid.TabStop = false;
             pbCertValid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbCertValid.Image = CIEID.Properties.Resources.orange_checkbox;
 
             // 
             // lblCertRev
@@ -302,7 +309,6 @@ namespace CIEID
             pbCertRev.TabIndex = 10;
             pbCertRev.TabStop = false;
             pbCertRev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pbCertRev.Image = CIEID.Properties.Resources.orange_checkbox;
 
             // 
             // lblCn
@@ -336,8 +342,8 @@ namespace CIEID
 
         public int verify()
         {
+            verifyPanel.Controls.Clear();
 
-            verifyPanel.AutoScroll = false;
             verifyPanel.HorizontalScroll.Enabled = false;
             verifyPanel.HorizontalScroll.Visible = false;
             verifyPanel.HorizontalScroll.Maximum = 0;
@@ -345,9 +351,13 @@ namespace CIEID
             verifyPanel.FlowDirection = FlowDirection.TopDown;
             verifyPanel.WrapContents = false;
 
-            int n_sign = (int)verificaConCIE(filePath);
+            //WebRequest.DefaultWebProxy = WebRequest.GetSystemWebProxy();
+            //int n_sign = (int)verificaConCIE(filePath, "vm-test-proxy", 3128, "test:test");
 
-            if(n_sign <= 0)
+            int n_sign = (int)verificaConCIE(filePath, null, -1, null);
+
+            Console.WriteLine("n_sign: {0}", n_sign);
+            if (n_sign <= 0)
             {
                 return n_sign;
             }
@@ -361,8 +371,6 @@ namespace CIEID
             }
 
             return n_sign;
-
-            //Console.WriteLine("Info: {0}", vInfo.a[1]);
         }
 
     }

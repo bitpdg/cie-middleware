@@ -226,6 +226,7 @@ namespace CIEID
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonFirma = new System.Windows.Forms.Button();
+            this.btnCreaFirma = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -2087,7 +2088,7 @@ namespace CIEID
             this.panel3.Controls.Add(this.panePreview);
             this.panel3.Controls.Add(this.lblPath3);
             this.panel3.Controls.Add(this.pictureBox22);
-            this.panel3.Location = new System.Drawing.Point(61, 104);
+            this.panel3.Location = new System.Drawing.Point(73, 104);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(501, 375);
             this.panel3.TabIndex = 27;
@@ -2401,7 +2402,7 @@ namespace CIEID
             // 
             this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
             this.pictureBox19.InitialImage = null;
-            this.pictureBox19.Location = new System.Drawing.Point(31, 3);
+            this.pictureBox19.Location = new System.Drawing.Point(61, 3);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(75, 89);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2422,6 +2423,7 @@ namespace CIEID
             // tbFirmaPersonalizzata
             // 
             this.tbFirmaPersonalizzata.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbFirmaPersonalizzata.Controls.Add(this.btnCreaFirma);
             this.tbFirmaPersonalizzata.Controls.Add(this.panel7);
             this.tbFirmaPersonalizzata.Controls.Add(this.btnPersonalizzaSelect);
             this.tbFirmaPersonalizzata.Controls.Add(this.btnPersonalizzaAnnulla);
@@ -2444,19 +2446,21 @@ namespace CIEID
             // 
             // pnFirmaGrafica
             // 
-            this.pnFirmaGrafica.Location = new System.Drawing.Point(26, 30);
+            this.pnFirmaGrafica.Location = new System.Drawing.Point(19, 30);
             this.pnFirmaGrafica.Name = "pnFirmaGrafica";
-            this.pnFirmaGrafica.Size = new System.Drawing.Size(456, 100);
+            this.pnFirmaGrafica.Size = new System.Drawing.Size(463, 100);
             this.pnFirmaGrafica.TabIndex = 32;
             // 
             // lblPersonalizzaPreambolo
             // 
             this.lblPersonalizzaPreambolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPersonalizzaPreambolo.Location = new System.Drawing.Point(23, 178);
+            this.lblPersonalizzaPreambolo.Location = new System.Drawing.Point(23, 191);
             this.lblPersonalizzaPreambolo.Name = "lblPersonalizzaPreambolo";
-            this.lblPersonalizzaPreambolo.Size = new System.Drawing.Size(456, 81);
+            this.lblPersonalizzaPreambolo.Size = new System.Drawing.Size(456, 49);
             this.lblPersonalizzaPreambolo.TabIndex = 33;
-            this.lblPersonalizzaPreambolo.Text = resources.GetString("lblPersonalizzaPreambolo.Text");
+            this.lblPersonalizzaPreambolo.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Q" +
+    "uesto passaggio non è indispensabile, ma ti consentirà di dare un tocco personal" +
+    "e ai documenti firmati.";
             // 
             // label34
             // 
@@ -2475,10 +2479,10 @@ namespace CIEID
             this.btnPersonalizzaSelect.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnPersonalizzaSelect.FlatAppearance.BorderSize = 0;
             this.btnPersonalizzaSelect.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizzaSelect.Location = new System.Drawing.Point(359, 484);
+            this.btnPersonalizzaSelect.Location = new System.Drawing.Point(264, 484);
             this.btnPersonalizzaSelect.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonalizzaSelect.Name = "btnPersonalizzaSelect";
-            this.btnPersonalizzaSelect.Size = new System.Drawing.Size(157, 28);
+            this.btnPersonalizzaSelect.Size = new System.Drawing.Size(130, 28);
             this.btnPersonalizzaSelect.TabIndex = 31;
             this.btnPersonalizzaSelect.Text = "Seleziona un file";
             this.btnPersonalizzaSelect.UseVisualStyleBackColor = false;
@@ -2490,10 +2494,10 @@ namespace CIEID
             this.btnPersonalizzaAnnulla.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnPersonalizzaAnnulla.FlatAppearance.BorderSize = 0;
             this.btnPersonalizzaAnnulla.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizzaAnnulla.Location = new System.Drawing.Point(122, 484);
+            this.btnPersonalizzaAnnulla.Location = new System.Drawing.Point(92, 484);
             this.btnPersonalizzaAnnulla.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonalizzaAnnulla.Name = "btnPersonalizzaAnnulla";
-            this.btnPersonalizzaAnnulla.Size = new System.Drawing.Size(157, 28);
+            this.btnPersonalizzaAnnulla.Size = new System.Drawing.Size(130, 28);
             this.btnPersonalizzaAnnulla.TabIndex = 30;
             this.btnPersonalizzaAnnulla.Text = "Indietro";
             this.btnPersonalizzaAnnulla.UseVisualStyleBackColor = false;
@@ -2540,7 +2544,7 @@ namespace CIEID
             this.pnSignerInfo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnSignerInfo.Location = new System.Drawing.Point(104, 123);
             this.pnSignerInfo.Name = "pnSignerInfo";
-            this.pnSignerInfo.Size = new System.Drawing.Size(341, 247);
+            this.pnSignerInfo.Size = new System.Drawing.Size(341, 258);
             this.pnSignerInfo.TabIndex = 32;
             // 
             // lblSottoscrittori
@@ -2786,6 +2790,21 @@ namespace CIEID
             this.buttonFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFirma.UseVisualStyleBackColor = false;
             this.buttonFirma.Click += new System.EventHandler(this.buttonFirma_Click);
+            // 
+            // btnCreaFirma
+            // 
+            this.btnCreaFirma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCreaFirma.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCreaFirma.FlatAppearance.BorderSize = 0;
+            this.btnCreaFirma.ForeColor = System.Drawing.Color.White;
+            this.btnCreaFirma.Location = new System.Drawing.Point(425, 484);
+            this.btnCreaFirma.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreaFirma.Name = "btnCreaFirma";
+            this.btnCreaFirma.Size = new System.Drawing.Size(130, 28);
+            this.btnCreaFirma.TabIndex = 36;
+            this.btnCreaFirma.Text = "Crea firma";
+            this.btnCreaFirma.UseVisualStyleBackColor = false;
+            this.btnCreaFirma.Click += new System.EventHandler(this.btnCreaFirma_Click);
             // 
             // MainForm
             // 
@@ -3098,5 +3117,6 @@ namespace CIEID
         private Button btnPersonalizzaAnnulla;
         private Panel panel7;
         private Panel panel5;
+        private Button btnCreaFirma;
     }
 }

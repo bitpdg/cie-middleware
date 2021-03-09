@@ -7072,9 +7072,6 @@
         rkJggg==
 </value>
   </data>
-  <data name="lblPersonalizzaPreambolo.Text" xml:space="preserve">
-    <value>Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.</value>
-  </data>
   <data name="pictureBox23.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHYAAACfCAYAAAAs7C1bAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
