@@ -22,7 +22,7 @@ uint16_t CIESign::sign(const char* inFilePath, const char* type, const char* pin
 	{
 		ctx = disigon_sign_init();
 
-#if 0
+#if 1
 		ret = disigon_set(DISIGON_OPT_LOG_LEVEL, (void*)LOG_TYPE_DEBUG);
 		if (ret != 0)
 		{

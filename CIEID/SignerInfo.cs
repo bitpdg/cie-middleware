@@ -342,6 +342,10 @@ namespace CIEID
 
         public int verify()
         {
+            string proxyAddress = null;
+            string proxyCredentials = null;
+            int proxyPort = -1;
+
             verifyPanel.Controls.Clear();
 
             verifyPanel.HorizontalScroll.Enabled = false;
@@ -351,10 +355,25 @@ namespace CIEID
             verifyPanel.FlowDirection = FlowDirection.TopDown;
             verifyPanel.WrapContents = false;
 
-            //WebRequest.DefaultWebProxy = WebRequest.GetSystemWebProxy();
-            //int n_sign = (int)verificaConCIE(filePath, "vm-test-proxy", 3128, "test:test");
+            if(Properties.Settings.Default.proxyURL != "")
+            {
+                proxyAddress = Properties.Settings.Default.proxyURL;
+                proxyPort = Properties.Settings.Default.proxyPort;
+                if(Properties.Settings.Default.credentials != "")
+                {
+                    string encryptedCredentials = Properties.Settings.Default.credentials;
+                    ProxyInfoManager proxyInfoManager = new ProxyInfoManager();
+                    string credentials = proxyInfoManager.getDecryptedCredentials(encryptedCredentials);
+                    if (credentials.Substring(0, 5) == "cred=")
+                    {
+                        proxyCredentials = credentials.Substring(5);
+                    }
+                }
+            }
 
-            int n_sign = (int)verificaConCIE(filePath, null, -1, null);
+            Console.WriteLine("Verifica con CIE - Url: {0}, Port: {1}, credentials: {2}", proxyAddress, proxyPort, proxyCredentials);
+
+            int n_sign = (int)verificaConCIE(filePath, proxyAddress, proxyPort, proxyCredentials);
 
             Console.WriteLine("n_sign: {0}", n_sign);
             if (n_sign <= 0)

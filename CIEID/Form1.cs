@@ -21,6 +21,8 @@ using System.Drawing.Text;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
+using System.Management;
+using System.Security.Cryptography;
 
 namespace CIEID
 {
@@ -101,6 +103,7 @@ namespace CIEID
 
             //    txtField.BorderStyle = BorderStyle.None;
             //}
+
 
             if ("unlock".Equals(arg))
             {
@@ -474,7 +477,8 @@ namespace CIEID
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.Transparent;
             buttonFirma.BackColor = Color.Transparent;
-    }
+            btnSettings.BackColor = Color.Transparent;
+        }
 
         private PrivateFontCollection loadCustomFont()
         {
@@ -930,6 +934,7 @@ namespace CIEID
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.Transparent;
             buttonFirma.BackColor = Color.Transparent;
+            btnSettings.BackColor = Color.Transparent;
 
         }
 
@@ -949,6 +954,7 @@ namespace CIEID
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.Transparent;
             buttonFirma.BackColor = Color.Transparent;
+            btnSettings.BackColor = Color.Transparent;
         }
 
         private void buttonUnlockPIN_Click(object sender, EventArgs e)
@@ -1085,6 +1091,7 @@ namespace CIEID
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.Transparent;
             buttonFirma.BackColor = Color.Transparent;
+            btnSettings.BackColor = Color.Transparent;
             webBrowserTutorial.Navigate("https://idserver.servizicie.interno.gov.it/idp/tutorial_win.jsp");
         }
 
@@ -1099,6 +1106,7 @@ namespace CIEID
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.LightGray;
             buttonFirma.BackColor = Color.Transparent;
+            btnSettings.BackColor = Color.Transparent;
 
             webBrowserHelp.Navigate("https://idserver.servizicie.interno.gov.it/idp/aiuto.jsp");        
         }
@@ -1114,6 +1122,7 @@ namespace CIEID
             buttonInfo.BackColor = Color.LightGray;
             buttonHelp.BackColor = Color.Transparent;
             buttonFirma.BackColor = Color.Transparent;
+            btnSettings.BackColor = Color.Transparent;
 
             webBrowserInfo.Navigate("https://idserver.servizicie.interno.gov.it/idp/privacy.jsp");
         }
@@ -1270,6 +1279,7 @@ namespace CIEID
             buttonInfo.BackColor = Color.Transparent;
             buttonHelp.BackColor = Color.Transparent;
             buttonFirma.BackColor = Color.LightGray;
+            btnSettings.BackColor = Color.Transparent;
 
             signOp = opSelectedState.NO_OP;
 
@@ -1817,7 +1827,7 @@ namespace CIEID
 
             new Thread(processTaskThread).Start();
         }
-
+       
         /*
         private void firma(object sender, String inFilePath, String outFilePath, String fileType, String pin, String pan, int page, float x, float y, float w, float h,  String signImgPath )
         {
@@ -1918,10 +1928,10 @@ namespace CIEID
             else
             {
                 lbPeronalizza.Text = "Personalizza";
-                label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+                label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. " +
+                                "Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
             }
             tabControlMain.SelectedIndex = 10;
-
 
         }
 
@@ -1954,7 +1964,8 @@ namespace CIEID
             Properties.Settings.Default.Save();
 
 
-            label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
+            label29.Text = "Abbiamo creato per te una firma grafica, ma se preferisci puoi personalizzarla. " +
+                            "Questo passaggio non è indispensabile, ma ti consentirà di dare un tocco personale ai documenti firmati.";
 
             lbPeronalizza.Text = "Personalizza";
 
@@ -1962,6 +1973,158 @@ namespace CIEID
             lblPersonalizzaPreambolo.Update();
 
             btnCreaFirma.Enabled = false;
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+
+
+            buttonHome.BackColor = Color.Transparent;
+            buttonChangePIN.BackColor = Color.Transparent;
+            buttonUnlock.BackColor = Color.Transparent;
+            buttonTutorial.BackColor = Color.Transparent;
+            buttonInfo.BackColor = Color.Transparent;
+            buttonHelp.BackColor = Color.Transparent;
+            buttonFirma.BackColor = Color.Transparent;
+            btnSettings.BackColor = Color.LightGray;
+
+            btnModificaProxy.Enabled = false;
+            tabControlMain.SelectedIndex = 17;
+
+            cbShowPsw.Checked = false;
+
+            if(Properties.Settings.Default.proxyURL == "")
+            {
+                txtUrl.Enabled = true;
+                txtUsername.Enabled = true;
+                txtPassword.Enabled = true;
+                txtPort.Enabled = true;
+                cbShowPsw.Enabled = true;
+                cbShowPsw.Checked = false;
+                btnSalvaProxy.Enabled = true;
+                btnModificaProxy.Enabled = false;
+            }else
+            {
+                if (Properties.Settings.Default.credentials == "")
+                {
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+                }
+                else
+                {
+                    string encryptedCredentials = Properties.Settings.Default.credentials;
+                    ProxyInfoManager proxyInfoManager = new ProxyInfoManager();
+
+                    Console.WriteLine("encryptedCredentials -> {0}", encryptedCredentials);
+                    string credentials = proxyInfoManager.getDecryptedCredentials(encryptedCredentials);
+                    Console.WriteLine("Credentials -> {0}", credentials);
+
+                    if (credentials.Substring(0, 5) == "cred=")
+                    {
+                        string[] infos = credentials.Substring(5).Split(':');
+                        txtUsername.Text = infos[0];
+                        txtPassword.Text = infos[1];
+                    }
+                }
+                
+                txtUrl.Text = Properties.Settings.Default.proxyURL;
+                txtPort.Text = Properties.Settings.Default.proxyPort.ToString();
+
+                txtUrl.Enabled = false;
+                txtUsername.Enabled = false;
+                txtPassword.Enabled = false;
+                txtPort.Enabled = false;
+                cbShowPsw.Enabled = false;
+                cbShowPsw.Checked = false;
+                btnSalvaProxy.Enabled = false;
+                btnModificaProxy.Enabled = true;
+            }
+        }
+
+        private void cbShowPsw_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPsw.Checked == true)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void btnSalvaProxy_Click(object sender, EventArgs e)
+        {
+
+
+            if((String.IsNullOrEmpty(txtUsername.Text) && !String.IsNullOrEmpty(txtPassword.Text)) || (!String.IsNullOrEmpty(txtUsername.Text) && String.IsNullOrEmpty(txtPassword.Text)))
+            {
+                MessageBox.Show("Campo username o password mancante", "Credenziali proxy mancanti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            if(String.IsNullOrEmpty(txtPort.Text) && !String.IsNullOrEmpty(txtUrl.Text))
+            {
+                MessageBox.Show("Porto del porxy mancante", "Informazioni proxy mancanti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            txtUrl.Enabled = false;
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
+            txtPort.Enabled = false;
+            cbShowPsw.Enabled = false;
+            cbShowPsw.Checked = false;
+            btnSalvaProxy.Enabled = false;
+            btnModificaProxy.Enabled = true;
+
+            if((String.IsNullOrEmpty(txtUsername.Text)))
+            {
+                Properties.Settings.Default.credentials = "";
+            }
+            else
+            {
+                string credentials = String.Format("cred={0}:{1}", txtUsername.Text, txtPassword.Text);
+                Console.WriteLine("Credentials: {0}", credentials);
+
+                ProxyInfoManager proxyInfoManager = new ProxyInfoManager();
+                string encryptedCredentials = proxyInfoManager.getEncryptedCredentials(credentials);
+                Console.WriteLine("Credentials: {0}", credentials);
+                Properties.Settings.Default.credentials = encryptedCredentials;
+            }
+
+            Properties.Settings.Default.proxyURL = txtUrl.Text;
+
+            if(String.IsNullOrEmpty(txtPort.Text))
+            {
+                Properties.Settings.Default.proxyPort = 0;
+            }
+            else
+            {
+                Properties.Settings.Default.proxyPort = Int32.Parse(txtPort.Text);
+            }
+            
+            Properties.Settings.Default.Save();
+        }
+
+        private void btnModificaProxy_Click(object sender, EventArgs e)
+        {
+            txtUrl.Enabled = true;
+            txtUsername.Enabled = true;
+            txtPassword.Enabled = true;
+            txtPort.Enabled = true;
+            cbShowPsw.Enabled = true;
+            cbShowPsw.Checked = false;
+            btnSalvaProxy.Enabled = true;
+            btnModificaProxy.Enabled = false;
+        }
+
+        private void txtPort_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
         //long ret = VerificaCIEAbilitata();

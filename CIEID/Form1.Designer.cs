@@ -201,6 +201,7 @@ namespace CIEID
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.label35 = new System.Windows.Forms.Label();
             this.tbFirmaPersonalizzata = new System.Windows.Forms.TabPage();
+            this.btnCreaFirma = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pnFirmaGrafica = new System.Windows.Forms.Panel();
             this.lblPersonalizzaPreambolo = new System.Windows.Forms.Label();
@@ -218,6 +219,22 @@ namespace CIEID
             this.button1 = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
+            this.tbConfiguraProxy = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnModificaProxy = new System.Windows.Forms.Button();
+            this.btnSalvaProxy = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label47 = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.cbShowPsw = new System.Windows.Forms.CheckBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.txtUrl = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.buttonHome = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonChangePIN = new System.Windows.Forms.Button();
@@ -226,7 +243,7 @@ namespace CIEID
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonFirma = new System.Windows.Forms.Button();
-            this.btnCreaFirma = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.tabControlMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -289,6 +306,9 @@ namespace CIEID
             this.tbVerifica.SuspendLayout();
             this.pnVerifica.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            this.tbConfiguraProxy.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -315,6 +335,7 @@ namespace CIEID
             this.tabControlMain.Controls.Add(this.tbFirmaPin);
             this.tabControlMain.Controls.Add(this.tbFirmaPersonalizzata);
             this.tabControlMain.Controls.Add(this.tbVerifica);
+            this.tabControlMain.Controls.Add(this.tbConfiguraProxy);
             this.tabControlMain.ItemSize = new System.Drawing.Size(0, 1);
             this.tabControlMain.Location = new System.Drawing.Point(148, -11);
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(0);
@@ -558,7 +579,7 @@ namespace CIEID
             this.btnSigSelectCie.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnSigSelectCie.FlatAppearance.BorderSize = 0;
             this.btnSigSelectCie.ForeColor = System.Drawing.Color.White;
-            this.btnSigSelectCie.Location = new System.Drawing.Point(239, 498);
+            this.btnSigSelectCie.Location = new System.Drawing.Point(239, 502);
             this.btnSigSelectCie.Margin = new System.Windows.Forms.Padding(2);
             this.btnSigSelectCie.Name = "btnSigSelectCie";
             this.btnSigSelectCie.Size = new System.Drawing.Size(157, 28);
@@ -587,7 +608,7 @@ namespace CIEID
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 388);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 392);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // buttonRight
@@ -596,7 +617,7 @@ namespace CIEID
             this.buttonRight.FlatAppearance.BorderSize = 0;
             this.buttonRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRight.Image = global::CIEID.Properties.Resources.forward_3x;
-            this.buttonRight.Location = new System.Drawing.Point(599, 159);
+            this.buttonRight.Location = new System.Drawing.Point(599, 161);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(36, 43);
             this.buttonRight.TabIndex = 3;
@@ -609,7 +630,7 @@ namespace CIEID
             this.buttonLeft.FlatAppearance.BorderSize = 0;
             this.buttonLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLeft.Image = global::CIEID.Properties.Resources.back_3x;
-            this.buttonLeft.Location = new System.Drawing.Point(10, 159);
+            this.buttonLeft.Location = new System.Drawing.Point(10, 161);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(36, 43);
             this.buttonLeft.TabIndex = 2;
@@ -620,7 +641,7 @@ namespace CIEID
             // 
             this.dotsGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dotsGroup.AutoSize = true;
-            this.dotsGroup.Location = new System.Drawing.Point(324, 374);
+            this.dotsGroup.Location = new System.Drawing.Point(324, 378);
             this.dotsGroup.Name = "dotsGroup";
             this.dotsGroup.Size = new System.Drawing.Size(0, 0);
             this.dotsGroup.TabIndex = 5;
@@ -644,7 +665,7 @@ namespace CIEID
             this.tableLayoutPanelCarousel.Name = "tableLayoutPanelCarousel";
             this.tableLayoutPanelCarousel.RowCount = 1;
             this.tableLayoutPanelCarousel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCarousel.Size = new System.Drawing.Size(530, 355);
+            this.tableLayoutPanelCarousel.Size = new System.Drawing.Size(530, 359);
             this.tableLayoutPanelCarousel.TabIndex = 4;
             // 
             // carouselItem0
@@ -656,7 +677,7 @@ namespace CIEID
             this.carouselItem0.Controls.Add(this.labelOwner0);
             this.carouselItem0.Controls.Add(this.labelOwnerValue0);
             this.carouselItem0.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.carouselItem0.Location = new System.Drawing.Point(4, 72);
+            this.carouselItem0.Location = new System.Drawing.Point(4, 74);
             this.carouselItem0.Name = "carouselItem0";
             this.carouselItem0.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
             this.carouselItem0.Size = new System.Drawing.Size(142, 211);
@@ -730,7 +751,7 @@ namespace CIEID
             this.carouselItem1.Controls.Add(this.label24);
             this.carouselItem1.Controls.Add(this.labelOwnerValue1);
             this.carouselItem1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.carouselItem1.Location = new System.Drawing.Point(156, 36);
+            this.carouselItem1.Location = new System.Drawing.Point(156, 38);
             this.carouselItem1.Name = "carouselItem1";
             this.carouselItem1.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
             this.carouselItem1.Size = new System.Drawing.Size(219, 282);
@@ -800,7 +821,7 @@ namespace CIEID
             this.carouselItem2.Controls.Add(this.label30);
             this.carouselItem2.Controls.Add(this.labelOwnerValue2);
             this.carouselItem2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.carouselItem2.Location = new System.Drawing.Point(385, 72);
+            this.carouselItem2.Location = new System.Drawing.Point(385, 74);
             this.carouselItem2.Name = "carouselItem2";
             this.carouselItem2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 12);
             this.carouselItem2.Size = new System.Drawing.Size(140, 211);
@@ -870,7 +891,7 @@ namespace CIEID
             this.buttonRemoveAll.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonRemoveAll.FlatAppearance.BorderSize = 0;
             this.buttonRemoveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonRemoveAll.Location = new System.Drawing.Point(239, 498);
+            this.buttonRemoveAll.Location = new System.Drawing.Point(239, 502);
             this.buttonRemoveAll.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRemoveAll.Name = "buttonRemoveAll";
             this.buttonRemoveAll.Size = new System.Drawing.Size(157, 28);
@@ -885,7 +906,7 @@ namespace CIEID
             this.buttonAggiungi.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonAggiungi.FlatAppearance.BorderSize = 0;
             this.buttonAggiungi.ForeColor = System.Drawing.Color.White;
-            this.buttonAggiungi.Location = new System.Drawing.Point(435, 498);
+            this.buttonAggiungi.Location = new System.Drawing.Point(435, 502);
             this.buttonAggiungi.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAggiungi.Name = "buttonAggiungi";
             this.buttonAggiungi.Size = new System.Drawing.Size(157, 28);
@@ -900,7 +921,7 @@ namespace CIEID
             this.buttonDeleteCIE.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonDeleteCIE.FlatAppearance.BorderSize = 0;
             this.buttonDeleteCIE.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteCIE.Location = new System.Drawing.Point(58, 498);
+            this.buttonDeleteCIE.Location = new System.Drawing.Point(58, 502);
             this.buttonDeleteCIE.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDeleteCIE.Name = "buttonDeleteCIE";
             this.buttonDeleteCIE.Size = new System.Drawing.Size(157, 28);
@@ -2434,6 +2455,21 @@ namespace CIEID
             this.tbFirmaPersonalizzata.TabIndex = 15;
             this.tbFirmaPersonalizzata.Text = "tabPage11";
             // 
+            // btnCreaFirma
+            // 
+            this.btnCreaFirma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCreaFirma.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCreaFirma.FlatAppearance.BorderSize = 0;
+            this.btnCreaFirma.ForeColor = System.Drawing.Color.White;
+            this.btnCreaFirma.Location = new System.Drawing.Point(425, 484);
+            this.btnCreaFirma.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreaFirma.Name = "btnCreaFirma";
+            this.btnCreaFirma.Size = new System.Drawing.Size(130, 28);
+            this.btnCreaFirma.TabIndex = 36;
+            this.btnCreaFirma.Text = "Crea firma";
+            this.btnCreaFirma.UseVisualStyleBackColor = false;
+            this.btnCreaFirma.Click += new System.EventHandler(this.btnCreaFirma_Click);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.pnFirmaGrafica);
@@ -2626,6 +2662,184 @@ namespace CIEID
             this.label40.TabIndex = 26;
             this.label40.Text = "Firma Elettronica";
             // 
+            // tbConfiguraProxy
+            // 
+            this.tbConfiguraProxy.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tbConfiguraProxy.Controls.Add(this.panel8);
+            this.tbConfiguraProxy.Controls.Add(this.panel6);
+            this.tbConfiguraProxy.Controls.Add(this.label41);
+            this.tbConfiguraProxy.Controls.Add(this.label43);
+            this.tbConfiguraProxy.Location = new System.Drawing.Point(4, 9);
+            this.tbConfiguraProxy.Name = "tbConfiguraProxy";
+            this.tbConfiguraProxy.Size = new System.Drawing.Size(649, 533);
+            this.tbConfiguraProxy.TabIndex = 17;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnModificaProxy);
+            this.panel8.Controls.Add(this.btnSalvaProxy);
+            this.panel8.Location = new System.Drawing.Point(107, 492);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(440, 28);
+            this.panel8.TabIndex = 38;
+            // 
+            // btnModificaProxy
+            // 
+            this.btnModificaProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnModificaProxy.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnModificaProxy.FlatAppearance.BorderSize = 0;
+            this.btnModificaProxy.ForeColor = System.Drawing.Color.White;
+            this.btnModificaProxy.Location = new System.Drawing.Point(271, 2);
+            this.btnModificaProxy.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificaProxy.Name = "btnModificaProxy";
+            this.btnModificaProxy.Size = new System.Drawing.Size(157, 28);
+            this.btnModificaProxy.TabIndex = 38;
+            this.btnModificaProxy.Text = "Modifica";
+            this.btnModificaProxy.UseVisualStyleBackColor = false;
+            this.btnModificaProxy.Click += new System.EventHandler(this.btnModificaProxy_Click);
+            // 
+            // btnSalvaProxy
+            // 
+            this.btnSalvaProxy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSalvaProxy.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnSalvaProxy.FlatAppearance.BorderSize = 0;
+            this.btnSalvaProxy.ForeColor = System.Drawing.Color.White;
+            this.btnSalvaProxy.Location = new System.Drawing.Point(16, 2);
+            this.btnSalvaProxy.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSalvaProxy.Name = "btnSalvaProxy";
+            this.btnSalvaProxy.Size = new System.Drawing.Size(157, 28);
+            this.btnSalvaProxy.TabIndex = 37;
+            this.btnSalvaProxy.Text = "Salva";
+            this.btnSalvaProxy.UseVisualStyleBackColor = false;
+            this.btnSalvaProxy.Click += new System.EventHandler(this.btnSalvaProxy_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label47);
+            this.panel6.Controls.Add(this.txtPort);
+            this.panel6.Controls.Add(this.txtPassword);
+            this.panel6.Controls.Add(this.cbShowPsw);
+            this.panel6.Controls.Add(this.label46);
+            this.panel6.Controls.Add(this.label45);
+            this.panel6.Controls.Add(this.txtUrl);
+            this.panel6.Controls.Add(this.label44);
+            this.panel6.Controls.Add(this.txtUsername);
+            this.panel6.Location = new System.Drawing.Point(73, 104);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(501, 362);
+            this.panel6.TabIndex = 36;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(334, 94);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(47, 20);
+            this.label47.TabIndex = 37;
+            this.label47.Text = "Porto";
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(338, 116);
+            this.txtPort.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(54, 20);
+            this.txtPort.TabIndex = 36;
+            this.txtPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPort_KeyPress);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(89, 260);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(217, 20);
+            this.txtPassword.TabIndex = 32;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // cbShowPsw
+            // 
+            this.cbShowPsw.AutoSize = true;
+            this.cbShowPsw.Location = new System.Drawing.Point(329, 263);
+            this.cbShowPsw.Name = "cbShowPsw";
+            this.cbShowPsw.Size = new System.Drawing.Size(120, 17);
+            this.cbShowPsw.TabIndex = 35;
+            this.cbShowPsw.Text = "Visualizza password";
+            this.cbShowPsw.UseVisualStyleBackColor = true;
+            this.cbShowPsw.CheckedChanged += new System.EventHandler(this.cbShowPsw_CheckedChanged);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(87, 91);
+            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(208, 20);
+            this.label46.TabIndex = 27;
+            this.label46.Text = "Indirizzo (URL o indirizzo IP)";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(87, 237);
+            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(78, 20);
+            this.label45.TabIndex = 34;
+            this.label45.Text = "Password";
+            // 
+            // txtUrl
+            // 
+            this.txtUrl.Location = new System.Drawing.Point(89, 117);
+            this.txtUrl.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUrl.Name = "txtUrl";
+            this.txtUrl.Size = new System.Drawing.Size(217, 20);
+            this.txtUrl.TabIndex = 28;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(87, 167);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(83, 20);
+            this.label44.TabIndex = 33;
+            this.label44.Text = "Username";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(89, 189);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(217, 20);
+            this.txtUsername.TabIndex = 30;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label41.Location = new System.Drawing.Point(98, 65);
+            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(478, 20);
+            this.label41.TabIndex = 26;
+            this.label41.Text = "Inserisci l\'indirizzo del server proxy ed eventuali credenziali";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(131, 18);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(416, 36);
+            this.label43.TabIndex = 25;
+            this.label43.Text = "Configurazione server proxy";
+            // 
             // buttonHome
             // 
             this.buttonHome.AutoSize = true;
@@ -2791,26 +3005,34 @@ namespace CIEID
             this.buttonFirma.UseVisualStyleBackColor = false;
             this.buttonFirma.Click += new System.EventHandler(this.buttonFirma_Click);
             // 
-            // btnCreaFirma
+            // btnSettings
             // 
-            this.btnCreaFirma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCreaFirma.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCreaFirma.FlatAppearance.BorderSize = 0;
-            this.btnCreaFirma.ForeColor = System.Drawing.Color.White;
-            this.btnCreaFirma.Location = new System.Drawing.Point(425, 484);
-            this.btnCreaFirma.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCreaFirma.Name = "btnCreaFirma";
-            this.btnCreaFirma.Size = new System.Drawing.Size(130, 28);
-            this.btnCreaFirma.TabIndex = 36;
-            this.btnCreaFirma.Text = "Crea firma";
-            this.btnCreaFirma.UseVisualStyleBackColor = false;
-            this.btnCreaFirma.Click += new System.EventHandler(this.btnCreaFirma_Click);
+            this.btnSettings.AutoSize = true;
+            this.btnSettings.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSettings.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(6, 405);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(140, 36);
+            this.btnSettings.TabIndex = 9;
+            this.btnSettings.Text = "  Impostazioni";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 530);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.buttonFirma);
             this.Controls.Add(this.buttonInfo);
             this.Controls.Add(this.buttonHelp);
@@ -2915,6 +3137,11 @@ namespace CIEID
             this.pnVerifica.ResumeLayout(false);
             this.pnVerifica.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            this.tbConfiguraProxy.ResumeLayout(false);
+            this.tbConfiguraProxy.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -3118,5 +3345,22 @@ namespace CIEID
         private Panel panel7;
         private Panel panel5;
         private Button btnCreaFirma;
+        private TabPage tbConfiguraProxy;
+        private Label label41;
+        private Label label43;
+        private Panel panel6;
+        private TextBox txtPassword;
+        private CheckBox cbShowPsw;
+        private Label label46;
+        private Label label45;
+        private TextBox txtUrl;
+        private Label label44;
+        private TextBox txtUsername;
+        private Button btnSettings;
+        private Panel panel8;
+        private Button btnModificaProxy;
+        private Button btnSalvaProxy;
+        private TextBox txtPort;
+        private Label label47;
     }
 }
