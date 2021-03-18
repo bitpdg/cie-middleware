@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AesCBCcs.cs" />
     <Compile Include="CieCollection.cs" />
     <Compile Include="CieModel.cs" />
     <Compile Include="Controls\CarouselControl.cs" />
@@ -89,6 +91,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyInfoManager.cs" />
     <Compile Include="SignerInfo.cs" />
     <EmbeddedResource Include="Controls\CarouselControl.resx">
       <DependentUpon>CarouselControl.cs</DependentUpon>

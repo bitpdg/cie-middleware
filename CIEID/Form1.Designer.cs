@@ -2738,7 +2738,7 @@ namespace CIEID
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(47, 20);
             this.label47.TabIndex = 37;
-            this.label47.Text = "Porto";
+            this.label47.Text = "Porta";
             // 
             // txtPort
             // 

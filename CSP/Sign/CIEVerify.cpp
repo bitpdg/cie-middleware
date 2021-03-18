@@ -17,7 +17,6 @@ long CIEVerify::verify(const char* input_file, VERIFY_RESULT* verifyResult, cons
 			ctx = disigon_verify_init();
 
 #if 1
-			ret = disigon_set(DISIGON_OPT_LOG_FILE, (void*)"F:\\Projects\\IPZS\\TestFirmaCIE\\log.txt");
 
 			ret = disigon_set(DISIGON_OPT_LOG_LEVEL, (void*)LOG_TYPE_DEBUG);
 #endif

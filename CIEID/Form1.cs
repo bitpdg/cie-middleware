@@ -1978,7 +1978,6 @@ namespace CIEID
         private void btnSettings_Click(object sender, EventArgs e)
         {
 
-
             buttonHome.BackColor = Color.Transparent;
             buttonChangePIN.BackColor = Color.Transparent;
             buttonUnlock.BackColor = Color.Transparent;
@@ -1989,7 +1988,6 @@ namespace CIEID
             btnSettings.BackColor = Color.LightGray;
 
             btnModificaProxy.Enabled = false;
-            tabControlMain.SelectedIndex = 17;
 
             cbShowPsw.Checked = false;
 
@@ -2039,6 +2037,8 @@ namespace CIEID
                 btnSalvaProxy.Enabled = false;
                 btnModificaProxy.Enabled = true;
             }
+
+            tabControlMain.SelectedIndex = 17;
         }
 
         private void cbShowPsw_CheckedChanged(object sender, EventArgs e)
@@ -2063,9 +2063,9 @@ namespace CIEID
                 return;
             }
 
-            if(String.IsNullOrEmpty(txtPort.Text) && !String.IsNullOrEmpty(txtUrl.Text))
+            if((String.IsNullOrEmpty(txtPort.Text) && !String.IsNullOrEmpty(txtUrl.Text)) || (!String.IsNullOrEmpty(txtPort.Text) && String.IsNullOrEmpty(txtUrl.Text)))
             {
-                MessageBox.Show("Porto del porxy mancante", "Informazioni proxy mancanti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Indirizzo o porta del porxy mancante", "Informazioni proxy mancanti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
