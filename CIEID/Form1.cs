@@ -1296,7 +1296,10 @@ namespace CIEID
 
         private void lbPeronalizza_Click(object sender, EventArgs e)
         {
-            string signImagePath = getSignImagePath(labelCardNumberValue1.Text);
+
+            var model = carouselControl.ActiveCieModel;
+
+            string signImagePath = getSignImagePath(model.SerialNumber);
 
             if (pnFirmaGrafica.Controls.Count > 0 && pnFirmaGrafica.Controls[0] != null)
             {
@@ -1307,7 +1310,8 @@ namespace CIEID
             if (!System.IO.File.Exists(signImagePath))
             {
                 TextInfo nameInfo = new CultureInfo("it-IT", false).TextInfo;
-                string name = CieColl.MyDictionary.ElementAt(0).Value.Owner;
+                //string name = CieColl.MyDictionary.ElementAt(0).Value.Owner;
+                string name = model.Owner;
                 DrawText(nameInfo.ToTitleCase(name.ToLower()), Color.Black, signImagePath);
             }
 
@@ -1329,7 +1333,6 @@ namespace CIEID
             signPicture.Update();
             pnFirmaGrafica.Controls.Add(signPicture);
 
-            var model = carouselControl.ActiveCieModel;
 
             if(model.isCustomSign)
             {
@@ -1598,12 +1601,13 @@ namespace CIEID
 
             if((cbFirmaGrafica.Checked == true) && (signOp == opSelectedState.FIRMA_PADES))
             {
-                string signImagePath = getSignImagePath(labelCardNumberValue1.Text);
+                var model = carouselControl.ActiveCieModel;
+                string signImagePath = getSignImagePath(model.SerialNumber);
 
                 if (!System.IO.File.Exists(signImagePath))
                 {
                     TextInfo nameInfo = new CultureInfo("it-IT", false).TextInfo;
-                    string name = CieColl.MyDictionary.ElementAt(0).Value.Owner;
+                    string name = model.Owner;
                     DrawText(nameInfo.ToTitleCase(name.ToLower()), Color.Black, signImagePath);
                 }
 
@@ -1723,7 +1727,7 @@ namespace CIEID
 
             string fileName = Path.GetFileNameWithoutExtension(lblPath4.Text);
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.FileName = fileName + "_signed";
+            saveFileDialog1.FileName = fileName + "-signed";
             Console.WriteLine("{0}, {1}", fileName, fileName + "-signed");
 
             if(signOp == opSelectedState.FIRMA_PADES)
@@ -1865,7 +1869,6 @@ namespace CIEID
                 string file_name = openFile.FileName;
                 Console.WriteLine("PNG Selected file: {0}", file_name);
 
-
                 var model = carouselControl.ActiveCieModel;
 
                 File.Copy(file_name, getSignImagePath(model.SerialNumber), true);
@@ -2001,7 +2004,11 @@ namespace CIEID
                 cbShowPsw.Checked = false;
                 btnSalvaProxy.Enabled = true;
                 btnModificaProxy.Enabled = false;
-            }else
+
+
+                tabControlMain.SelectedIndex = 17;
+            }
+            else
             {
                 if (Properties.Settings.Default.credentials == "")
                 {
@@ -2013,9 +2020,9 @@ namespace CIEID
                     string encryptedCredentials = Properties.Settings.Default.credentials;
                     ProxyInfoManager proxyInfoManager = new ProxyInfoManager();
 
-                    Console.WriteLine("encryptedCredentials -> {0}", encryptedCredentials);
+                    //Console.WriteLine("encryptedCredentials -> {0}", encryptedCredentials);
                     string credentials = proxyInfoManager.getDecryptedCredentials(encryptedCredentials);
-                    Console.WriteLine("Credentials -> {0}", credentials);
+                    //Console.WriteLine("Credentials -> {0}", credentials);
 
                     if (credentials.Substring(0, 5) == "cred=")
                     {
@@ -2023,8 +2030,10 @@ namespace CIEID
                         txtUsername.Text = infos[0];
                         txtPassword.Text = infos[1];
                     }
+
                 }
-                
+
+
                 txtUrl.Text = Properties.Settings.Default.proxyURL;
                 txtPort.Text = Properties.Settings.Default.proxyPort.ToString();
 
@@ -2036,9 +2045,11 @@ namespace CIEID
                 cbShowPsw.Checked = false;
                 btnSalvaProxy.Enabled = false;
                 btnModificaProxy.Enabled = true;
+
+                tabControlMain.SelectedIndex = 17;
+
             }
 
-            tabControlMain.SelectedIndex = 17;
         }
 
         private void cbShowPsw_CheckedChanged(object sender, EventArgs e)
@@ -2065,18 +2076,9 @@ namespace CIEID
 
             if((String.IsNullOrEmpty(txtPort.Text) && !String.IsNullOrEmpty(txtUrl.Text)) || (!String.IsNullOrEmpty(txtPort.Text) && String.IsNullOrEmpty(txtUrl.Text)))
             {
-                MessageBox.Show("Indirizzo o porta del porxy mancante", "Informazioni proxy mancanti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Indirizzo o porta del proxy mancante", "Informazioni proxy mancanti", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-            txtUrl.Enabled = false;
-            txtUsername.Enabled = false;
-            txtPassword.Enabled = false;
-            txtPort.Enabled = false;
-            cbShowPsw.Enabled = false;
-            cbShowPsw.Checked = false;
-            btnSalvaProxy.Enabled = false;
-            btnModificaProxy.Enabled = true;
 
             if((String.IsNullOrEmpty(txtUsername.Text)))
             {
@@ -2085,11 +2087,11 @@ namespace CIEID
             else
             {
                 string credentials = String.Format("cred={0}:{1}", txtUsername.Text, txtPassword.Text);
-                Console.WriteLine("Credentials: {0}", credentials);
+                //Console.WriteLine("Credentials: {0}", credentials);
 
                 ProxyInfoManager proxyInfoManager = new ProxyInfoManager();
                 string encryptedCredentials = proxyInfoManager.getEncryptedCredentials(credentials);
-                Console.WriteLine("Credentials: {0}", credentials);
+                //Console.WriteLine("Credentials: {0}", credentials);
                 Properties.Settings.Default.credentials = encryptedCredentials;
             }
 
@@ -2103,7 +2105,32 @@ namespace CIEID
             {
                 Properties.Settings.Default.proxyPort = Int32.Parse(txtPort.Text);
             }
-            
+
+            if(txtUrl.Text.Equals(""))
+            {
+                txtUrl.Enabled = true;
+                txtUsername.Enabled = true;
+                txtPassword.Enabled = true;
+                txtPort.Enabled = true;
+                cbShowPsw.Enabled = true;
+                cbShowPsw.Checked = false;
+                btnSalvaProxy.Enabled = true;
+                btnModificaProxy.Enabled = false;
+            }
+            else
+            {
+                txtUrl.Enabled = false;
+                txtUsername.Enabled = false;
+                txtPassword.Enabled = false;
+                txtPort.Enabled = false;
+                cbShowPsw.Enabled = false;
+                cbShowPsw.Checked = false;
+                btnSalvaProxy.Enabled = false;
+                btnModificaProxy.Enabled = true;
+            }
+
+
+
             Properties.Settings.Default.Save();
         }
 

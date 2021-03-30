@@ -371,7 +371,7 @@ namespace CIEID
                 }
             }
 
-            Console.WriteLine("Verifica con CIE - Url: {0}, Port: {1}, credentials: {2}", proxyAddress, proxyPort, proxyCredentials);
+            //Console.WriteLine("Verifica con CIE - Url: {0}, Port: {1}, credentials: {2}", proxyAddress, proxyPort, proxyCredentials);
 
             int n_sign = (int)verificaConCIE(filePath, proxyAddress, proxyPort, proxyCredentials);
 

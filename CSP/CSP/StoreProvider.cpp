@@ -167,7 +167,7 @@ extern "C" HRESULT __stdcall DllRegisterServer(void) {
 		return E_UNEXPECTED;
 	if (ris = RegisterCard(hSC, "CIE_5", ATR5, sizeof(ATR5), nullptr) != SCARD_S_SUCCESS)
 		return E_UNEXPECTED;
-	if (ris = RegisterCard(hSC, "CIE_6", ATR5, sizeof(ATR6), nullptr) != SCARD_S_SUCCESS)
+	if (ris = RegisterCard(hSC, "CIE_6", ATR6, sizeof(ATR6), nullptr) != SCARD_S_SUCCESS)
 		return E_UNEXPECTED;
 
 	SCardReleaseContext(hSC);
