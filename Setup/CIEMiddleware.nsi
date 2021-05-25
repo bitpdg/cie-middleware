@@ -155,7 +155,7 @@ Section "Uninstall"
   
   !echo $%LOCALAPPDATA%
 
-  RMDir /r "$%LOCALAPPDATA%\IPZS"
+  RMDir /r "$LOCALAPPDATA\IPZS"
   RMDir /r "$%PROGRAMDATA%\CIEPKI"
   Delete "$INSTDIR\Uninstall.exe"
   RMDir "$INSTDIR"
