@@ -2,7 +2,7 @@
 !include "x64.nsh"
 !include "Library.nsh"
 
-!define PRODUCT_VERSION "1.3.4.0"
+!define PRODUCT_VERSION "1.4.1.0"
 
 ;--------------------------------
 ;General
@@ -60,6 +60,13 @@ VIProductVersion "${PRODUCT_VERSION}"
 
 ;--------------------------------
 ;Installer Sections
+
+Section "Visual Studio Runtime"
+  SetOutPath "$INSTDIR"
+  File "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Redist\MSVC\14.16.27012\vcredist_x64.exe"
+  ExecWait "$INSTDIR\vcredist_x64.exe /install /quiet" 
+  Delete "$INSTDIR\vcredist_x64.exe"
+SectionEnd
 
 Section "Install"
 
@@ -160,6 +167,7 @@ Section "Uninstall"
   Delete "$INSTDIR\Uninstall.exe"
   RMDir "$INSTDIR"
   
+
   ${If} ${RunningX64}	
 	SetRegView 64
   ${EndIf}
